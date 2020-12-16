@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Home } from "./views/home";
+import SignUp from "./views/signup";
 import injectContext from "./store/appContext";
 
 const Layout = () => {
@@ -13,6 +14,9 @@ const Layout = () => {
 				<Switch>
 					<Route exact path="/">
 						<Home />
+					</Route>
+					<Route exact path="/signup">
+						<SignUp />
 					</Route>
 					<Route>
 						<h1>Not found!</h1>
