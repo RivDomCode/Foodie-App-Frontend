@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import "../../styles/login.scss";
 
-const Login = props => {
+const Login = () => {
 	const [user, setUser] = useState({
 		email: "",
 		password: ""
@@ -16,18 +16,14 @@ const Login = props => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		setUserInfo([...userInfo, user]);
-		setUser({
-			email: "",
-			password: ""
-		});
+		console.log(user);
 	};
 	return (
-		<div className="login">
+		<div className="container">
 			<h1>The Foodie Club</h1>
 			<div className="login-form">
-				<form onChange={handleChange} onSubmit={handleSubmit}>
-					<h3>Log in</h3>
+				<form className="login" onChange={handleChange} onSubmit={handleSubmit}>
+					<h2 className="title">Login</h2>
 					<div className="mb-3">
 						<input
 							type="email"
@@ -36,7 +32,6 @@ const Login = props => {
 							aria-describedby="emailHelp"
 							placeholder="User name here *"
 							name="email"
-							value={user.email}
 						/>
 					</div>
 					<div className="mb-3">
@@ -46,24 +41,25 @@ const Login = props => {
 							id="exampleInputPassword1"
 							placeholder="Enter your password *"
 							name="password"
-							value={user.password}
 						/>
 					</div>
-					<button type="submit" className="btn btn-primary">
-						Enter
-					</button>
-					<p>
+					<div className="alert hidden alert-danger" role="alert" id="error">
+						Email or password incorrect <i className="fas fa-exclamation-circle" />
+					</div>
+
+					<div className="btn-s">
+						<button type="submit" className="btn btn-login">
+							Enter
+						</button>
+					</div>
+
+					<p className="acount">
 						Dont have an account yet? <Link to="/signup"> click here</Link>
 					</p>
 				</form>
 			</div>
 		</div>
 	);
-};
-
-Login.propTypes = {
-	email: PropTypes.string,
-	password: PropTypes.string
 };
 
 export default Login;
