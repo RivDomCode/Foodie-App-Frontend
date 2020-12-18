@@ -3,33 +3,43 @@ import "../../styles/signup.css";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-	//var
+	//****var****//
 	const [user, setUser] = useState({
 		username: "",
 		email: "",
 		password: "",
-		cpasword: ""
+		cpassword: ""
 	});
-	//functions
+	//****validation functions****//
 	const setError = msn => {
+		const icono = "<i className='fas fa-exclamation-circle hidden' />";
 		const error = document.querySelector("#error");
 		error.classList.remove("hidden");
-		error.innerHTML = msn;
+		error.innerHTML = msn + icono;
 	};
 	const validatePassword = user => {
 		if (user.password == user.cpasword) {
-			// actions.createUser(user)
-			document.querySelector("#btn-signUP").classList.add("hidden");
-			document.querySelector("#load").classList.remove("hidden");
-			console.log("llamar a la funcion crear usuario");
+			if (user.password.length >= 8) {
+				document.querySelector("#btn-signUP").classList.add("hidden");
+				document.querySelector("#load").classList.remove("hidden");
+				console.log("llamar a la funcion crear usuario");
+				// actions.createUser(user)
+			} else {
+				setError("The password must be 8 characters");
+				console.log("mensaje de error en password debe tener 8 caracteres");
+			}
 		} else {
 			setError("The password must be the same");
 			console.log("mensaje de error en password");
 		}
 	};
 	const validateInputs = user => {
-		console.log(user, "VALIDAR");
-		if (user.username != "" && user.email != "" && user.pasword != "" && user.cpasword != "") {
+		if (
+			user.username.trim() != "" &&
+			user.email.trim() != "" &&
+			user.password.trim() != "" &&
+			user.cpassword.trim() != ""
+		) {
 			validatePassword(user);
 			console.log("llamar a la funcion validar password");
 		} else {
@@ -37,6 +47,8 @@ const SignUp = () => {
 			console.log("mostrar error imputs VACIOS");
 		}
 	};
+
+	///****functions to capture the event *****/
 	const handelChange = event => {
 		setUser({ ...user, [event.target.name]: event.target.value });
 		//console.log(user);
@@ -44,12 +56,10 @@ const SignUp = () => {
 	const handelSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-
-		//validateInputs(event);
 		console.log(user);
 		//actions.addUser(user);
 	};
-	//html
+	//****HTML****//
 	return (
 		<div className="container">
 			<h1>The Foodie Club</h1>
@@ -81,7 +91,7 @@ const SignUp = () => {
 					/>
 					<div className="alert hidden" id="error">
 						<p>
-							The password must be the same <i className="fas fa-exclamation-circle" />
+							<i className="fas fa-exclamation-circle hidden" id="icono-msn" />
 						</p>
 					</div>
 					<div className="btn-s" id="btn-signUP">
