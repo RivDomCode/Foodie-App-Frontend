@@ -4,15 +4,48 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
 	//var
-	const [user, setUser] = useState();
+	const [user, setUser] = useState({
+		username: "",
+		email: "",
+		password: "",
+		cpasword: ""
+	});
 	//functions
-	const validatePassword = (password, cpasword) => {};
+	const setError = msn => {
+		const error = document.querySelector("#error");
+		error.classList.remove("hidden");
+		error.innerHTML = msn;
+	};
+	const validatePassword = user => {
+		if (user.password == user.cpasword) {
+			// actions.createUser(user)
+			document.querySelector("#btn-signUP").classList.add("hidden");
+			document.querySelector("#load").classList.remove("hidden");
+			console.log("llamar a la funcion crear usuario");
+		} else {
+			setError("The password must be the same");
+			console.log("mensaje de error en password");
+		}
+	};
+	const validateInputs = user => {
+		console.log(user, "VALIDAR");
+		if (user.username != "" && user.email != "" && user.pasword != "" && user.cpasword != "") {
+			validatePassword(user);
+			console.log("llamar a la funcion validar password");
+		} else {
+			setError("All fields are required");
+			console.log("mostrar error imputs VACIOS");
+		}
+	};
 	const handelChange = event => {
 		setUser({ ...user, [event.target.name]: event.target.value });
 		//console.log(user);
 	};
 	const handelSubmit = event => {
 		event.preventDefault();
+		validateInputs(user);
+
+		//validateInputs(event);
 		console.log(user);
 		//actions.addUser(user);
 	};
@@ -46,16 +79,22 @@ const SignUp = () => {
 						name="cpasword"
 						placeholder="Confirm your password here*"
 					/>
-					<div className="alert">
+					<div className="alert hidden" id="error">
 						<p>
 							The password must be the same <i className="fas fa-exclamation-circle" />
 						</p>
 					</div>
-					<div className="btn-s">
+					<div className="btn-s" id="btn-signUP">
 						<button type="submit" className="btn-signup">
 							Sing Up
 						</button>
 					</div>
+					<div className="btn-s">
+						<button className="hidden btn-load" id="load">
+							<div className=" spinner-border text-light " role="status" />
+						</button>
+					</div>
+
 					<div className="center-text">
 						<label className="form-check-label text-login" htmlFor="exampleCheck1">
 							Already have an account?{" "}
