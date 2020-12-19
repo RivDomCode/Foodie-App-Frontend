@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
 	//****var****//
+	const [error, setError] = useState({
+		msg: "",
+		status: false
+	});
+	const [spinner, setSpinner] = useState(false);
 	const [user, setUser] = useState({
 		username: "",
 		email: "",
@@ -11,25 +16,29 @@ const SignUp = () => {
 		cpassword: ""
 	});
 	//****validation functions****//
-	const setError = msn => {
-		const icono = "<i className='fas fa-exclamation-circle hidden' />";
-		const error = document.querySelector("#error");
-		error.classList.remove("hidden");
-		error.innerHTML = msn + icono;
-	};
+
 	const validatePassword = user => {
-		if (user.password == user.cpasword) {
+		if (user.password == user.cpassword) {
 			if (user.password.length >= 8) {
-				document.querySelector("#btn-signUP").classList.add("hidden");
-				document.querySelector("#load").classList.remove("hidden");
+				setError({
+					msg: "",
+					status: false
+				});
 				console.log("llamar a la funcion crear usuario");
-				// actions.createUser(user)
+				setSpinner(true);
+				//actions.createUser(user)
 			} else {
-				setError("The password must be 8 characters");
+				setError({
+					msg: "The password must be 8 characters",
+					status: true
+				});
 				console.log("mensaje de error en password debe tener 8 caracteres");
 			}
 		} else {
-			setError("The password must be the same");
+			setError({
+				msg: "The password must be the same",
+				status: true
+			});
 			console.log("mensaje de error en password");
 		}
 	};
@@ -43,7 +52,10 @@ const SignUp = () => {
 			validatePassword(user);
 			console.log("llamar a la funcion validar password");
 		} else {
-			setError("All fields are required");
+			setError({
+				msg: "All fields are required",
+				status: true
+			});
 			console.log("mostrar error imputs VACIOS");
 		}
 	};
@@ -86,25 +98,34 @@ const SignUp = () => {
 						type="password"
 						className="form-control placeholder"
 						id="confirm-password"
-						name="cpasword"
+						name="cpassword"
 						placeholder="Confirm your password here*"
 					/>
-					<div className="alert hidden" id="error">
-						<p>
-							<i className="fas fa-exclamation-circle hidden" id="icono-msn" />
-						</p>
-					</div>
-					<div className="btn-s" id="btn-signUP">
-						<button type="submit" className="btn-signup">
-							Sing Up
-						</button>
-					</div>
-					<div className="btn-s">
-						<button className="hidden btn-load" id="load">
-							<div className=" spinner-border text-light " role="status" />
-						</button>
-					</div>
 
+					{error.status ? (
+						<div className="alert" id="error">
+							<p>
+								{" "}
+								{error.msg}
+								<i className="fas fa-exclamation-circle" id="icono-msn" />
+							</p>
+						</div>
+					) : (
+						""
+					)}
+					{spinner == false ? (
+						<div className="btn-s" id="btn-signUP">
+							<button type="submit" className="btn-signup">
+								Sing Up
+							</button>
+						</div>
+					) : (
+						<div className="btn-s">
+							<button className="btn-load" id="load">
+								<div className="spinner-border text-light" role="status" />
+							</button>
+						</div>
+					)}
 					<div className="center-text">
 						<label className="form-check-label text-login" htmlFor="exampleCheck1">
 							Already have an account?{" "}
