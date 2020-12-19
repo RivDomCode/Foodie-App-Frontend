@@ -61,11 +61,11 @@ const SignUp = () => {
 	};
 
 	///****functions to capture the event *****/
-	const handelChange = event => {
+	const handleChange = event => {
 		setUser({ ...user, [event.target.name]: event.target.value });
 		//console.log(user);
 	};
-	const handelSubmit = event => {
+	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
 		console.log(user);
@@ -75,7 +75,7 @@ const SignUp = () => {
 	return (
 		<div className="container">
 			<h1>The Foodie Club</h1>
-			<form className="signup" onChange={handelChange} onSubmit={handelSubmit}>
+			<form className="signup" onChange={handleChange} onSubmit={handleSubmit}>
 				<h2 className="title">Create an account</h2>
 				<div className="mb-3">
 					<input
