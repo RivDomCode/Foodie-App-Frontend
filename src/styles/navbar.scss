@@ -1,7 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
 
+body{
+    background-color: #fdfdfd;
+}
+.navbar{
+    background-color: #fdfdfd;
+}
 .navbar-brand{
     font-family: Rancho;
     font-size: 38px;
-    color: #3D9382;
+    text-align: center;
+    color: #3D9382 !important;
+    margin:auto;
+}
+
+.profileButton{
+    color: #3D9382 !important;
+    background-color: #fdfdfd;
+    font-size: 20px;
+    border-color: 1px #3D9382 !important;
+}
+
+.btn-light{
+    border-radius: 100%;
+  
+}
+
+.profileIcon{
+    cursor: pointer;
 }
