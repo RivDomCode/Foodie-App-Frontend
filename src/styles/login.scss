@@ -36,11 +36,22 @@ background: #FDFDFD;
 .btn-s{
     display: flex;
 }
+
+.btn-load{
+    height: 48px;
+    width: 248px;
+    border-radius: 6px;
+    background: #F53158;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 2%;
+    border:none;
+}
 .center-text{
     text-align: center;
     margin-top: 3%;
 }
-.btn-signup, .btn-login{
+ .btn-login{
 height: 48px;
 width: 248px;
 border-radius: 6px;
@@ -49,8 +60,9 @@ border-radius: 6px;
 margin: auto;
 margin-top: 2%;
 color:#FFFFFF;
-
 }
+
+
 .title{
 font-family: 'Rancho';
 font-size: 38px;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/login.scss";
+import PropTypes from "prop-types";
 
 const Login = () => {
 	//VAR
@@ -15,6 +16,8 @@ const Login = () => {
 		msg: "",
 		status: false
 	});
+
+	// This should be in the Data Base. Just to check Login Funcionality
 
 	const adminUser = {
 		email: "admin@email.com",
@@ -45,8 +48,6 @@ const Login = () => {
 			console.log("alguno vacio");
 		}
 	};
-	/*esta función es para comprobar el mensaje de mail o pass erróneo, 
-    aqui iria la función que checkea estos inputs en la BD, es decir esta es una función checkaccount ficticia*/
 
 	//EVENTS
 
@@ -57,7 +58,6 @@ const Login = () => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-
 		//Actions.checkMailPassword
 	};
 	console.log(user);
