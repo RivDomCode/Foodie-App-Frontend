@@ -3,21 +3,64 @@ import { Link } from "react-router-dom";
 import "../../styles/login.scss";
 
 const Login = () => {
+	//VAR
+
 	const [user, setUser] = useState({
 		email: "",
 		password: ""
 	});
+	const [spinner, setSpinner] = useState(false);
 
-	const [userInfo, setUserInfo] = useState([]);
+	const [error, setError] = useState({
+		msg: "",
+		status: false
+	});
 
-	const handleChange = e => {
-		setUser({ ...user, [e.target.name]: e.target.value });
+	const adminUser = {
+		email: "admin@email.com",
+		password: "12345678"
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		console.log(user);
+	//Check email, password and fields
+
+	const validateInputs = user => {
+		if (user.email == "admin@email.com" && user.password == "12345678") {
+			setError({
+				msg: "",
+				status: false
+			});
+			setSpinner(true);
+			//aqui el se llamaría a la función que compruebe si los email está en base de datos, y en caso de existir que esté asociado al password dado
+			console.log("Todo Bien");
+		} else if (user.email.trim() == "" || user.password.trim() == "") {
+			setError({
+				msg: "All fields are required",
+				status: true
+			});
+		} else {
+			setError({
+				msg: "Email or password incorrect",
+				status: true
+			});
+			console.log("alguno vacio");
+		}
 	};
+	/*esta función es para comprobar el mensaje de mail o pass erróneo, 
+    aqui iria la función que checkea estos inputs en la BD, es decir esta es una función checkaccount ficticia*/
+
+	//EVENTS
+
+	const handleChange = event => {
+		setUser({ ...user, [event.target.name]: event.target.value });
+	};
+
+	const handleSubmit = event => {
+		event.preventDefault();
+		validateInputs(user);
+
+		//Actions.checkMailPassword
+	};
+	console.log(user);
 	return (
 		<div className="container">
 			<h1>The Foodie Club</h1>
@@ -43,15 +86,29 @@ const Login = () => {
 							name="password"
 						/>
 					</div>
-					<div className="alert hidden alert-danger" role="alert" id="error">
-						Email or password incorrect <i className="fas fa-exclamation-circle" />
-					</div>
-
-					<div className="btn-s">
-						<button type="submit" className="btn btn-login">
-							Enter
-						</button>
-					</div>
+					{error.status ? (
+						<div className="alert hidden alert-danger" role="alert" id="error">
+							<span>
+								{" "}
+								{error.msg} <i className="fas fa-exclamation-circle" />
+							</span>
+						</div>
+					) : (
+						""
+					)}
+					{spinner == false ? (
+						<div className="btn-s">
+							<button type="submit" className="btn btn-login">
+								Enter
+							</button>
+						</div>
+					) : (
+						<div className="btn-s">
+							<button className="btn-load" id="load">
+								<div className="spinner-border text-light" role="status" />
+							</button>
+						</div>
+					)}
 
 					<p className="acount">
 						Dont have an account yet? <Link to="/signup"> click here</Link>
