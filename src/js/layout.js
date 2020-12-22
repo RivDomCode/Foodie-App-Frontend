@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import Login from "./views/login";
 import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import injectContext from "./store/appContext";
@@ -14,6 +14,9 @@ const Layout = () => {
 				<Switch>
 					<Route exact path="/">
 						<Home />
+					</Route>
+					<Route exact path="/Login">
+						<Login />
 					</Route>
 					<Route exact path="/signup">
 						<SignUp />
