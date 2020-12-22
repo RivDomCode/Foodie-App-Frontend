@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.scss";
-import navbarProfileIcon from "../svg_components/navbarProfileIcon.js";
 import PropTypes from "prop-types";
 
 const Navbar = () => {
