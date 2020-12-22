@@ -20,6 +20,7 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/signup">
 						<SignUp />
+					</Route>
 					<Route>
 						<h1>Not found!</h1>
 					</Route>
