@@ -4,6 +4,7 @@ import Login from "./views/login";
 import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import injectContext from "./store/appContext";
+import NewRecipeForm from "./views/newRecipeForm";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -20,6 +21,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/signup">
 						<SignUp />
+					</Route>
+					<Route exact path="/newRecipeForm">
+						<NewRecipeForm />
 					</Route>
 					<Route>
 						<h1>Not found!</h1>
