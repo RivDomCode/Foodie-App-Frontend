@@ -1,0 +1,24 @@
+body{
+    background-color:#ffffff;
+}
+.profile{
+    margin: auto;
+    width: 80%;
+    display: flex;
+}
+.photo-user{
+    margin: auto;
+}
+.user-data {
+    display: block;
+}
+.photo-user{
+    
+   
+    margin: auto;
+}
+.user-edit{
+    align-self:end;
+    width:130px;
+	height:130px;
+}
