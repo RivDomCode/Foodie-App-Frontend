@@ -5,6 +5,7 @@ import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import Profile from "./views/profile";
 import injectContext from "./store/appContext";
+import ProfileVir from "./views/profileVir";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -24,6 +25,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/profile">
 						<Profile />
+					</Route>
+					<Route exact path="/profileVir">
+						<ProfileVir />
 					</Route>
 					<Route>
 						<h1>Not found!</h1>

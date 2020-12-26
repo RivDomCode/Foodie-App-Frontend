@@ -2,7 +2,7 @@ import React from "react";
 
 const Edit = () => {
 	return (
-		<div className="user-edit col">
+		<div className="user-edit">
 			<svg
 				className="edit-icon"
 				width="30"
