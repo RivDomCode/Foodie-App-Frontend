@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import "../../styles/newRecipeForm.scss";
 
 const NewRecipeForm = () => {
@@ -30,15 +29,3 @@ const NewRecipeForm = () => {
 };
 
 export default NewRecipeForm;
-=======
-
-const NewRecipeForm = () => {
-    return(
-        <div>
-
-        </div>
-    );
-};
-
-export default NewRecipeForm;
->>>>>>> a401906bb682add8a8d82d82bb78e9157e38af0a
