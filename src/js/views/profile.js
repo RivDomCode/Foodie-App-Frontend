@@ -1,10 +1,9 @@
 import React from "react";
 import "../../styles/profile.scss";
-import { Link } from "react-router-dom";
 import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
-import Tabs from "react-bootstrap/Tabs";
+
 
 const Profile = () => {
 	return (
