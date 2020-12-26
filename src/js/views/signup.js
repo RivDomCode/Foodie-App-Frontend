@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../styles/signup.css";
+import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -73,73 +73,80 @@ const SignUp = () => {
 	};
 	//****HTML****//
 	return (
-		<div className="container">
-			<h1>The Foodie Club</h1>
-			<form className="signup" onChange={handleChange} onSubmit={handleSubmit}>
-				<h2 className="title">Create an account</h2>
-				<div className="mb-3">
-					<input
-						type="text"
-						className="form-control placeholder"
-						name="username"
-						placeholder="User name here*"
-					/>
-					<input type="email" className="form-control placeholder" name="email" placeholder="Email here*" />
-					<div className="group-input">
+		<div className="backgroundUser">
+			<div className="container">
+				<h1>The Foodie Club</h1>
+				<form className="signup" onChange={handleChange} onSubmit={handleSubmit}>
+					<h2 className="title">Create an account</h2>
+					<div className="mb-3">
+						<input
+							type="text"
+							className="form-control placeholder"
+							name="username"
+							placeholder="User name here*"
+						/>
+						<input
+							type="email"
+							className="form-control placeholder"
+							name="email"
+							placeholder="Email here*"
+						/>
+						<div className="group-input">
+							<input
+								type="password"
+								className="form-control placeholder"
+								name="password"
+								placeholder="Enter your password here*"
+							/>
+						</div>
+
 						<input
 							type="password"
 							className="form-control placeholder"
-							name="password"
-							placeholder="Enter your password here*"
+							id="confirm-password"
+							name="cpassword"
+							placeholder="Confirm your password here*"
 						/>
-					</div>
 
-					<input
-						type="password"
-						className="form-control placeholder"
-						id="confirm-password"
-						name="cpassword"
-						placeholder="Confirm your password here*"
-					/>
-
-					{error.status ? (
-						<div className="alert" id="error">
-							<p>
-								{" "}
-								{error.msg}
-								<i className="fas fa-exclamation-circle" id="icono-msn" />
-							</p>
+						{error.status ? (
+							<div className="alert" id="error">
+								<p>
+									{" "}
+									{error.msg}
+									<i className="fas fa-exclamation-circle" id="icono-msn" />
+								</p>
+							</div>
+						) : (
+							""
+						)}
+						{spinner == false ? (
+							<div className="btn-s" id="btn-signUP">
+								<button type="submit" className="btn-signup">
+									Sing Up
+								</button>
+							</div>
+						) : (
+							<div className="btn-s">
+								<button className="btn-load" id="load">
+									<div className="spinner-border text-light" role="status" />
+								</button>
+							</div>
+						)}
+						<div className="center-text">
+							<label className="form-check-label text-login" htmlFor="exampleCheck1">
+								Already have an account?{" "}
+								<Link
+									to={{
+										pathname: "/login"
+									}}>
+									{" "}
+									click here
+								</Link>
+							</label>
 						</div>
-					) : (
-						""
-					)}
-					{spinner == false ? (
-						<div className="btn-s" id="btn-signUP">
-							<button type="submit" className="btn-signup">
-								Sing Up
-							</button>
-						</div>
-					) : (
-						<div className="btn-s">
-							<button className="btn-load" id="load">
-								<div className="spinner-border text-light" role="status" />
-							</button>
-						</div>
-					)}
-					<div className="center-text">
-						<label className="form-check-label text-login" htmlFor="exampleCheck1">
-							Already have an account?{" "}
-							<Link
-								to={{
-									pathname: "/login"
-								}}>
-								{" "}
-								click here
-							</Link>
-						</label>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	);
 };
