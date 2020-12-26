@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import "../../styles/newRecipeForm.scss";
 
@@ -30,6 +29,3 @@ const NewRecipeForm = () => {
 };
 
 export default NewRecipeForm;
-=======
-import React from "react";
->>>>>>> 769a307 (creada branch new recipe form, para el formulario que publica recetas nuevas)
