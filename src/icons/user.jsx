@@ -2,7 +2,7 @@ import React from "react";
 
 const User = () => {
 	return (
-		<div className="user-top col">
+		<div className="user-top">
 			<svg
 				className="user-img"
 				width="130"

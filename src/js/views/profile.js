@@ -4,27 +4,29 @@ import { Link } from "react-router-dom";
 import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
+import Tabs from "react-bootstrap/Tabs";
 
 const Profile = () => {
 	return (
 		<div>
 			<Navbar />
-			<div className="container">
-				<div className="user-card">
-					<div className="row user-icons">
-						<User />
-						<Edit />
-					</div>
-					<div className="user-data">
-						<h5 className="name">Name</h5>
-						<p className="email">email@gmail.com</p>
-					</div>
+			<div className="allBody">
+				<div className="container">
+					<User />
+					<Edit />
 				</div>
-				<div className="botton-add-recipes" id="recipes">
-					<button type="button" className="btn btn-light">
-						+Add
+				<div className="user-data">
+					<h5 className="name">Virginia Martínez</h5>
+					<p className="email">email@gmail.com</p>
+				</div>
+
+				<div className="addRecipeButton">
+					<button type="button" className="buttonAdd">
+						+ Add new recipe
 					</button>
 				</div>
+				{/* Tabs */}
+
 				<div className="row tab">
 					<ul className="nav nav-tabs" id="myTab" role="tablist">
 						<li className="nav-item" role="presentation">
