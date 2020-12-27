@@ -25,14 +25,16 @@
    border-right: 0;
 }
 .start-message{
-    
     margin: auto;
     margin-top: 5px;
-    border-style: dotted;
+    border-style: dashed;
     border-width: 2px ;
     border-color:rgba(51, 51, 51, 1);
     text-align: center;
     width: 320px;
     height: 100px;
     padding: 5%;
+}
+.tabs-content{
+    margin-top:5%;
 }
