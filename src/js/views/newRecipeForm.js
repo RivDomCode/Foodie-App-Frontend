@@ -1,9 +1,11 @@
 import React from "react";
 import "../../styles/newRecipeForm.scss";
+import Navbar from "../components/Navbar.jsx";
 
 const NewRecipeForm = () => {
 	return (
 		<div>
+			<Navbar />
 			<h2 className="sectionTitle">New recipe</h2>
 			<div className="NoPhotoGreyBackgourd">
 				<div className="noPhoto">
@@ -33,7 +35,7 @@ const NewRecipeForm = () => {
 					aria-describedby="button-addon2"
 				/>
 				<button className="btn btn-outline-secondary" type="button" id="button-addon2">
-					+
+					<i className="fas fa-plus" />
 				</button>
 			</div>
 			<div className="mb-3">
