@@ -46,10 +46,10 @@ const NewRecipeForm = () => {
 					placeholder="Elaboration here"
 				/>
 			</div>
-			<button type="buttonPublishRecipe" className="btn btn-warning">
+			<button type="button" className="btn btn-secondary" id="buttonPublish">
 				Publish recipe
 			</button>
-			<button type="buttonCancel" className="btn btn-warning">
+			<button type="button" className="btn btn-warning">
 				Cancel
 			</button>
 		</div>
