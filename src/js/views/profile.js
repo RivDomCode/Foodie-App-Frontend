@@ -4,6 +4,7 @@ import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Tabs from "../components/Tabs.jsx";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
 	return (
@@ -15,14 +16,16 @@ const Profile = () => {
 					<Edit />
 				</div>
 				<div className="user-data">
-					<h5 className="name">Virginia Martínez</h5>
+					<h5 className="name">Name LastName</h5>
 					<p className="email">email@gmail.com</p>
 				</div>
 
 				<div className="addRecipeButton">
-					<button type="button" className="buttonAdd">
-						+ Add new recipe
-					</button>
+					<Link to="/newRecipeForm">
+						<button type="button" className="buttonAdd">
+							+ Add new recipe
+						</button>
+					</Link>
 				</div>
 				{/* Tabs */}
 				<Tabs>

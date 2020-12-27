@@ -44,10 +44,15 @@ body{
     box-shadow: 6px 8px 16px 0px rgba(0, 0, 0, 0.25);
     margin-bottom: 6px;
     padding: 1%;
-    text-align: center;
+    padding-left: 4%;
     outline: none;
+}
 
-
+.buttonAdd:hover{
+    color: #F53158;
+}
+a:hover{
+    text-decoration: none;
 }
 
 //**** Tabs
