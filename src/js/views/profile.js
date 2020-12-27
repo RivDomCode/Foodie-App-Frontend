@@ -4,7 +4,6 @@ import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
 
-
 const Profile = () => {
 	return (
 		<div>
@@ -25,7 +24,6 @@ const Profile = () => {
 					</button>
 				</div>
 				{/* Tabs */}
-
 				<div className="row tab">
 					<ul className="nav nav-tabs" id="myTab" role="tablist">
 						<li className="nav-item" role="presentation">
