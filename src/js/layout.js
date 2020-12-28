@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./views/login";
 import { Home } from "./views/home";
 import SignUp from "./views/signup";
+import Card from "./components/Card.jsx";
+import Comments from "./views/comments";
+import RecipeDetail from "./views/recipe detail";
 import injectContext from "./store/appContext";
 
 const Layout = () => {
@@ -20,6 +23,15 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/signup">
 						<SignUp />
+					</Route>
+					<Route exact path="/card">
+						<Card />
+					</Route>
+					<Route exact path="/comments">
+						<Comments />
+					</Route>
+					<Route exact path="/detail">
+						<RecipeDetail />
 					</Route>
 					<Route>
 						<h1>Not found!</h1>
