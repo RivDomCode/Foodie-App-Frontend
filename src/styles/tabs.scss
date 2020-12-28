@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     margin-top: 3rem;
+    cursor: pointer;
+    color: #3D9382;
 }
 .tabs > li{
     margin: 0 1rem;
@@ -18,11 +20,11 @@
 }
 .current{
     color: rgba(245, 49, 88, 1);
-   font-weight: bold;
-   border: 2px solid rgba(245, 49, 88, 1);
-   border-top: 0;
-   border-left: 0;
-   border-right: 0;
+    font-weight: bold;
+    border: 2px solid rgba(245, 49, 88, 1);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
 }
 .start-message{
     margin: auto;

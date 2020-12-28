@@ -28,14 +28,7 @@ const Profile = () => {
 					</Link>
 				</div>
 				{/* Tabs */}
-				<Tabs>
-					<div label="recipes-tab">
-						<p className="start-message">You have not published any recipe yet.</p>
-					</div>
-					<div label="favorite-tab">
-						<p className="start-message">Your list of favorite recipes is empty.</p>
-					</div>
-				</Tabs>
+				<Tabs />
 			</div>
 		</div>
 	);
