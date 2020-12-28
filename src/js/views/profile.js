@@ -5,6 +5,7 @@ import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Tabs from "../components/Tabs.jsx";
 import { Link } from "react-router-dom";
+import Logout from "../../icons/logout.jsx";
 
 const Profile = () => {
 	return (
@@ -30,6 +31,7 @@ const Profile = () => {
 				{/* Tabs */}
 				<Tabs />
 			</div>
+			<Logout />
 		</div>
 	);
 };
