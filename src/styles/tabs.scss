@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 .tabs{
     list-style: none;
     display: flex;
-    margin: 0;
+    margin-left: 30%;
     padding: 0;
     margin-top: 3rem;
     cursor: pointer;
@@ -11,7 +13,7 @@
     margin: 0 1rem;
     font-family: Roboto;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     font-size: 20px;
     line-height: 23px;
     text-align: center;
@@ -36,6 +38,9 @@
     width: 320px;
     height: 100px;
     padding: 5%;
+    font-family: Roboto;
+    border-radius: 10px;
+    font-weight: bold;
 }
 .tabs-content{
     margin-top:5%;
