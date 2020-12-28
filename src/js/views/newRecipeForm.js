@@ -10,6 +10,7 @@ const NewRecipeForm = () => {
 			<div className="NoPhotoGreyBackgourd">
 				<div className="noPhoto">
 					<i className="fas fa-image" />
+					<p className="textUploadPhoto">Click here to upload recipe photo</p>
 				</div>
 			</div>
 			<div className="mb-3 recipeTitle">
@@ -34,8 +35,10 @@ const NewRecipeForm = () => {
 					aria-label="Recipient's username"
 					aria-describedby="button-addon2"
 				/>
-				<button className="btn btn-outline-secondary" type="button" id="button-addon2">
-					<i className="fas fa-plus" />
+				<button className="buttonAddIngredients" type="button">
+					<div className="addIconDropdown">
+						<i className="fas fa-plus" />
+					</div>
 				</button>
 			</div>
 			<div className="mb-3">
@@ -46,11 +49,11 @@ const NewRecipeForm = () => {
 					placeholder="Elaboration here"
 				/>
 			</div>
-			<button type="button" className="btn btn-secondary" id="buttonPublish">
-				Publish recipe
+			<button type="button" className="buttonPublish">
+				<div className="buttonTextPublish">Publish recipe</div>
 			</button>
-			<button type="button" className="btn btn-warning">
-				Cancel
+			<button type="button" className="buttonCancel">
+				<div className="buttonTextCancel">Cancel</div>
 			</button>
 		</div>
 	);

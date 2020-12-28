@@ -18,6 +18,7 @@ body{
     background-color: #D8D8D8;
     border-radius: 5px;
     margin: auto;
+    cursor: pointer;
 }
 
 .noPhoto{
@@ -27,6 +28,14 @@ body{
     padding-top: 15%;
     text-align: center;
     
+}
+.textUploadPhoto{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(136, 136, 136);
+    margin: auto;
 }
 
 /*Input para el titulo de la receta*/
@@ -48,13 +57,32 @@ body{
 .form-control{
     width: 90%;
 }
-#button-addon2{
+/*#button-addon2{
     width: 7%;
     text-align: center;
+}*/
+.buttonAddIngredients{
+    width: 10%;
+    padding: 0;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+}
+.buttonAddIngredients:active{
+    background-color: rgb(203, 247, 238);
+    
+}
+
+.addIconDropdown{
+    margin: auto;
 }
 .fa-plus{
     font-size: 15px;
-    color: #333333;
+    color: #3D9382;
+    
 }
 
 /*DropDown*/
@@ -74,27 +102,72 @@ body{
 
 }
 
-.btn{
+/*.btn{
     width: 40%;
     max-width: 400px;
     display: flex;
     margin: auto;
     text-align: center;
-}
+}*/
 
-.btn-secondary{
+.buttonPublish{
+    width: 40%;
+    height: 48px;
+    max-width: 400px;
+    min-width: 230px;
+    display: flex;
+    margin: auto;
     text-align: center;
     background-color: #F53158;
     color: #fdfdfd;
     font-family: Roboto;
-    border-color: #F53158;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
 }
 
-.btn-warning{
+.buttonPublish:active {
+    background-color: rgb(212, 25, 63);
+    border: none;
+}
+
+
+.buttonCancel{
+    width: 40%;
+    height: 48px;
+    max-width: 400px;
+    min-width: 230px;
+    display: flex;
+    margin: auto;
     background-color: #fdfdfd;
     color:#3D9382;
     font-family: Roboto;
-    border-color: #fdfdfd;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
     filter: drop-shadow(8px 6px 16px rgba(0, 0, 0, 0.25));
+  
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
+}
+.buttonCancel:active{
+    background-color: rgb(203, 247, 238);
+    color:#3D9382;
+    border: none;
+}
 
+.buttonTextPublish{
+    margin: auto;
+}
+
+.buttonTextCancel{
+    margin: auto;
 }
