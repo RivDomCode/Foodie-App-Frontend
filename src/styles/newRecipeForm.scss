@@ -42,6 +42,7 @@ body{
 .form-control{
     display: flex;
     margin: auto;
+    margin-top: 1%;
     width: 90%;
     max-width: 600px;
     margin-bottom: 0;
@@ -53,14 +54,13 @@ body{
     margin: auto;
     width: 90%;
     max-width: 600px;
+    margin-top: 1%;
 }
 .form-control{
     width: 90%;
+    margin-top: 1%;
 }
-/*#button-addon2{
-    width: 7%;
-    text-align: center;
-}*/
+
 .buttonAddIngredients{
     width: 10%;
     padding: 0;
@@ -91,6 +91,7 @@ body{
     max-width: 600px;
     display: flex;
     margin: auto;
+    margin-top: 1%;
 
 }
 
@@ -99,6 +100,7 @@ body{
     max-width: 600px;
     display: flex;
     margin: auto;
+    margin-top: 1%;
 
 }
 
@@ -117,6 +119,7 @@ body{
     min-width: 230px;
     display: flex;
     margin: auto;
+    margin-top: 1%;
     text-align: center;
     background-color: #F53158;
     color: #fdfdfd;
@@ -152,7 +155,7 @@ body{
     font-size: 16px;
     border-radius: 6px;
     filter: drop-shadow(8px 6px 16px rgba(0, 0, 0, 0.25));
-  
+    margin-top: 1%;
     border-width: 0px;
     border-style: none;
     border-color: none;
@@ -170,4 +173,5 @@ body{
 
 .buttonTextCancel{
     margin: auto;
+   
 }
