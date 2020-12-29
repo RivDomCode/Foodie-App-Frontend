@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/profile.scss";
 import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
@@ -6,8 +6,14 @@ import Navbar from "../components/Navbar.jsx";
 import Tabs from "../components/Tabs.jsx";
 import { Link } from "react-router-dom";
 import Logout from "../../icons/logout.jsx";
+import { Context } from "../store/appContext";
 
 const Profile = () => {
+	const { store, acction } = useContext(Context);
+	const [user, setUser] = useState({
+		username: store.user.username,
+		email: store.user.email
+	});
 	return (
 		<div>
 			<Navbar />
@@ -17,8 +23,8 @@ const Profile = () => {
 					<Edit />
 				</div>
 				<div className="user-data">
-					<h5 className="name">Name LastName</h5>
-					<p className="email">email@gmail.com</p>
+					<h5 className="name">{user.username}</h5>
+					<p className="email">{user.email}</p>
 				</div>
 
 				<div className="addRecipeButton">
