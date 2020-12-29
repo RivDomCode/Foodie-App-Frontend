@@ -37,9 +37,16 @@ const EditProfile = () => {
 						<p className="upload-photo">Upload Photo</p>
 						<div className="user-data">
 							<div className="name">
-								<input className="name-input" type="text" defaultValue={user.username} />
+								<input
+									name="username"
+									className="name-input"
+									type="text"
+									defaultValue={user.username}
+								/>
 							</div>
-							<p className="email">{user.email}</p>
+							<p className="email" name="email">
+								{user.email}
+							</p>
 						</div>
 						<div className="buttons-edit">
 							<button type="submit" className="buttonSaveChange">
