@@ -9,7 +9,7 @@ import Logout from "../../icons/logout.jsx";
 import { Context } from "../store/appContext";
 
 const Profile = () => {
-	const { store, acction } = useContext(Context);
+	const { store } = useContext(Context);
 	const [user, setUser] = useState({
 		username: store.user.username,
 		email: store.user.email
@@ -37,7 +37,9 @@ const Profile = () => {
 				{/* Tabs */}
 				<Tabs />
 			</div>
-			<Logout />
+			<Link to="/login">
+				<Logout />
+			</Link>
 		</div>
 	);
 };
