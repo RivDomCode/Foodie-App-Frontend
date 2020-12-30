@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/newRecipeForm.scss";
 import Navbar from "../components/Navbar.jsx";
+import DropDownSelectCategory from "../components/DropDownSelectCategory.jsx";
 
 const NewRecipeForm = () => {
 	return (
@@ -21,12 +22,7 @@ const NewRecipeForm = () => {
 					placeholder="Your recipe title"
 				/>
 			</div>
-			<select className="form-select" aria-label="Default select example">
-				<option selected>Open this select menu</option>
-				<option value="1">One</option>
-				<option value="2">Two</option>
-				<option value="3">Three</option>
-			</select>
+			<DropDownSelectCategory />
 			<div className="input-group mb-3">
 				<input
 					type="text"
