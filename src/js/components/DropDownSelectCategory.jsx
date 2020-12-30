@@ -1,12 +1,20 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import "../../styles/dropDownSelectCategory.scss";
 
 const DropDownSelectCategory = () => {
-    conts [Dropdown, setDropdown] = useState("Tag your recipe");
-    return(
-        <form>
-            <select value={Dropdown} onChange={(e)=>{setDropdown(e.target.value)}}/>
-        </form>
-    );
+	const [dropdown, setDropdown] = useState("Tag your categorie");
+	return (
+		<form className="dropdownCategory">
+			<select
+				value={dropdown}
+				onChange={e => {
+					setDropdown(e.target.value);
+				}}>
+				<option value="Cualquiercosa01">Cualquiercosa01</option>
+				<option value="Cualquiercosa02">Cualquiercosa02</option>
+			</select>
+		</form>
+	);
 };
 
 export default DropDownSelectCategory;

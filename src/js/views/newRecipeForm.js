@@ -22,7 +22,7 @@ const NewRecipeForm = () => {
 					placeholder="Your recipe title"
 				/>
 			</div>
-			<DropDownSelectCategory />
+			<DropDownSelectCategory className="dropDownCategory" />
 			<div className="input-group mb-3">
 				<input
 					type="text"
