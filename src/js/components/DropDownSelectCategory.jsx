@@ -1,38 +1,57 @@
 import React, { useState } from "react";
 import "../../styles/dropDownSelectCategory.scss";
-import Dropdown from "react-bootstrap/Dropdown";
 
 const DropDownSelectCategory = () => {
 	const [dropdown, setDropdown] = useState("Tag your categorie");
 	const [isChecked, setIsCheched] = useState(false);
-	return (
-		<form className="dropdownCategory">
-			<select
-				value={dropdown}
-				onChange={e => {
-					setDropdown(e.target.value);
-				}}>
-				<option value="Cualquiercosa01">Cualquiercosa01</option>
-				<option value="Cualquiercosa02">Cualquiercosa02</option>
-				<label>Category 01</label>
-				<input
-					type="checkbox"
-					checked={isChecked}
-					onChange={e => {
-						setIsCheched(e.target.checked);
-					}}
-				/>
-			</select>
+	const expanded = false;
+	const showCheckboxes = () => {
+		var checkboxes = document.getElementById("checkboxes");
+		if (!expanded) {
+			checkboxes.style.display = "block";
+			expanded = true;
+		} else {
+			checkboxes.style.display = "none";
+			expanded = false;
+		}
+	};
 
-			<label>Category 01</label>
-			<input
-				type="checkbox"
-				checked={isChecked}
-				onChange={e => {
-					setIsCheched(e.target.checked);
-				}}
-			/>
-		</form>
+	return (
+		<div>
+			<div className="dropdownCategory">
+				<div className="selectBox">
+					<select
+						value={dropdown}
+						onChange={e => {
+							setDropdown(e.target.value);
+						}}>
+						<option>Tag your recipe</option>
+					</select>
+					<div className="overSelect" />
+				</div>
+				<div id="checkboxes">
+					<label htmlFor="one" value="One">
+						<input
+							type="checkbox"
+							checked={isChecked}
+							onChange={e => {
+								setIsCheched(e.target.checked);
+							}}
+							id="one"
+						/>
+						Category One
+					</label>
+					<label htmlFor="two">
+						<input type="checkbox" id="one" />
+						Category Two
+					</label>
+					<label htmlFor="three">
+						<input type="checkbox" id="one" />
+						Category Three
+					</label>
+				</div>
+			</div>
+		</div>
 	);
 };
 
