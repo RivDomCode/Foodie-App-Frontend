@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/card.scss";
 import { Link } from "react-router-dom";
+import Avatar from "@material-ui/core/Avatar";
 
 const Card = () => {
 	return (
@@ -22,7 +23,7 @@ const Card = () => {
 					<div className="row author-heart d-flex">
 						<span>By Autor Receta</span>{" "}
 						<span>
-							<i className="fas fa-heart" />
+							<i className="far fa-heart" />
 						</span>
 					</div>
 					<p className="comment">
@@ -30,16 +31,24 @@ const Card = () => {
 							Read all comments
 						</Link>
 					</p>
-					<div className="row d-flex">
-						<span className="profile-pic" />
-						<span className="last-comment">
+					<div className="row d-flex last">
+						<Avatar
+							className="post_avatar"
+							alt="Pedro Rivas"
+							src="https://cuantohipster.com/wp-content/uploads/2012/05/se%C3%B1or-mayor-abulo-ruso-siberia-boina-hipster-beatnik.jpg"
+						/>
+						<div className="last-comment">
 							<strong>Username </strong>
 							Esto es un comentario..
-						</span>
+						</div>
 					</div>
 					<div className="row d-flex">
-						<span className="profile-pic" />
-						<input type="text" placeholder="Add your comment" />
+						<Avatar
+							className="post_avatar"
+							alt="Pedro"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfsNnj_fxuHXEtqJ6MposaM67ua9_PWPhMFw&usqp=CAU"
+						/>
+						<input className="border border-lightgray" type="text" placeholder="Add your comment" />
 					</div>
 				</div>
 			</div>

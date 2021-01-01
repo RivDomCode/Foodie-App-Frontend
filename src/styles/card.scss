@@ -4,7 +4,7 @@ body{
 }
 
 .card{
-    width: 300px;
+    width: 325px;
     height: 527px;
     border-radius: 6px;
     box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
@@ -23,7 +23,7 @@ body{
 }
 
 .card-img-top{
-    width: 300px;
+    width: 325px;
     height: 181px;
 }
 
@@ -41,6 +41,7 @@ body{
 }
 
 .comments-link{
+    margin-left: 4px;
     font-size: 14px;
     color: #3D9382;
     font-family: Roboto;
@@ -52,9 +53,34 @@ body{
 
 }
 
-.profile-pic{
-    border-radius: 50%;
-    border: solid black 0.5px;
-    width: 30px;
-    height: 30px;
+.post_avatar{
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    
+}
+
+.last-comment{
+    margin-top: 6px;
+        font-size: 14px;
+
+
+}
+
+
+
+.last {
+    margin-bottom: 2px;
+}
+
+input{
+    width: 250px;
+    height: 32px;
+    margin-top: 6px;
+}
+
+::placeholder{
+    color: gray;
 }

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    background-color: #ffffff;
+}
+
+.header-image{
+    margin: auto;
+    background-color: red;
+    text-align: center;
+}
+
+.photo-post{
+    max-width: 100%;
+    margin: auto;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.recipe-title{
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+    margin: auto;
+    background-color: green;
+}
+
+.title-bold{
+    max-width: 80%;
+    margin: auto;
+}
+
+
+.heart{
+    max-width: 20%;
+    margin: auto;
+}
+
+.ingredients-title{
+    color:#F53158;
+    font-size: 20px;
+    margin: auto;
+}
+
+.elaboration-title{
+    font-size: 20px;
+    color: #3D9382;
+}
+
+.comments-title{
+    font-size: 20px;
+    color: #F56C31;
+}
