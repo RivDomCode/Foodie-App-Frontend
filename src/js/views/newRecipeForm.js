@@ -6,7 +6,8 @@ import Navbar from "../components/Navbar.jsx";
 const NewRecipeForm = () => {
 	const [recipe, setRecipe] = useState({
 		recipeTitle: "",
-		elaboration: ""
+		elaboration: "",
+		ingredients: ""
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({
@@ -49,6 +50,7 @@ const NewRecipeForm = () => {
 						placeholder="Add the ingredients here"
 						aria-label="Recipient's username"
 						aria-describedby="button-addon2"
+						name="ingredients"
 					/>
 					<button className="buttonAddIngredients" type="button">
 						<div className="addIconDropdown">
