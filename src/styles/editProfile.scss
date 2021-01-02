@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+     background-color: #fdfdfd;
+     font-family: Roboto;
+}
+.text-button{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px; 
+    text-align: center;
+    margin: auto;
+}
+.buttonSaveChange{
+    width: 40%;
+    height: 48px;
+    max-width: 400px;
+    min-width: 230px;
+    display: flex;
+    margin: auto;
+    margin-top: 1%;
+    text-align: center;
+    background-color: #F53158;
+    color: #FDFDFD;
+    border-radius: 6px;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
+    margin-bottom: 3%;
+    outline-style: auto;
+}
+.buttonSaveChange:active {
+    background-color: rgb(212, 25, 63);
+    border: none;
+}
+.buttonSaveChange:focus{
+    outline:none;
+}
+.buttonCancel{
+    width: 40%;
+    height: 48px;
+    max-width: 400px;
+    min-width: 230px;
+    display: flex;
+    margin: auto;
+    background-color: #FDFDFD;
+    color:#3D9382;
+    border-radius: 6px;
+    filter: drop-shadow(8px 6px 16px rgba(0, 0, 0, 0.25));
+    margin-top: 1%;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
+    margin: auto;
+    
+}
+.buttonCancel:active{
+    background-color: rgb(203, 247, 238);
+    color:#3D9382;
+    border: none;
+}
+.buttonCancel:focus{
+    outline:none;
+}
+.title{
+    color: rgba(245, 49, 88, 1);
+    font-family: Roboto;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 27px;
+    letter-spacing: 0px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.upload-photo{
+    color: rgba(61, 147, 130, 1);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 19px;
+    letter-spacing: 0px;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.upload-photo:focus{
+    color: #F53158;
+}
+.email{
+    opacity: 0.6;
+}
+.name-input{
+    margin: auto;
+    width: 40%;
+    height: 30px;
+    max-width: 400px;
+    min-width: 230px;
+    cursor: pointer;
+}
+

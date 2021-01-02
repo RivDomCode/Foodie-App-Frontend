@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Edit = () => {
 	return (
 		<div className="user-edit">
-			<Link to="/userEdit">
+			<Link to="/editProfile">
 				<svg
 					className="edit-icon"
 					width="30"

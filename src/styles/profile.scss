@@ -8,8 +8,6 @@ body{
     width: 700px;
     padding: 2%;
 }
-
-
 .container{
     display: inline-block;
     margin: auto;
@@ -17,9 +15,9 @@ body{
     text-align: center;
 }
 .user-edit{
-    
     margin-left: 100px;
 }
+
 .edit-icon{
     text-align: center;
 }
@@ -50,14 +48,17 @@ body{
     padding-left: 4%;
     outline: none;
 }
-
-.buttonAdd:hover{
-    color: #F53158;
-}
 a:hover{
     text-decoration: none;
 }
-
+.buttonAdd:focus{
+    outline:none;
+}
+.buttonAdd:active{
+    background-color: rgb(203, 247, 238);
+    color:#3D9382;
+    border: none;
+}
 //**** Tabs
 .nav-tabs{
     border-bottom: 0;

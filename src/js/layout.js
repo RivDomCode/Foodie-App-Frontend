@@ -4,6 +4,7 @@ import Login from "./views/login";
 import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import Profile from "./views/profile";
+import EditProfile from "./views/editProfile";
 import injectContext from "./store/appContext";
 
 const Layout = () => {
@@ -24,6 +25,9 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/profile">
 						<Profile />
+					</Route>
+					<Route exact path="/editProfile">
+						<EditProfile />
 					</Route>
 					<Route>
 						<h1>Not found!</h1>

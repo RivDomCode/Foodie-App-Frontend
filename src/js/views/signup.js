@@ -74,11 +74,12 @@ const SignUp = () => {
 	//****HTML****//
 	return (
 		<div className="backgroundUser">
-			<div className="container">
-				<h1>The Foodie Club</h1>
+			<div className="first-content">
+				<h1 className="title-foodie">The Foodie Club</h1>
 				<form className="signup" onChange={handleChange} onSubmit={handleSubmit}>
-					<h2 className="title">Create an account</h2>
-					<div className="mb-3">
+					<div className="signup-form">
+						<h2 className="title-create-account">Create an account</h2>
+
 						<input
 							type="text"
 							className="form-control placeholder"
