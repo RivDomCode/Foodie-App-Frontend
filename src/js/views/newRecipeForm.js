@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "../../styles/newRecipeForm.scss";
 import Navbar from "../components/Navbar.jsx";
-import DropDownSelectCategory from "../components/DropDownSelectCategory.jsx";
 
 const NewRecipeForm = () => {
+	const [recipe, setRecipe] = useState({
+		recipeTitle: "",
+		elaboration: ""
+	});
+	const [spinner, setSpinner] = useState(false);
+	const [error, setError] = useState({
+		msg: "",
+		status: false
+	});
+	const handelChange = event => {
+		console.log(recipe);
+		setRecipe({ ...recipe, [event.target.name]: event.target.value });
+	};
+	const handelSubmit = e => {
+		e.preventDefault();
+		console.log("estoy en el publishSubmit");
+	};
+
 	return (
 		<div>
 			<Navbar />
@@ -16,13 +34,15 @@ const NewRecipeForm = () => {
 			</div>
 			<div className="mb-3 recipeTitle">
 				<input
+					onChange={handelChange}
+					onSubmit={handelSubmit}
 					type="text"
 					className="form-control placeholder"
 					name="Recipe title"
 					placeholder="Your recipe title"
 				/>
 			</div>
-			<DropDownSelectCategory className="dropDownCategory" />
+
 			<div className="input-group mb-3">
 				<input
 					type="text"
@@ -39,6 +59,8 @@ const NewRecipeForm = () => {
 			</div>
 			<div className="mb-3">
 				<textarea
+					onChange={handelChange}
+					onSubmit={handelSubmit}
 					className="textArea"
 					id="exampleFormControlTextarea1"
 					rows="3"
