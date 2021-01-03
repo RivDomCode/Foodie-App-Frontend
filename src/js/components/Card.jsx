@@ -2,26 +2,23 @@ import React from "react";
 import "../../styles/card.scss";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
+import PropTypes from "prop-types";
 
-const Card = () => {
+const Card = ({ recipeTitle, username, imageUrl }) => {
 	return (
 		<div className="component-card">
 			<div className="card">
 				<Link to={"/detail"}>
-					<img
-						src="https://cdn.pixabay.com/photo/2016/02/19/10/00/food-1209007_960_720.jpg"
-						className="card-img-top"
-						alt="..."
-					/>
+					<img src={imageUrl} className="card-img-top" alt="..." />
 				</Link>
 				<div className="card-body">
-					<h5 className="card-title">Titulo de receta</h5>
+					<h5 className="card-title">{recipeTitle}</h5>
 					<p className="card-text">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe corrupti hic ad delectus,
 						blanditiis ratione, tempora tenetur veritatis eum accusamus ullam itaque facilis dolore, rem
 					</p>
 					<div className="row author-heart d-flex">
-						<span>By Autor Receta</span>{" "}
+						<span>By {username}</span>{" "}
 						<span>
 							<i className="far fa-heart" />
 						</span>
@@ -38,7 +35,7 @@ const Card = () => {
 							src="https://cuantohipster.com/wp-content/uploads/2012/05/se%C3%B1or-mayor-abulo-ruso-siberia-boina-hipster-beatnik.jpg"
 						/>
 						<div className="last-comment">
-							<strong>Username </strong>
+							<strong>{username} </strong>
 							Esto es un comentario..
 						</div>
 					</div>
@@ -54,6 +51,12 @@ const Card = () => {
 			</div>
 		</div>
 	);
+};
+
+Card.propTypes = {
+	imageUrl: PropTypes.string,
+	username: PropTypes.string,
+	recipeTitle: PropTypes.string
 };
 
 export default Card;
