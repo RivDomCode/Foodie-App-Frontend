@@ -3,32 +3,41 @@ import "../../styles/footer.scss";
 
 const Footer = () => {
 	return (
-		<footer className="footer">
-			<div className="row">
-				<div className="col-5 students">
-					<p>
-						Final students project for 4Geeks Academy by: Marigen Rivero, Pedro Rivas and Virginia Martínez.
-					</p>
-				</div>
-				<div className="col-4 tecno">
-					<p>Technologies used: HTML, CSS, React, Flux.</p>
-				</div>
-				<div className="col-3 linked">
-					<i className="fab fa-linkedin" />
-					<ul className="developers">
-						<li>
-							<a href="https://www.linkedin.com/in/m-rivero-mirabal">Marigen Rivero Mirabal</a>
-						</li>
+		<footer className="container-footer">
+			<div className="container">
+				<div className="row">
+					<div className="col-lg-5 col-md-6 col-xs-12 students">
+						<p className="text-footer">
+							<span className="subtitle">Final Project for 4Geeks Academy by: </span>
+							Marigen Rivero, Pedro Rivas and Virginia Martínez.
+						</p>
+					</div>
+					<div className="col-lg-4 col-md-3 col-xs-12 tecno">
+						<p className="text-footer">
+							<span className="subtitle">Technologies used: </span>
+							HTML, CSS, React and Flux
+						</p>
+					</div>
+					<div className="col-lg-3 col-md-3 col-xs-12 linked">
+						<p />
+						<p className="text-footer">
+							<span className="subtitle">LinkedIn profile contacts</span>
+							<ul className="developers">
+								<li>
+									<a href="https://www.linkedin.com/in/m-rivero-mirabal">Marigen Rivero Mirabal</a>
+								</li>
 
-						<li>
-							<a href="https://www.linkedin.com/in/pedrorivasdominguez/">Pedro Rivas Domínguez</a>
-						</li>
-						<li>
-							<a href="https://www.linkedin.com/in/virginiakmartinez/"> Virginia K. Martínez</a>
-						</li>
-					</ul>
+								<li>
+									<a href="https://www.linkedin.com/in/pedrorivasdominguez/">Pedro Rivas Domínguez</a>
+								</li>
+								<li>
+									<a href="https://www.linkedin.com/in/virginiakmartinez/"> Virginia K. Martínez</a>
+								</li>
+							</ul>
+						</p>
 
-					<div />
+						<div />
+					</div>
 				</div>
 			</div>
 		</footer>

@@ -5,7 +5,7 @@ body{
 }
 .allBody{
     margin: auto;
-    width: 700px;
+    max-width: 700px;
     padding: 2%;
 }
 .container{
@@ -97,4 +97,9 @@ a {
 }
 .container{
     margin: auto;
+}
+@media screen and(max-width:768px){
+    .allBody{
+        max-width: 500px;
+    }
 }
