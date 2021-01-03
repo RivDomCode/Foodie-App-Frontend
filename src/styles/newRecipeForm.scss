@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     background-color: #fdfdfd;
 }
@@ -45,6 +49,8 @@ body{
     margin-top: 1%;
     width: 90%;
     max-width: 600px;
+    font-size: medium;
+    color:#6c757d;
     margin-bottom: 0;
 }
 
@@ -56,24 +62,29 @@ body{
     max-width: 600px;
     margin-top: 1%;
 }
-.form-control{
-    width: 90%;
-    margin-top: 1%;
-}
 
 .buttonAddIngredients{
     width: 10%;
+    height: 32px;
+    margin-left: 2%;
+    margin-top: 1%;
     padding: 0;
     border-width: 0px;
     border-style: none;
     border-color: none;
     border-image: none;
     border-radius: 4px;
-    background-color: #fdfdfd;
+    background-color: #F53158;
 }
 .buttonAddIngredients:active{
-    background-color: rgb(203, 247, 238);
     
+    background-color: rgb(212, 25, 63);
+    border: none;
+    
+}
+
+.buttonAddIngredients:focus{
+    outline:none;
 }
 
 .addIconDropdown{
@@ -81,7 +92,7 @@ body{
 }
 .fa-plus{
     font-size: 15px;
-    color: #3D9382;
+    color: #fdfdfd;
     
 }
   
@@ -92,6 +103,9 @@ body{
     display: flex;
     margin: auto;
     margin-top: 1%;
+    border-radius: 4px;
+    border: 1px solid #CED0DA;
+    padding: 1% 2% 2% 2%;
 
 }
 
@@ -122,6 +136,9 @@ body{
     background-color: rgb(212, 25, 63);
     border: none;
 }
+.buttonPublish:focus{
+    outline: none;
+}
 
 
 .buttonCancel{
@@ -149,6 +166,9 @@ body{
     background-color: rgb(203, 247, 238);
     color:#3D9382;
     border: none;
+}
+.buttonCancel:focus{
+    outline: none;
 }
 
 .buttonTextPublish{
