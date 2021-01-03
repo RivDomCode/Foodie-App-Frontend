@@ -6,7 +6,7 @@ const Footer = () => {
 		<footer className="container-footer">
 			<div className="container">
 				<div className="row">
-					<div className="col-lg-5 col-md-6 col-xs-12 students">
+					<div className="col-lg-5 col-md-6  col-xs-12 students">
 						<p className="text-footer">
 							<span className="subtitle">Final Project for 4Geeks Academy by: </span>
 							Marigen Rivero, Pedro Rivas and Virginia Martínez.
@@ -19,7 +19,6 @@ const Footer = () => {
 						</p>
 					</div>
 					<div className="col-lg-3 col-md-3 col-xs-12 linked">
-						<p />
 						<p className="text-footer">
 							<span className="subtitle">LinkedIn profile contacts</span>
 							<ul className="developers">

@@ -7,7 +7,7 @@
     width: 100%;
     max-width: 1380px;
     margin: auto;
-    height: 90px;
+    height: 5.625rem;
 }
 .row{
     justify-content: space-between;
@@ -19,52 +19,46 @@ footer {
   width: 100%;
   background: rgba(245, 49, 88, 1);
   color: white;
-  font-size: 10px;
+  font-size: 0.625rem;
   text-align: center;
 }
 ul{
     list-style-type: none;
 }
-/*.linked{
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 30px 0px 0px;
-}*/
 .fa-linkedin{
     font-size: 1rem;
 }
 .developers a{
     color: white;
-    text-decoration: none;
-    
+    text-decoration: none;  
 }
 .developers{
     text-align: left;
     margin: 0;
-    padding: 0px 0px 0px 10px;
 }
 .tecno{
     text-align: left;
-    margin-top: 4px;
+   // margin-top: 4px;
     transition: 3ms;
 }
 .linked{
     text-align: left;
     transition: 3ms;
-    margin-top:-10px;
+  //  margin-top:-10px;
 }
 .students{
-    margin-top: 4px;
+   // margin-top: 4px;
     text-align: left;
     transition: 3ms;
 }
 .subtitle{
     font-weight: bold;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .text-footer{
-    padding-top: 5px;
+    padding-top: 0.313rem;
+    margin-top: 0.4rem;
 }
 
 @media screen and(max-width:767px){
@@ -73,10 +67,10 @@ ul{
     }*/
     .subtitle{
     font-weight: bold;
-    font-size: 10px;
+    font-size: 0.625rem;
 }
 footer{
-    font-size: 8px;
+    font-size: 0.5rem;
 }
 .students, .tecno, .linked, .text-footer{
     padding: 0.5px;
@@ -87,13 +81,14 @@ footer{
     display: flex;
 }
 }
+
 @media screen and(max-width:321px){
   footer{
-    font-size: 6px;
+    font-size: 0.375rem;
 }
 .subtitle{
     font-weight: bold;
-    font-size: 8px;
+    font-size: 0.5rem;
 }
 }
 
