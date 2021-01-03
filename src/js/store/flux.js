@@ -1,6 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
-		store: {},
+		store: {
+			ingredients: []
+		},
 		actions: {
 			createUser: user => {}
 		}

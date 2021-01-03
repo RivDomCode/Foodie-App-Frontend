@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "../../styles/newRecipeForm.scss";
 import Navbar from "../components/Navbar.jsx";
+import AddIngredients from "../components/AddIngredients.jsx";
 
 const NewRecipeForm = () => {
 	const [recipe, setRecipe] = useState({
@@ -58,6 +59,7 @@ const NewRecipeForm = () => {
 						</div>
 					</button>
 				</div>
+
 				<div className="mb-3">
 					<textarea
 						className="textArea"
@@ -74,6 +76,7 @@ const NewRecipeForm = () => {
 					<div className="buttonTextCancel">Cancel</div>
 				</button>
 			</form>
+			<AddIngredients />
 		</div>
 	);
 };
