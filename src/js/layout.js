@@ -6,6 +6,9 @@ import SignUp from "./views/signup";
 import Card from "./components/Card.jsx";
 import Comments from "./views/comments";
 import RecipeDetail from "./views/recipe detail";
+import Profile from "./views/profile";
+import EditProfile from "./views/editProfile";
+
 import injectContext from "./store/appContext";
 
 const Layout = () => {
@@ -32,6 +35,11 @@ const Layout = () => {
 					</Route>
 					<Route exact path="/detail">
 						<RecipeDetail />
+					<Route exact path="/profile">
+						<Profile />
+					</Route>
+					<Route exact path="/editProfile">
+						<EditProfile />
 					</Route>
 					<Route>
 						<h1>Not found!</h1>

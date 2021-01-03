@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
 *{box-sizing: border-box;}
 
-body{
+.backgroundUser{
     background-color: #3D9382;
 }
-h1{
+.title-foodie{
     font-family: 'Rancho';
-    font-size: 38px;
+    font-size: 48px;
     font-style: normal;
     font-weight: 400;
     line-height: 28px;
@@ -17,8 +17,22 @@ h1{
     text-align: center;
     margin-top: 7%;
 }
+.title-create-account{
+    font-family: 'Rancho';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.38967838883399963px;
+    text-align: left;
+    color: #F53158;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
 
-.container{
+.first-content{
     margin: auto;
 }
 .signup{
@@ -29,9 +43,17 @@ h1{
     border-radius: 6px;
     margin: auto;
     background: #FDFDFD;
+    margin-bottom: 6%;
 }
 .text-login{
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0px;
     text-align: center;
+
 }
 .btn-s, .spiner{
     display: flex;
@@ -50,6 +72,7 @@ h1{
     margin-top: 2%;
     color:#FFFFFF;
     border:none;
+    font-weight: bold;
 }
 .btn-load{
     height: 48px;
@@ -61,23 +84,18 @@ h1{
     margin-top: 2%;
     border:none;
 }
-.btn-signup:hover{ 
+/*.btn-signup:hover{ 
     box-shadow: 3px 0px 30px rgba(163, 163, 163 ,1);
+}*/
+.btn-signup:active {
+    background-color: rgb(212, 25, 63);
+    border: none;
+}
+.btn-signup:focus{
+    outline: none;
 }
 .load{
     margin: auto;
-}
-.title{
-    font-family: 'Rancho';
-    font-size: 38px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px;
-    letter-spacing: 0.38967838883399963px;
-    text-align: center;
-    color: #F53158;
-    margin-top: 10%;
-    padding: 5%;
 }
 #confirm-password{
     background-color: #DFE3E9;
@@ -94,7 +112,6 @@ h1{
     border-radius: 4px;
     margin: auto;
     margin-bottom: 5%;
-
 }
 .placeholder{
     font-family: Helvetica Neue;
@@ -120,4 +137,9 @@ h1{
 }
 .alert p{
     margin: 0;
+}
+.signup-form{
+    margin: auto;
+    margin-top: 8%;
+    padding: 2%;
 }
