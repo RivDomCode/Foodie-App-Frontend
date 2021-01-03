@@ -6,20 +6,20 @@ const Footer = () => {
 		<footer className="container-footer">
 			<div className="container">
 				<div className="row">
-					<div className="col-lg-5 col-md-6  col-xs-12 students">
-						<p className="text-footer">
+					<div className="col-lg-5 col-md-6  col-xs-12 text-footer">
+						<p>
 							<span className="subtitle">Final Project for 4Geeks Academy by: </span>
 							Marigen Rivero, Pedro Rivas and Virginia Martínez.
 						</p>
 					</div>
-					<div className="col-lg-4 col-md-3 col-xs-12 tecno">
-						<p className="text-footer">
+					<div className="col-lg-4 col-md-3 col-xs-12 text-footer">
+						<p>
 							<span className="subtitle">Technologies used: </span>
 							HTML, CSS, React and Flux
 						</p>
 					</div>
-					<div className="col-lg-3 col-md-3 col-xs-12 linked">
-						<p className="text-footer">
+					<div className="col-lg-3 col-md-3 col-xs-12 text-footer">
+						<p>
 							<span className="subtitle">LinkedIn profile contacts</span>
 							<ul className="developers">
 								<li>
@@ -34,7 +34,6 @@ const Footer = () => {
 								</li>
 							</ul>
 						</p>
-
 						<div />
 					</div>
 				</div>
