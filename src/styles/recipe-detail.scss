@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    background-color: #ffffff;
+}
+
+.detail{
+    max-width: 1200px;
+    margin: auto;
+       border-radius: 6px;
+    box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
+}
+
+
+.header-image{
+    margin: auto;
+    text-align: center;
+}
+
+.photo-post{
+    max-width: 1000px;
+    margin: auto;
+    max-height: 500px;
+    object-fit: contain;
+}
+
+.recipe-title{
+    font-weight: bold;
+    font-size: 23px;
+    text-align: center;
+    margin: auto;
+}
+
+.title-bold{
+    max-width: 80%;
+    margin: auto;
+}
+
+
+.heart{
+    max-width: 20%;
+    margin: auto;
+}
+
+.ingredients-title{
+    color:#F53158;
+    font-size: 20px;
+    margin: auto;
+        margin-top: 20px;
+
+}
+
+.elaboration-title{
+    font-size: 20px;
+    color: #3D9382;
+}
+
+.comments-title{
+    font-size: 20px;
+    color: #F56C31;
+}
+
+.fa-shopping-basket, .fa-comment, .fa-utensils{
+    margin-left: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.post_avatar{    margin-left: 20px;
+}
+
+.ingredient-list {
+        margin-left: 20px;
+
+}
+
+.titles{
+    margin-top: 4px;
+}
+
+.last-comment{
+    font-size: 14px;
+}
+
+.elaboration-text{
+    padding: 20px;
+}
