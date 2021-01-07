@@ -6,6 +6,7 @@ import SignUp from "./views/signup";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
 import injectContext from "./store/appContext";
+import Footer from "./components/Footer.jsx";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
@@ -33,6 +34,7 @@ const Layout = () => {
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	);
