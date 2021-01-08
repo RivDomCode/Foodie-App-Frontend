@@ -60,7 +60,6 @@ const EditProfile = () => {
 					</form>
 				</div>
 			</div>
-			<Footer />
 		</div>
 	);
 };

@@ -13,19 +13,7 @@ const Layout = () => {
 
 	//const location = useLocation();
 	//const { pathname } = useLocation();
-	function Footer() {
-		let location = useLocation();
 
-		if (location.pathname === "/") {
-			return null;
-		}
-
-		return (
-			<div>
-				<Footer />
-			</div>
-		);
-	}
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
