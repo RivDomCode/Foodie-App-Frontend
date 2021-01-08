@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
 import Login from "./views/login";
 import { Home } from "./views/home";
 import SignUp from "./views/signup";
@@ -11,6 +11,21 @@ import Footer from "./components/Footer.jsx";
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
+	//const location = useLocation();
+	//const { pathname } = useLocation();
+	function Footer() {
+		let location = useLocation();
+
+		if (location.pathname === "/") {
+			return null;
+		}
+
+		return (
+			<div>
+				<Footer />
+			</div>
+		);
+	}
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
@@ -34,10 +49,8 @@ const Layout = () => {
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
-				<Footer />
 			</BrowserRouter>
 		</div>
 	);
 };
-
 export default injectContext(Layout);
