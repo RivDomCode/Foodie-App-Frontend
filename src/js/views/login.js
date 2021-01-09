@@ -62,11 +62,11 @@ const Login = () => {
 	};
 	console.log(user);
 	return (
-		<div className="container">
-			<h1>The Foodie Club</h1>
-			<div className="login-form">
-				<form className="login" onChange={handleChange} onSubmit={handleSubmit}>
-					<h2 className="title">Login</h2>
+		<div className="login__container">
+			<h1 className="login__header">The Foodie Club</h1>
+			<div className="login__content">
+				<form className="login__form" onChange={handleChange} onSubmit={handleSubmit}>
+					<h2 className="login__title">Login</h2>
 					<div className="mb-3">
 						<input
 							type="email"
@@ -110,7 +110,7 @@ const Login = () => {
 						</div>
 					)}
 
-					<p className="acount">
+					<p className="text-login">
 						Dont have an account yet? <Link to="/signup"> click here</Link>
 					</p>
 				</form>
