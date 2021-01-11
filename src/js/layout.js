@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, useLocation, withRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./views/login";
 import { Home } from "./views/home";
 import SignUp from "./views/signup";
@@ -10,6 +10,8 @@ import Footer from "./components/Footer.jsx";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
+	// const path = window.location.pathname
+	const location = window.location.pathname;
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
@@ -33,7 +35,7 @@ const Layout = () => {
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
-				{location.pathname !== "/login" && location.pathname !== "/signup" ? <Footer /> : null}
+				{location == "/login" || location == "/signup" ? null : <Footer />}
 			</BrowserRouter>
 		</div>
 	);
