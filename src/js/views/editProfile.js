@@ -4,7 +4,6 @@ import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
 import "../../styles/editProfile.scss";
 import { Context } from "../store/appContext";
-import Footer from "../components/Footer.jsx";
 
 const EditProfile = () => {
 	const { store, actions } = useContext(Context);
