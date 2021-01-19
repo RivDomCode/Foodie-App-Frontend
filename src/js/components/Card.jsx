@@ -28,6 +28,7 @@ const Card = ({ recipeTitle, username, imageUrl }) => {
 							Read all comments
 						</Link>
 					</p>
+					{/*
 					<div className="row d-flex last">
 						<Avatar
 							className="post_avatar"
@@ -46,7 +47,8 @@ const Card = ({ recipeTitle, username, imageUrl }) => {
 							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfsNnj_fxuHXEtqJ6MposaM67ua9_PWPhMFw&usqp=CAU"
 						/>
 						<input className="border border-lightgray" type="text" placeholder="Add your comment" />
-					</div>
+                    </div>
+                    */}
 				</div>
 			</div>
 		</div>

@@ -68,6 +68,14 @@ const RecipeDetail = () => {
 						<i className="fas fa-comment" />
 						<p className="titles">Comments</p>
 					</div>
+					<div className="comment row d-flex">
+						<Avatar
+							className="post_avatar"
+							alt="Pedro"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfsNnj_fxuHXEtqJ6MposaM67ua9_PWPhMFw&usqp=CAU"
+						/>
+						<input className="add-comment" type="text" placeholder="Add your comment" />
+					</div>
 					<div className="row d-flex last">
 						<Avatar
 							className="post_avatar"
