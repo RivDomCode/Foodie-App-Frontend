@@ -15,7 +15,7 @@ const Profile = () => {
 		email: store.user.email
 	});
 	return (
-		<div>
+		<div className="profile">
 			<Navbar />
 			<div className="allBody">
 				<div className="container">

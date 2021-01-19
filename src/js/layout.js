@@ -13,7 +13,8 @@ import injectContext from "./store/appContext";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
-
+	// const path = window.location.pathname
+	const location = window.location.pathname;
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
@@ -46,9 +47,9 @@ const Layout = () => {
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
+				{/*location == "/login" || location == "/signup" ? null : <Footer />*/}
 			</BrowserRouter>
 		</div>
 	);
 };
-
 export default injectContext(Layout);
