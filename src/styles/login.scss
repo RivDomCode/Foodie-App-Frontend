@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+
 *{box-sizing: border-box;}
 
-
-.login__header{
+.login-header{
     font-family: 'Rancho';
     font-size: 38px;
     font-style: normal;
@@ -16,25 +16,27 @@
     margin-top: 7%;
 }
 
-.login__container{
+.login-container{
     margin: auto;
     background-color: #3D9382;
     min-width: 100%;
     min-height: 25000px;
 }
 
-.login__form{
-height: 420px;
-width: 360px;
-left: 21px;
-top: 123px;
-border-radius: 6px;
-margin: auto;
-background: #FDFDFD;
+.login-form{
+    height: 420px;
+    width: 360px;
+    left: 21px;
+    top: 123px;
+    border-radius: 6px;
+    margin: auto;
+    background: #FDFDFD;
 }
+
 .text-login{
     text-align: center;
 }
+
 .btn-s{
     display: flex;
 }
@@ -49,38 +51,40 @@ background: #FDFDFD;
     margin-top: 2%;
     border:none;
 }
+
 .center-text{
     text-align: center;
     margin-top: 3%;
 }
- .btn-login{
-height: 48px;
-width: 248px;
-border-radius: 6px;
-background: #F53158;
-border-radius: 6px;
-margin: auto;
-margin-top: 2%;
-color:#FFFFFF;
+
+.btn-login{
+    height: 48px;
+    width: 248px;
+    border-radius: 6px;
+    background: #F53158;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 2%;
+    color:#FFFFFF;
 }
 
-
-.login__title{
-
-font-family: 'Rancho';
-font-size: 38px;
-font-style: normal;
-font-weight: 400;
-line-height: 28px;
-letter-spacing: 0.38967838883399963px;
-text-align: center;
-color: #F53158;
-margin-top: 10%;
-padding: 5%;
+.login-title{
+    font-family: 'Rancho';
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.38967838883399963px;
+    text-align: center;
+    color: #F53158;
+    margin-top: 10%;
+    padding: 5%;
 }
+
 #confirm-password{
     background-color: #DFE3E9;
 }
+
 .form-control{
     font-family: "Roboto";
     height: 32px;
@@ -94,8 +98,8 @@ padding: 5%;
     border-radius: 4px;
     margin: auto;
     margin-bottom: 5%;
-
 }
+
 .placeholder{
     font-family: Helvetica Neue;
     font-size: 14px;
@@ -107,6 +111,7 @@ padding: 5%;
     color:#9A9FA8;
     cursor: pointer;
 }
+
 .alert{
     width: 80%;
     margin: auto;
@@ -117,6 +122,7 @@ padding: 5%;
     color:  #F53158;
     padding: 0;
 }
+
 .alert p{
     margin: 0;
 }
