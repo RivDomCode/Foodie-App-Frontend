@@ -13,6 +13,20 @@ body{
     margin-bottom: 20px;
 }
 
+.inside-detail{
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+.detail-title{
+    width: 75%;
+}
+
+.like{
+    width: 15%;
+    color:#F53158;
+    margin-left: 70px;
+}
 
 .header-image{
     margin: auto;
@@ -21,7 +35,7 @@ body{
 
 .photo-post{
     max-width: 1000px;
-    margin: auto;
+    margin: ¡important auto;
     max-height: 500px;
     object-fit: contain;
 }
@@ -33,16 +47,10 @@ body{
     margin: auto;
 }
 
-.title-bold{
-    max-width: 80%;
-    margin: auto;
-}
 
 
-.heart{
-    max-width: 20%;
-    margin: auto;
-}
+
+
 
 .ingredients-title{
     color:#F53158;
