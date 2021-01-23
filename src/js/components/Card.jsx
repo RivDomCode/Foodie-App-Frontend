@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/card.scss";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
 const Card = ({ recipeTitle, username, imageUrl }) => {
+	const { store, actions } = useContext(Context);
 	return (
 		<div className="component-card">
 			<div className="card">
@@ -20,7 +22,13 @@ const Card = ({ recipeTitle, username, imageUrl }) => {
 					<div className="row author-heart d-flex">
 						<span>By {username}</span>{" "}
 						<span>
-							<i className="far fa-heart" />
+							<button type="button" className="" onClick={() => actions.addToFavorites(recipeTitle)}>
+								{store.favorites.includes(recipeTitle) ? (
+									<i className="far fa-heart" />
+								) : (
+									<i className="fas fa-heart" />
+								)}
+							</button>
 						</span>
 					</div>
 					<p className="comment">
