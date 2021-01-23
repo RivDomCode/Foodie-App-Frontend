@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import "../../styles/recipe-detail.scss";
 import Avatar from "@material-ui/core/Avatar";
+import PropTypes from "prop-types";
 
-const RecipeDetail = () => {
+const RecipeDetail = ({ imageUrl, recipeTitle }) => {
 	return (
 		<div className="container-fluid">
 			<Navbar />
@@ -92,6 +93,12 @@ const RecipeDetail = () => {
 			</div>
 		</div>
 	);
+};
+
+RecipeDetail.propTypes = {
+	imageUrl: PropTypes.string,
+	username: PropTypes.string,
+	recipeTitle: PropTypes.string
 };
 
 export default RecipeDetail;
