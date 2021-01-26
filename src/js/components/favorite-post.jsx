@@ -19,9 +19,9 @@ const FavoritePost = props => {
 						<h5 className="favorite-title">Tiramisú</h5>
 					</div>
 					<div className="back-to-edit-profile row">
-						<Link to={"/profile"}>
+						{/*<Link to={"/profile"}>
 							<i className="far fa-edit favorite-edit" />
-						</Link>
+                            </Link>*/}
 						<i className="fas fa-trash-alt favorite-delete" />
 					</div>
 				</div>
