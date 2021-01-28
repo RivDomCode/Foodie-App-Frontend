@@ -4,12 +4,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			user: {
 				username: "4Geeks Academy",
 				email: "appFoodie@SpeechGrammarList.com",
-				password: "12345678"
+				password: "12345678",
+				id: 2
 			},
+			recipes: [],
+			myRecipes: [],
 
 			favorites: []
 		},
 		actions: {
+			getRecipe: id => {
+				const store = getStore();
+				const idUser = id ? store.user.id : "";
+				fetch("https://3000-ed542743-ef07-4d5c-a241-d1227819290b.ws-eu03.gitpod.io/recipe/" + idUser)
+					.then(res => res.json())
+					.then(data => {
+						if (id) {
+							setStore({ myRecipes: data });
+						} else {
+							setStore({ recipes: data });
+						}
+					});
+			},
 			createUser: user => {
 				console.log(user);
 				const new_user = {
