@@ -10,6 +10,9 @@ const Card = ({ recipe }) => {
 	return (
 		<div className="component-card">
 			<div className="card">
+				<Link to={"/detail"}>
+					<img src={recipe.image} className="card-img-top" alt="..." />
+				</Link>
 				<div className="card-body">
 					<h5 className="card-title">{recipe.title}</h5>
 					<p className="card-text">
