@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 const SignUp = () => {
+	const { store, actions } = useContext(Context);
 	//****var****//
 	const [error, setError] = useState({
 		msg: "",
@@ -69,7 +71,7 @@ const SignUp = () => {
 		event.preventDefault();
 		validateInputs(user);
 		console.log(user);
-		//actions.addUser(user);
+		actions.registerUser(user);
 	};
 	//****HTML****//
 	return (
