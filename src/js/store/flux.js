@@ -12,10 +12,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			createUser: user => {},
 
-			addToFavorites: str => {
+			addToFavorites: recipe => {
 				const state = getStore();
-				if (!state.favorites.includes(str)) {
-					setStore({ favorites: [...state.favorites, str] });
+				if (state.favorites.length > 0) {
+					const existRecipe = state.favorites.filter(
+						recipeFavorites => recipeFavorites.title == recipe.title
+					);
+					if (existRecipe.length == 0) {
+						setStore({ favorites: [...state.favorites, recipe] });
+					}
+				} else {
+					setStore({ favorites: [...state.favorites, recipe] });
 				}
 			},
 

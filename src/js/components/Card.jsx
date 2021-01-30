@@ -5,13 +5,34 @@ import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-const Card = ({ recipeTitle, username, imageUrl }) => {
+const Card = ({ recipeTitle, username, recipeImg }) => {
 	const { store, actions } = useContext(Context);
+	const recipe = {
+		title: recipeTitle,
+		recipeImg: recipeImg
+	};
+	const heart = () => {
+		if (store.favorites.length == 0) {
+			return <i className="fas fa-heart like" />;
+		} else {
+			let isFound = false;
+			store.favorites.map(recipe => {
+				if (recipe.title == recipeTitle) {
+					isFound = true;
+				}
+			});
+			if (isFound) {
+				return <i className="fas fa-heart like" />;
+			} else {
+				return <i className="fas fa-heart like" />;
+			}
+		}
+	};
 	return (
 		<div className="component-card">
 			<div className="card">
 				<Link to={"/detail"}>
-					<img src={imageUrl} className="card-img-top" alt="..." />
+					<img src={recipeImg} className="card-img-top" alt="..." />
 				</Link>
 				<div className="card-body">
 					<h5 className="card-title">{recipeTitle}</h5>
@@ -22,12 +43,8 @@ const Card = ({ recipeTitle, username, imageUrl }) => {
 					<div className="row author-heart d-flex">
 						<span>By {username}</span>{" "}
 						<span>
-							<div className="like" onClick={() => actions.addToFavorites(recipeTitle)}>
-								{store.favorites.includes(recipeTitle) ? (
-									<i className="fas fa-heart" />
-								) : (
-									<i className="far fa-heart" />
-								)}
+							<div className="like" onClick={() => actions.addToFavorites(recipe)}>
+								{heart()}
 							</div>
 						</span>
 					</div>
@@ -43,7 +60,7 @@ const Card = ({ recipeTitle, username, imageUrl }) => {
 };
 
 Card.propTypes = {
-	imageUrl: PropTypes.string,
+	recipeImg: PropTypes.string,
 	username: PropTypes.string,
 	recipeTitle: PropTypes.string
 };

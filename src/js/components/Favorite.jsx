@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "../../styles/tabs.scss";
 import { Context } from "../store/appContext";
 
-const Favorite = () => {
+const Favorite = props => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="favorite-tab">
@@ -11,15 +11,26 @@ const Favorite = () => {
 			) : (
 				store.favorites.map((favorite, key) => {
 					return (
-						<p key={key}>
-							{favorite}
-							<i
-								className="fas fa-times"
-								onClick={() => {
-									actions.deleteFavorites(favorite.id);
-								}}
-							/>
-						</p>
+						<div className="favorite-post" key={key}>
+							<div className="row no-gutters">
+								<div className="col-md-6 favorite-post-image">
+									<img src={favorite.recipeImg} className="favorite-post-img" alt="..." />
+								</div>
+								<div className="col-md-6 right-side">
+									<div className="card-body">
+										<h5 className="favorite-title">{favorite.title}</h5>
+									</div>
+									<div className="back-to-edit-profile row">
+										<i
+											className="fas fa-heart like-favorite-post"
+											onClick={() => {
+												actions.deleteFavorites(key);
+											}}
+										/>
+									</div>
+								</div>
+							</div>
+						</div>
 					);
 				})
 			)}
