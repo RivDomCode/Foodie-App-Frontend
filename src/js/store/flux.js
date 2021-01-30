@@ -10,7 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: []
 		},
 		actions: {
-			registerUser: user => {
+			registerUser: (user, props) => {
 				console.log(user);
 				const new_user = {
 					user_name: user.username,
@@ -25,7 +25,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => res.json())
-					.then(data => console.log(data))
+					.then(data => {
+						localStorage.setItem("token", "data.access_token");
+						props.history.push("/");
+					})
 					.catch(error => console.log(error));
 			},
 

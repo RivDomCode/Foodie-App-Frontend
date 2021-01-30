@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import PropsType from "prop-types";
 
-const SignUp = () => {
+const SignUp = props => {
+	console.log(props);
 	const { store, actions } = useContext(Context);
 	//****var****//
 	const [error, setError] = useState({
@@ -71,7 +73,7 @@ const SignUp = () => {
 		event.preventDefault();
 		validateInputs(user);
 		console.log(user);
-		actions.registerUser(user);
+		actions.registerUser(user, props);
 	};
 	//****HTML****//
 	return (
@@ -152,5 +154,9 @@ const SignUp = () => {
 			</div>
 		</div>
 	);
+};
+
+SignUp.propsType = {
+	history: PropsType.object
 };
 export default SignUp;

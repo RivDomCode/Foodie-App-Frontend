@@ -20,14 +20,14 @@ const Login = () => {
 	// This should be in the Data Base. Just to check Login Funcionality
 
 	const adminUser = {
-		email: "admin@email.com",
-		password: "12345678"
+		email: "pepe@gmail.com",
+		password: "11111111"
 	};
 
 	//Check email, password and fields
 
 	const validateInputs = user => {
-		if (user.email == "admin@email.com" && user.password == "12345678") {
+		if (user.email == "pepe@gmail.com" && user.password == "11111111") {
 			setError({
 				msg: "",
 				status: false
