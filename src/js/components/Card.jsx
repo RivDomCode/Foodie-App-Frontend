@@ -13,7 +13,7 @@ const Card = ({ recipeTitle, username, recipeImg }) => {
 	};
 	const heart = () => {
 		if (store.favorites.length == 0) {
-			return <i className="fas fa-heart like" />;
+			return <i className="far fa-heart like" />;
 		} else {
 			let isFound = false;
 			store.favorites.map(recipe => {
@@ -24,7 +24,7 @@ const Card = ({ recipeTitle, username, recipeImg }) => {
 			if (isFound) {
 				return <i className="fas fa-heart like" />;
 			} else {
-				return <i className="fas fa-heart like" />;
+				return <i className="far fa-heart like" />;
 			}
 		}
 	};

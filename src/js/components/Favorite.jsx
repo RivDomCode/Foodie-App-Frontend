@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "../../styles/tabs.scss";
 import { Context } from "../store/appContext";
+import "../../styles/favorite-post.scss";
 
 const Favorite = props => {
 	const { store, actions } = useContext(Context);

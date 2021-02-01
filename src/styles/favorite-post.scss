@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .favorite-post {
-    max-height: 200px;
+    max-height: 150px;
     max-width: 350px;
     margin: auto;
     display: flex;
@@ -10,7 +10,6 @@
     margin-top: 20px;
     font-family: roboto;
     box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
-
 }
 
 .favorite-post-img{
@@ -28,19 +27,12 @@
 }
 
 
-
-
 .like-favorite-post{
     color: #F53158;
-}
-.like-favorite-post{
-    margin-left: 98%;
-    margin-top: 3px;
+    margin-left: 75%;
 }
 
-.back-to-edit-profile{
-    margin-top: 25%;
-}
+
 
 
 
