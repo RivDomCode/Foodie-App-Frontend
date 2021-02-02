@@ -19,26 +19,13 @@ const Layout = () => {
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
+					<Route exact path="/" component={Home} />
 					<Route exact path="/login" component={Login} />
 					<Route exact path="/signup" component={SignUp} />
-					<Route exact path="/card">
-						<Card />
-					</Route>
-					<Route exact path="/comments">
-						<Comments />
-					</Route>
-					{/*	<Route exact path="/detail">
-						<RecipeDetail />
-					</Route>*/}
-					<Route exact path="/profile">
-						<Profile />
-					</Route>
-					<Route exact path="/editProfile">
-						<EditProfile />
-					</Route>
+					<Route exact path="/card" component={Card} />
+					<Route exact path="/comments" component={Comments} />
+					<Route exact path="/profile" component={Profile} />
+					<Route exact path="/editProfile" component={EditProfile} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>
