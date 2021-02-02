@@ -10,14 +10,14 @@ import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
 
 import injectContext from "./store/appContext";
-
+import Navbar from "./components/Navbar.jsx";
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
-	// const path = window.location.pathname
 	const location = window.location.pathname;
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
+				{location == "/login" || location == "/signup" ? null : <Navbar />}
 				<Switch>
 					<Route exact path="/">
 						<Home />
