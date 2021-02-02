@@ -5,7 +5,7 @@ import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import Card from "./components/Card.jsx";
 import Comments from "./views/comments";
-import RecipeDetail from "./views/recipe detail";
+//import recipe Detail from "./views/recipe detail";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
 
@@ -22,9 +22,7 @@ const Layout = () => {
 					<Route exact path="/">
 						<Home />
 					</Route>
-					<Route exact path="/Login">
-						<Login />
-					</Route>
+					<Route exact path="/login" component={Login} />
 					<Route exact path="/signup" component={SignUp} />
 					<Route exact path="/card">
 						<Card />
@@ -32,9 +30,9 @@ const Layout = () => {
 					<Route exact path="/comments">
 						<Comments />
 					</Route>
-					<Route exact path="/detail">
+					{/*	<Route exact path="/detail">
 						<RecipeDetail />
-					</Route>
+					</Route>*/}
 					<Route exact path="/profile">
 						<Profile />
 					</Route>
