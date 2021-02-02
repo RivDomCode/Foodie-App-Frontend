@@ -16,7 +16,6 @@ const Profile = () => {
 	});
 	return (
 		<div className="profile">
-			<Navbar />
 			<div className="allBody">
 				<div className="container">
 					<User />
