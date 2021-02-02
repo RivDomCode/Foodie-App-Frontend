@@ -5,7 +5,7 @@ import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import Card from "./components/Card.jsx";
 import Comments from "./views/comments";
-import RecipeDetail from "./views/recipe detail";
+import RecipeDetail from "./views/recipeDetail";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
 

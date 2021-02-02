@@ -4,6 +4,9 @@ import Navbar from "../components/Navbar.jsx";
 import "../../styles/recipe-detail.scss";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
+import DetailComments from "../components/Detail-Comments.jsx";
+import "../../styles/detail-comment.scss";
+import "../../styles/comment.scss";
 
 const RecipeDetail = ({ imageUrl, recipeTitle }) => {
 	return (
@@ -69,24 +72,8 @@ const RecipeDetail = ({ imageUrl, recipeTitle }) => {
 							<i className="fas fa-comment" />
 							<p className="titles">Comments</p>
 						</div>
-						<div className="comment row d-flex">
-							<Avatar
-								className="post_avatar"
-								alt="Pedro"
-								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfsNnj_fxuHXEtqJ6MposaM67ua9_PWPhMFw&usqp=CAU"
-							/>
-							<input className="add-comment" type="text" placeholder="Add your comment" />
-						</div>
-						<div className="row d-flex last">
-							<Avatar
-								className="post_avatar"
-								alt="Pedro Rivas"
-								src="https://www.tom-archer.com/wp-content/uploads/2018/06/milford-sound-night-fine-art-photography-new-zealand.jpg"
-							/>
-							<div className="last-comment">
-								<strong>Manolito </strong>
-								Esto es un comentario sobre la receta de arriba, la cual es estupenda
-							</div>
+						<div className="comment-component row d-flex">
+							<DetailComments />
 						</div>
 					</div>
 				</div>

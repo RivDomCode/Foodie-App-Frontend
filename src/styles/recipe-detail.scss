@@ -70,9 +70,6 @@ body{
     margin-bottom: 10px;
 }
 
-.post_avatar{    margin-left: 20px;
-}
-
 .ingredient-list {
         margin-left: 20px;
 
@@ -82,27 +79,29 @@ body{
     margin-top: 4px;
 }
 
-.last-comment{
-    font-size: 14px;
-}
-
 .elaboration-text{
     padding: 20px;
 }
 
-.add-comment{
+
+
+
+
+.comment-detail {
     display: flex;
-    align-items: center;
-    border-radius: 5px;
-    height: 40px;
-    color: gray;
-    background-color: #eef3f8;
-    border: 0.2px solid lightgray;
-    background: none;
-    outline: none;
-    width: 60%;
+    flex-direction: row;
+    font-family: Roboto;
+    font-size: 14px;
+    width: 100%
 }
 
-.comment{
-    margin-bottom: 20px;
+.add-comment-input{
+    width: 50% !important;
 }
+
+.detailcomment{
+    width:100%;
+}
+
+
+
