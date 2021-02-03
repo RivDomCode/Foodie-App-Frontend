@@ -33,7 +33,7 @@ const Login = props => {
 				status: true
 			});
 		} else {
-			actions.login(user);
+			actions.login(user, props);
 		}
 		/*else {
 			setError({
@@ -53,9 +53,11 @@ const Login = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
+		console.log(props);
 		actions.login(user, props);
 	};
 	console.log(user);
+
 	return (
 		<div className="login-container">
 			<h1 className="login-header">The Foodie Club</h1>

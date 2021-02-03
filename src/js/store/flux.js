@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			//**************LOGIN */
 			login: (user, props) => {
+				console.log(props);
 				fetch(url + "user/login", {
 					method: "POST",
 					body: JSON.stringify(user),
@@ -18,8 +19,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => {
 						console.log(data);
+						console.log(props);
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
+						//window.location.replace("/");
 					})
 					.catch(error => console.log(error));
 			},
@@ -41,6 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => {
 						console.log(data);
+						console.log(props);
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
 					})
