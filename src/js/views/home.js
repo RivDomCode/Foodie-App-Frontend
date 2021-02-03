@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 
 export const Home = props => (
 	<div className="Home">
-		<Navbar />
 		<div className="col-sm-12 col-3">
 			<div className="row first-line d-flex justify-content-sm-center justif">
 				<Card

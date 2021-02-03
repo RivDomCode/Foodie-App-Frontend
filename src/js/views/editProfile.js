@@ -28,7 +28,6 @@ const EditProfile = () => {
 	};
 	return (
 		<>
-			<Navbar />
 			<div className="allBody">
 				<div className="container">
 					<h5 className="title">Edit Profile</h5>
