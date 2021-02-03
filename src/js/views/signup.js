@@ -28,9 +28,7 @@ const SignUp = props => {
 					msg: "",
 					status: false
 				});
-				console.log("llamar a la funcion crear usuario");
 				setSpinner(true);
-				//actions.createUser(user)
 			} else {
 				setError({
 					msg: "The password must be 8 characters",
@@ -54,7 +52,6 @@ const SignUp = props => {
 			user.cpassword.trim() != ""
 		) {
 			validatePassword(user);
-			console.log("llamar a la funcion validar password");
 		} else {
 			setError({
 				msg: "All fields are required",
@@ -67,12 +64,10 @@ const SignUp = props => {
 	///****functions to capture the event *****/
 	const handleChange = event => {
 		setUser({ ...user, [event.target.name]: event.target.value });
-		//console.log(user);
 	};
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-		console.log(user);
 		actions.registerUser(user, props);
 	};
 	//****HTML****//

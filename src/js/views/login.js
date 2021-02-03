@@ -53,10 +53,8 @@ const Login = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-		console.log(props);
 		actions.login(user, props);
 	};
-	console.log(user);
 
 	return (
 		<div className="login-container">
