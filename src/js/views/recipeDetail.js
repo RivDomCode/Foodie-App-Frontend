@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import "../../styles/recipe-detail.scss";
@@ -9,6 +9,23 @@ import "../../styles/detail-comment.scss";
 import "../../styles/comment.scss";
 
 const RecipeDetail = ({ imageUrl, recipeTitle }) => {
+	/*  	useEffect(() => {
+		fetch("", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify([])
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log("Success:", data);
+			})
+			.catch(error => {
+				console.error("Error:", error);
+			});
+	}, []);*/
+
 	return (
 		<div className="container-fluid">
 			<Navbar />
