@@ -27,7 +27,7 @@ const EditProfile = () => {
 		//actions.editProfile(user.username);
 	};
 	return (
-		<>
+		<div className="editProfile">
 			<Navbar />
 			<div className="allBody">
 				<div className="container">
@@ -59,7 +59,7 @@ const EditProfile = () => {
 					</form>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
