@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import PropsType from "prop-types";
 
-const SignUp = () => {
+const SignUp = props => {
+	console.log(props);
+	const { store, actions } = useContext(Context);
 	//****var****//
 	const [error, setError] = useState({
 		msg: "",
@@ -24,9 +28,7 @@ const SignUp = () => {
 					msg: "",
 					status: false
 				});
-				console.log("llamar a la funcion crear usuario");
 				setSpinner(true);
-				//actions.createUser(user)
 			} else {
 				setError({
 					msg: "The password must be 8 characters",
@@ -50,7 +52,6 @@ const SignUp = () => {
 			user.cpassword.trim() != ""
 		) {
 			validatePassword(user);
-			console.log("llamar a la funcion validar password");
 		} else {
 			setError({
 				msg: "All fields are required",
@@ -63,13 +64,11 @@ const SignUp = () => {
 	///****functions to capture the event *****/
 	const handleChange = event => {
 		setUser({ ...user, [event.target.name]: event.target.value });
-		//console.log(user);
 	};
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-		console.log(user);
-		//actions.addUser(user);
+		actions.registerUser(user, props);
 	};
 	//****HTML****//
 	return (
@@ -150,5 +149,9 @@ const SignUp = () => {
 			</div>
 		</div>
 	);
+};
+
+SignUp.propsType = {
+	history: PropsType.object
 };
 export default SignUp;

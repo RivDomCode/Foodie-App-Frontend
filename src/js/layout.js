@@ -5,7 +5,7 @@ import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import Card from "./components/Card.jsx";
 import Comments from "./views/comments";
-import RecipeDetail from "./views/recipe detail";
+//import recipe Detail from "./views/recipe detail";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
 
@@ -19,35 +19,17 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				{location == "/login" || location == "/signup" ? null : <Navbar />}
 				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/Login">
-						<Login />
-					</Route>
-					<Route exact path="/signup">
-						<SignUp />
-					</Route>
-					<Route exact path="/card">
-						<Card />
-					</Route>
-					<Route exact path="/comments">
-						<Comments />
-					</Route>
-					<Route exact path="/detail">
-						<RecipeDetail />
-					</Route>
-					<Route exact path="/profile">
-						<Profile />
-					</Route>
-					<Route exact path="/editProfile">
-						<EditProfile />
-					</Route>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/signup" component={SignUp} />
+					<Route exact path="/card" component={Card} />
+					<Route exact path="/comments" component={Comments} />
+					<Route exact path="/profile" component={Profile} />
+					<Route exact path="/editProfile" component={EditProfile} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
-				{/*location == "/login" || location == "/signup" ? null : <Footer />*/}
 			</BrowserRouter>
 		</div>
 	);

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/login.scss";
 import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
+import PropsType from "prop-types";
 
-const Login = () => {
+const Login = props => {
 	//VAR
-
+	const { store, actions } = useContext(Context);
 	const [user, setUser] = useState({
 		email: "",
 		password: ""
@@ -19,34 +21,27 @@ const Login = () => {
 
 	// This should be in the Data Base. Just to check Login Funcionality
 
-	const adminUser = {
-		email: "admin@email.com",
-		password: "12345678"
-	};
-
 	//Check email, password and fields
 
 	const validateInputs = user => {
-		if (user.email == "admin@email.com" && user.password == "12345678") {
-			setError({
-				msg: "",
-				status: false
-			});
-			setSpinner(true);
-			//aqui el se llamaría a la función que compruebe si los email está en base de datos, y en caso de existir que esté asociado al password dado
-			console.log("Todo Bien");
-		} else if (user.email.trim() == "" || user.password.trim() == "") {
+		setSpinner(true);
+		//aqui el se llamaría a la función que compruebe si los email está en base de datos, y en caso de existir que esté asociado al password dado
+		console.log("Todo Bien");
+		if (user.email.trim() == "" || user.password.trim() == "") {
 			setError({
 				msg: "All fields are required",
 				status: true
 			});
 		} else {
+			actions.login(user, props);
+		}
+		/*else {
 			setError({
 				msg: "Email or password incorrect",
 				status: true
 			});
 			console.log("alguno vacio");
-		}
+		}*/
 	};
 
 	//EVENTS
@@ -58,9 +53,9 @@ const Login = () => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-		//Actions.checkMailPassword
+		actions.login(user, props);
 	};
-	console.log(user);
+
 	return (
 		<div className="login-container">
 			<h1 className="login-header">The Foodie Club</h1>
@@ -118,5 +113,7 @@ const Login = () => {
 		</div>
 	);
 };
-
+Login.propsType = {
+	history: PropsType.object
+};
 export default Login;
