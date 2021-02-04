@@ -5,12 +5,12 @@ import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-const Card = ({ recipeTitle, username, recipeImg }) => {
+const Card = ({ recipe }) => {
 	const { store, actions } = useContext(Context);
-	const recipe = {
+	/*const recipe = {
 		title: recipeTitle,
 		recipeImg: recipeImg
-	};
+	};*/
 	const heart = () => {
 		if (store.favorites.length == 0) {
 			return <i className="far fa-heart like" />;
@@ -32,16 +32,16 @@ const Card = ({ recipeTitle, username, recipeImg }) => {
 		<div className="component-card">
 			<div className="card">
 				<Link to={"/detail"}>
-					<img src={recipeImg} className="card-img-top" alt="..." />
+					<img src={recipe.image} className="card-img-top" alt="..." />
 				</Link>
 				<div className="card-body">
-					<h5 className="card-title">{recipeTitle}</h5>
+					<h5 className="card-title">{recipe.title}</h5>
 					<p className="card-text">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe corrupti hic ad delectus,
 						blanditiis ratione, tempora tenetur veritatis eum accusamus ullam itaque facilis dolore, rem
 					</p>
 					<div className="row author-heart d-flex">
-						<span>By {username}</span>{" "}
+						<span>By {recipe.user_name}</span>{" "}
 						<span>
 							<div className="like" onClick={() => actions.addToFavorites(recipe)}>
 								{heart()}
@@ -60,9 +60,10 @@ const Card = ({ recipeTitle, username, recipeImg }) => {
 };
 
 Card.propTypes = {
-	recipeImg: PropTypes.string,
+	/*	recipeImg: PropTypes.string,
 	username: PropTypes.string,
-	recipeTitle: PropTypes.string
+    recipeTitle: PropTypes.string*/
+	recipe: PropTypes.object
 };
 
 export default Card;

@@ -3,11 +3,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			user: [],
-			favorites: []
+			favorites: [],
+			recipes: [],
+			myRecipes: [],
+			pathName: "/login"
 		},
 		actions: {
+			setPathName: path => {
+				setStore({ pathName: path });
+			},
 			//**************LOGIN */
 			login: (user, props) => {
+				console.log(props, "en el fetch");
 				fetch(url + "user/login", {
 					method: "POST",
 					body: JSON.stringify(user),
@@ -19,6 +26,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
+						setStore({ pathName: "/" });
 						//window.location.replace("/");
 					})
 					.catch(error => console.log(error));
@@ -65,6 +73,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let favlist = [...state.favorites];
 				favlist.splice(id, 1);
 				setStore({ favorites: favlist });
+			},
+
+			//// RECIPE
+			getRecipe: id => {
+				const token = localStorage.getItem(token);
+				const store = getStore();
+				const idUser = id ? store.user.id : "";
+				fetch(url + "recipes", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Autorization: "Bearer " + token
+					}
+				})
+					.then(res => res.json())
+					.then(data => {
+						if (id) {
+							setStore({ myRecipes: data });
+						} else {
+							setStore({ recipes: data });
+						}
+					});
 			}
 		}
 	};

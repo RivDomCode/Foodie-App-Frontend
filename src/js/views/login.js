@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "../../styles/login.scss";
-import PropTypes from "prop-types";
-import { Context } from "../store/appContext";
 import PropsType from "prop-types";
+import { Context } from "../store/appContext";
 
 const Login = props => {
 	//VAR
@@ -52,8 +51,13 @@ const Login = props => {
 
 	const handleSubmit = event => {
 		event.preventDefault();
+
 		validateInputs(user);
+		console.log(props);
 		actions.login(user, props);
+	};
+	const changePathName = () => {
+		actions.setPathName("/signup");
 	};
 
 	return (
@@ -106,7 +110,11 @@ const Login = props => {
 					)}
 
 					<p className="text-login">
-						Dont have an account yet? <Link to="/signup"> click here</Link>
+						Dont have an account yet?{" "}
+						<Link onClick={changePathName} to="/signup">
+							{" "}
+							click here
+						</Link>
 					</p>
 				</form>
 			</div>
