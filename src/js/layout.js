@@ -17,13 +17,7 @@ const Layout = props => {
 	const { store, actions } = useContext(Context);
 	const basename = process.env.BASENAME || "";
 	const [location, setlocation] = useState(window.location.pathname);
-	useEffect(
-		() => {
-			console.log(props);
-			setlocation(window.location.pathname);
-		},
-		[store.pathName]
-	);
+	useEffect(() => {}, [store.pathName]);
 	console.log(store.pathName);
 	return (
 		<div className="d-flex flex-column">
