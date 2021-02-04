@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Comment from "./Comment.jsx";
 import "../../styles/detail-comment.scss";
@@ -17,7 +17,49 @@ const DetailComments = () => {
 			setComments([...comments, { label: inputComment, done: false }]);
 		}
 		setInputComment("");
-	};
+    };
+    
+//Obtener todos los comentarios
+
+	/*useEffect(() => {
+		fetch("url")
+			.then(resp => {
+				console.log(resp.ok);
+				console.log(resp.status);
+				console.log(resp);
+				return resp.json();
+			})
+			.then(data => {
+				console.log(data);
+			})
+			.catch(error => {
+				//error handling
+				console.log(error);
+			});
+	}, []);*/
+
+	//3.Añadir y borrar comentarios
+
+	/*useEffect(
+		() => {
+			fetch("URL", {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify(todos)
+			})
+				.then(response => response.json())
+				.then(data => {
+					console.log("updated", data);
+				})
+				.catch(error => {
+					console.error("Error:", error);
+				});
+		},
+		[comments]
+	);*/
+
 	return (
 		<div className="detailcomments">
 			<form>
