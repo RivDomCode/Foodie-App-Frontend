@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import PropTypes from "prop-types";
 import IngredientList from "./IngredientList.jsx";
 
@@ -18,15 +19,19 @@ const AddIngredients = () => {
 	};
 
 	return (
-		<div className="App">
-			<div className="App-body">
-				<div className="Input-body">
-					<input placeholder="Write your task..." value={currentItem} onChange={onChangeHandelr} />
-					<button className="buttonAddItem" onClick={addItemToList}>
-						<i className="fas fa-plus" />
-					</button>
-				</div>
+		<div className="addingredientGroup">
+			<div>
+				<input
+					placeholder="Add your ingredient here"
+					value={currentItem}
+					onChange={onChangeHandelr}
+					className="inputIngredients"
+				/>
+				<button className="buttonAddIngredients" onClick={addItemToList}>
+					<i className="fas fa-plus " />
+				</button>
 			</div>
+
 			<div>
 				<IngredientList itemList={itemList} updateItemList={updateItemList} />
 			</div>

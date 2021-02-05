@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
 
 import "../../styles/newRecipeForm.scss";
 import Navbar from "../components/Navbar.jsx";
@@ -8,6 +9,7 @@ const NewRecipeForm = () => {
 	const [recipe, setRecipe] = useState({
 		recipeTitle: "",
 		elaboration: "",
+		category: [""],
 		ingredients: ""
 	});
 	const [spinner, setSpinner] = useState(false);
@@ -43,6 +45,35 @@ const NewRecipeForm = () => {
 						placeholder="Your recipe title"
 					/>
 				</div>
+				<div>
+					<h4 className="h4title">Choose one or more categories for your recipe</h4>
+					<div className="categoryChecks">
+						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
+							<Form.Check type="checkbox" label="Meat" />
+						</Form.Group>
+
+						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
+							<Form.Check type="checkbox" label="Vegan" />
+						</Form.Group>
+
+						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
+							<Form.Check type="checkbox" label="Fish" />
+						</Form.Group>
+
+						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
+							<Form.Check type="checkbox" label="Seafood" />
+						</Form.Group>
+
+						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
+							<Form.Check type="checkbox" label="Pasta" />
+						</Form.Group>
+
+						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
+							<Form.Check type="checkbox" label="Desserts" />
+						</Form.Group>
+					</div>
+				</div>
+
 				<AddIngredients />
 				<div className="mb-3">
 					<textarea

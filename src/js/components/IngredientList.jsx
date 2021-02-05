@@ -14,7 +14,7 @@ function IngredientList(props) {
 			{props.itemList.map((itemObj, index) => {
 				//itemObj va a contener todos los items uno por uno
 				return (
-					<div key={index} className="Item">
+					<div key={index} className="input-group">
 						<p>{itemObj.label}</p>
 						<button className="buttonDeleteTask" onClick={() => deleteItem(itemObj.label)}>
 							<i className="fas fa-minus" />
