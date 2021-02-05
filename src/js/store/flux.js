@@ -104,11 +104,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const token = localStorage.getItem("token");
 				console.log(token, "EL TOKEN");
 				const store = getStore();
-				fetch("https://3000-violet-partridge-wcfoof6g.ws-eu03.gitpod.io/" + "user/recipes", {
+				fetch(url + "user/recipes", {
 					method: "GET",
-					headers: {
-						Autorization: "Bearer " + token
-					}
+					headers: { Authorization: " Bearer " + token }
 				})
 					.then(res => res.json())
 					.then(data => {
