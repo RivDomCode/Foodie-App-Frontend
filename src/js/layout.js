@@ -11,6 +11,7 @@ import EditProfile from "./views/editProfile";
 
 import injectContext from "./store/appContext";
 import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
 import PropsType from "prop-types";
 import { Context } from "./store/appContext";
 const Layout = props => {
@@ -35,7 +36,7 @@ const Layout = props => {
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
-				{/*location == "/login" || location == "/signup" ? null : <Footer />*/}
+				{store.pathName == "/login" || store.pathName == "/signup" ? "" : <Footer />}
 			</BrowserRouter>
 		</div>
 	);

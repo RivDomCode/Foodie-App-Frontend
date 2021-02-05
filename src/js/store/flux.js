@@ -1,4 +1,4 @@
-const url = "https://3000-f8123161-8b0b-4735-b78b-80b422797da5.ws-eu03.gitpod.io/";
+const url = "https://3000-jade-bobolink-7zloswnb.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {

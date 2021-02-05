@@ -7,17 +7,17 @@ import { Context } from "../store/appContext";
 
 const Card = ({ recipe }) => {
 	const { store, actions } = useContext(Context);
-	/*const recipe = {
-		title: recipeTitle,
-		recipeImg: recipeImg
-	};*/
+	const recipeFavorite = {
+		title: recipe.title,
+		recipeImg: recipe.image
+	};
 	const heart = () => {
 		if (store.favorites.length == 0) {
 			return <i className="far fa-heart like" />;
 		} else {
 			let isFound = false;
-			store.favorites.map(recipe => {
-				if (recipe.title == recipeTitle) {
+			store.favorites.map(recipeFavorite => {
+				if (recipeFavorite.title == recipe.title) {
 					isFound = true;
 				}
 			});
