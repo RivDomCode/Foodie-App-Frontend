@@ -11,6 +11,7 @@ import EditProfile from "./views/editProfile";
 
 import injectContext from "./store/appContext";
 import Navbar from "./components/Navbar.jsx";
+import RecipeForm from "./views/recipeForm";
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
 	const location = window.location.pathname;
@@ -26,6 +27,7 @@ const Layout = () => {
 					<Route exact path="/comments" component={Comments} />
 					<Route exact path="/profile" component={Profile} />
 					<Route exact path="/editProfile" component={EditProfile} />
+					<Route exat path="/recipeForm" component={RecipeForm} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>
