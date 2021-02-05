@@ -6,7 +6,7 @@ import Card from "../components/Card.jsx";
 const Recipes = () => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
-		actions.getRecipe(true);
+		actions.getRecipeByUser();
 	}, []);
 	return (
 		<div className="recipes-tab">

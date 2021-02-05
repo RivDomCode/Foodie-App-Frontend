@@ -58,7 +58,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
-
+			/////**************ADD FAVORITE
 			addToFavorites: recipe => {
 				const state = getStore();
 				if (state.favorites.length > 0) {
@@ -72,7 +72,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ favorites: [...state.favorites, recipe] });
 				}
 			},
-
+			/////****************DELETE FAVORITE */
 			deleteFavorites: id => {
 				const state = getStore();
 				let favlist = [...state.favorites];
@@ -80,9 +80,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ favorites: favlist });
 			},
 
-			//// RECIPE
+			////********* RECIPE HOME */
 			getRecipe: page => {
-				const token = localStorage.getItem(token);
+				const token = localStorage.getItem("token");
 				const store = getStore();
 				const actions = getActions();
 				fetch(url + "recipes/page/" + page, {
@@ -94,8 +94,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
+						console.log("estoy en home", data);
 						setStore({ recipes: [...store.recipes, ...data] });
 						actions.nextPage();
+					});
+			},
+			///////*** RECIPE BY USER */
+			getRecipeByUser: () => {
+				const token = localStorage.getItem("token");
+				console.log(token, "EL TOKEN");
+				const store = getStore();
+				fetch("https://3000-violet-partridge-wcfoof6g.ws-eu03.gitpod.io/" + "user/recipes", {
+					method: "GET",
+					headers: {
+						Autorization: "Bearer " + token
+					}
+				})
+					.then(res => res.json())
+					.then(data => {
+						setStore({ myRecipes: [...store.myRecipes, ...data] });
 					});
 			}
 		}
