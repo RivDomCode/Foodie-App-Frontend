@@ -6,7 +6,8 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 export const Home = () => {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
+
 	return (
 		<div className="Home">
 			<div className="col-sm-12 col-3">
@@ -19,6 +20,11 @@ export const Home = () => {
 						})
 					)}
 				</div>
+			</div>
+			<div className="see-more">
+				<button className="btn-see-more btn" onClick={() => actions.getRecipe(store.page)}>
+					See more...
+				</button>
 			</div>
 		</div>
 	);

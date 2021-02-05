@@ -6,11 +6,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			recipes: [],
 			myRecipes: [],
-			pathName: "/login"
+			pathName: "/login",
+			page: 1
 		},
 		actions: {
 			setPathName: path => {
 				setStore({ pathName: path });
+			},
+			nextPage: () => {
+				let page = getStore().page;
+				setStore({ page: page + 1 });
 			},
 			//**************LOGIN */
 			login: (user, props) => {
@@ -76,11 +81,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//// RECIPE
-			getRecipe: id => {
+			getRecipe: page => {
 				const token = localStorage.getItem(token);
 				const store = getStore();
-				const idUser = id ? store.user.id : "";
-				fetch(url + "recipes", {
+				const actions = getActions();
+				fetch(url + "recipes/page/" + page, {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -89,11 +94,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						if (id) {
-							setStore({ myRecipes: data });
-						} else {
-							setStore({ recipes: data });
-						}
+						setStore({ recipes: [...store.recipes, ...data] });
+						actions.nextPage();
 					});
 			}
 		}
