@@ -3,19 +3,19 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import IngredientList from "./IngredientList.jsx";
 
-const AddIngredients = () => {
-	const [currentItem, setCurrentItem] = useState(null);
+const AddIngredients = ({ recipe, setRecipe }) => {
 	const [itemList, updateItemList] = useState([]);
-	const onChangeHandelr = e => {
-		//console.log("check current value", e.target.value);
-		setCurrentItem(e.target.value); //guarda el nuevo Item introducido por el usuario
-	};
-	const addItemToList = () => {
-		//key es para añadirle un identificador único a cada item y así poder borrarlos de manera individual.
-		updateItemList([...itemList, { label: currentItem, done: false }]); //va a ir añadiendo los nuevos items empujando en la lista los que ya existan. Nos saca la lista actualizada.
 
-		//console.log("lista items", itemList);
-		setCurrentItem(""); //hace que se vacíe el input después de añadir un item.
+	const addItemToList = () => {
+		const newIngredient = [...recipe.ingredients];
+		console.log(newIngredient);
+		newIngredient.push(recipe.singleIngredient);
+		console.log(newIngredient);
+		setRecipe({
+			...recipe,
+			ingredients: newIngredient,
+			singleIngredient: ""
+		});
 	};
 
 	return (
@@ -23,9 +23,9 @@ const AddIngredients = () => {
 			<div>
 				<input
 					placeholder="Add your ingredient here"
-					value={currentItem}
-					onChange={onChangeHandelr}
+					value={recipe.singleIngredient}
 					className="inputIngredients"
+					name="singleIngredient"
 				/>
 				<button className="buttonAddIngredients" onClick={addItemToList}>
 					<i className="fas fa-plus " />
@@ -33,10 +33,15 @@ const AddIngredients = () => {
 			</div>
 
 			<div>
-				<IngredientList itemList={itemList} updateItemList={updateItemList} />
+				<IngredientList recipe={recipe} setRecipe={setRecipe} />
 			</div>
 		</div>
 	);
+};
+
+AddIngredients.propTypes = {
+	recipe: PropTypes.object,
+	setRecipe: PropTypes.func
 };
 
 export default AddIngredients;

@@ -8,8 +8,9 @@ const RecipeForm = () => {
 	const [recipe, setRecipe] = useState({
 		recipeTitle: "",
 		elaboration: "",
-		category: [""],
-		ingredients: ""
+		category: [],
+		ingredients: [],
+		singleIngredient: ""
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({
@@ -17,17 +18,16 @@ const RecipeForm = () => {
 		status: false
 	});
 	const handelChange = event => {
-		console.log(recipe);
+		console.log("recipe form", event.target.value, event.target.name);
 		setRecipe({ ...recipe, [event.target.name]: event.target.value });
 	};
 	const handelSubmit = e => {
 		e.preventDefault();
 		console.log("estoy en el publishSubmit");
 	};
-
+	console.log(recipe);
 	return (
 		<div>
-			<Navbar />
 			<h2 className="sectionTitle">New recipe</h2>
 			<form onChange={handelChange} onSubmit={handelSubmit}>
 				<div className="NoPhotoGreyBackgourd">
@@ -73,7 +73,7 @@ const RecipeForm = () => {
 					</div>
 				</div>
 
-				<AddIngredients />
+				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 				<div className="mb-3">
 					<textarea
 						className="textArea"

@@ -1,22 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function IngredientList(props) {
+function IngredientList({ recipe, setRecipe }) {
 	//console.log("props", props);
-	const deleteItem = key => {
-		const newList = props.itemList.filter(itemObj => {
-			return itemObj.label != key; //Va a devolver todos los items de la lista menos el item que hemos borrado
-		});
-		props.updateItemList(newList);
+	const deleteItem = index => {
+		//const newList = props.itemList.filter(itemObj => {
+		//return itemObj.label != key; //Va a devolver todos los items de la lista menos el item que hemos borrado
+		//});
+		//props.updateItemList(newList);
+		console.log(index);
+		const newList = [...recipe.ingredients];
+		console.log(newList);
+		const deleteArray = newList.splice(index, 1);
+		console.log(deleteArray);
+		console.log(newList);
+		setRecipe({ ...recipe, ingredients: newList });
 	};
 	return (
 		<div>
-			{props.itemList.map((itemObj, index) => {
+			{recipe.ingredients.map((ingredients, index) => {
 				//itemObj va a contener todos los items uno por uno
 				return (
 					<div key={index} className="input-group">
-						<p>{itemObj.label}</p>
-						<button className="buttonDeleteTask" onClick={() => deleteItem(itemObj.label)}>
+						<p>{ingredients}</p>
+						<button className="buttonDeleteTask" onClick={() => deleteItem(index)}>
 							<i className="fas fa-minus" />
 						</button>
 					</div>
@@ -27,8 +34,8 @@ function IngredientList(props) {
 }
 
 IngredientList.propTypes = {
-	itemList: PropTypes.array,
-	updateItemList: PropTypes.func
+	recipe: PropTypes.object,
+	setRecipe: PropTypes.func
 };
 
 export default IngredientList;
