@@ -112,6 +112,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						setStore({ myRecipes: [...store.myRecipes, ...data] });
 					});
+			},
+			/////****************DELETE Recipe */
+			deleteRecipe: id => {
+				const state = getStore();
+				let recipeDelete = [...state.recipes];
+				console.log(recipeDelete, "estoy borrado", id);
+				recipeDelete.splice(id, 1);
+				setStore({ recipes: recipeDelete });
 			}
 		}
 	};

@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.post {
+    max-height: 150px;
+    max-width: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: roboto;
+    box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
+}
+
+.post-img{
+    max-width: 175px;
+    min-width: 175px;
+    max-height: 150px;
+    min-height: 150px;
+}
+
+.post-title {
+    font-family: roboto;
+    margin-top: 5px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.icons-recipe{
+    display: flex;
+    justify-content: flex-end;
+    padding: 13%;
+    padding-bottom: 0%;
+}
+
+.fa-trash-alt{
+    color: #3D9382;
+    width: 14px;
+    cursor: pointer;
+    padding-right: 20%;
+    margin-right: 20%;
+}
+
+.fa-edit{
+    color: #3D9382;
+    width: 14px;
+    cursor: pointer;
+    padding-right: 12%;
+   
+}
+.fa-edit:active {
+  color: #F53158;
+}
+.fa-trash-alt:active {
+  color: #F53158;
+}
