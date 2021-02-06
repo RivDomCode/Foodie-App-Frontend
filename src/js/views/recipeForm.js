@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-
+import CheckCategory from "./../components/CheckCategory.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
 
@@ -46,31 +46,7 @@ const RecipeForm = () => {
 				</div>
 				<div>
 					<h4 className="h4title">Choose one or more categories for your recipe</h4>
-					<div className="categoryChecks">
-						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
-							<Form.Check type="checkbox" label="Meat" />
-						</Form.Group>
-
-						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
-							<Form.Check type="checkbox" label="Vegan" />
-						</Form.Group>
-
-						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
-							<Form.Check type="checkbox" label="Fish" />
-						</Form.Group>
-
-						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
-							<Form.Check type="checkbox" label="Seafood" />
-						</Form.Group>
-
-						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
-							<Form.Check type="checkbox" label="Pasta" />
-						</Form.Group>
-
-						<Form.Group controlId="formBasicCheckbox" onChange={handelChange} onSubmit={handelSubmit}>
-							<Form.Check type="checkbox" label="Desserts" />
-						</Form.Group>
-					</div>
+					<CheckCategory />
 				</div>
 
 				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
