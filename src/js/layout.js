@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./views/login";
 import { Home } from "./views/home";
@@ -11,13 +11,19 @@ import EditProfile from "./views/editProfile";
 
 import injectContext from "./store/appContext";
 import Navbar from "./components/Navbar.jsx";
-const Layout = () => {
+import Footer from "./components/Footer.jsx";
+import PropsType from "prop-types";
+import { Context } from "./store/appContext";
+const Layout = props => {
+	const { store, actions } = useContext(Context);
 	const basename = process.env.BASENAME || "";
-	const location = window.location.pathname;
+	const [location, setlocation] = useState(window.location.pathname);
+	useEffect(() => {}, [store.pathName]);
+	console.log(store.pathName);
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
-				{location == "/login" || location == "/signup" ? null : <Navbar />}
+				{store.pathName == "/login" || store.pathName == "/signup" ? "" : <Navbar />}
 				<Switch>
 					<Route exact path="/" component={Home} />
 					<Route exact path="/login" component={Login} />
@@ -30,8 +36,13 @@ const Layout = () => {
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
+				{store.pathName == "/login" || store.pathName == "/signup" ? "" : <Footer />}
 			</BrowserRouter>
 		</div>
 	);
 };
+Layout.propsType = {
+	history: PropsType.object
+};
+
 export default injectContext(Layout);
