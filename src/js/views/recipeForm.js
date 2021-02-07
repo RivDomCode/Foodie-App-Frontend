@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-import CheckCategory from "./../components/CheckCategory.jsx";
+//import CategoryCheckboxes from "./../components/CategoryCheckboxes.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
+import { UploadImage } from "../components/UploadImage.jsx";
 
 const RecipeForm = () => {
 	const [recipe, setRecipe] = useState({
@@ -17,6 +18,7 @@ const RecipeForm = () => {
 		msg: "",
 		status: false
 	});
+
 	const handelChange = event => {
 		console.log("recipe form", event.target.value, event.target.name);
 		setRecipe({ ...recipe, [event.target.name]: event.target.value });
@@ -26,8 +28,10 @@ const RecipeForm = () => {
 		console.log("estoy en el publishSubmit");
 	};
 	console.log(recipe);
+
 	return (
 		<div>
+			<UploadImage />
 			<h2 className="sectionTitle">New recipe</h2>
 			<form onChange={handelChange} onSubmit={handelSubmit}>
 				<div className="NoPhotoGreyBackgourd">
@@ -46,7 +50,6 @@ const RecipeForm = () => {
 				</div>
 				<div>
 					<h4 className="h4title">Choose one or more categories for your recipe</h4>
-					<CheckCategory />
 				</div>
 
 				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
