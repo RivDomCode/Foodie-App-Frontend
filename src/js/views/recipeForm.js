@@ -31,7 +31,6 @@ const RecipeForm = () => {
 
 	return (
 		<div>
-			<UploadImage />
 			<h2 className="sectionTitle">New recipe</h2>
 			<form onChange={handelChange} onSubmit={handelSubmit}>
 				<div className="NoPhotoGreyBackgourd">
@@ -39,6 +38,7 @@ const RecipeForm = () => {
 						<i className="fas fa-image" />
 						<p className="textUploadPhoto">Click here to upload recipe photo</p>
 					</div>
+					<UploadImage />
 				</div>
 				<div className="mb-3 recipeTitle">
 					<input
