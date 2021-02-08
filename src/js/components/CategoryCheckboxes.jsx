@@ -1,53 +1,82 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import Checkbox from "../components/Checkbox.jsx";
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 
-const Checkbox = ({ type = "checkbox", name, checked = false, onChange }) => {
-	console.log("Checkbox: ", name, checked);
-
-	return <input type={type} name={name} checked={checked} onChange={onChange} />;
-};
-
-const CategoryCheckboxes = () => {
+export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	const [checkedItems, setCheckedItems] = useState({});
+	const [allCategories, setAllCategories] = useState([]);
+
+	const addItemToList = () => {
+		const newCategory = allCategories;
+		console.log(newCategory);
+		setRecipe({
+			...recipe,
+			category: newCategory
+		});
+	};
 
 	const handleChange = event => {
-		setCheckedItems({
-			...checkedItems,
-			[event.target.name]: event.target.checked
-		});
-		console.log("checkedItems: ", checkedItems);
+		let isInArray = allCategories.find(element => element == event.target.name);
+		setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
+		if (!isInArray) {
+			setAllCategories([...allCategories, event.target.name]);
+		} else {
+			// setAllCategories(allCategories => allCategories.pop(element => element != event.target.name));
+		}
 	};
+
+	useEffect(
+		() => {
+			addItemToList();
+			console.log(allCategories);
+		},
+		[checkedItems]
+	);
+
+	useEffect(
+		() => {
+			console.log(recipe);
+		},
+		[recipe]
+	);
 
 	const checkboxes = [
 		{
 			name: "Meat",
 			key: "Meat",
-			label: "Meat"
+			label: "Meat",
+			checked: false
 		},
 		{
 			name: "Vegan",
 			key: "Vegan",
-			label: "Vegan"
+			label: "Vegan",
+			checked: false
 		},
 		{
 			name: "Fish",
 			key: "Fish",
-			label: "Fish"
+			label: "Fish",
+			checked: false
 		},
 		{
 			name: "Seafood",
 			key: "Seafood",
-			label: "Seafood"
+			label: "Seafood",
+			checked: false
 		},
 		{
 			name: "Pasta",
 			key: "Pasta",
-			label: "Pasta"
+			label: "Pasta",
+			checked: false
 		},
 		{
 			name: "Dessert",
 			key: "Dessert",
-			label: "Dessert"
+			label: "Dessert",
+			checked: false
 		}
 	];
 
@@ -56,18 +85,23 @@ const CategoryCheckboxes = () => {
 			{checkboxes.map(item => (
 				<label key={item.key}>
 					{item.name}
-					<Checkbox name={item.name} checked={checkedItems[item.name]} onChange={handleChange} />
+					<Checkbox
+						name={item.name}
+						checked={checkedItems[item.name]}
+						onChange={handleChange}
+						recipe={recipe}
+						setRecipe={setRecipe}
+						onClick={addItemToList}
+					/>
 				</label>
 			))}
 		</div>
 	);
 };
 
-CategoryCheckboxes.propType = {
-	type: PropTypes.any,
-	name: PropTypes.any,
-	checked: PropTypes.bool,
-	onChange: PropTypes.func
+CategoryCheckboxes.propTypes = {
+	recipe: PropTypes.object,
+	setRecipe: PropTypes.func
 };
 
 export default CategoryCheckboxes;

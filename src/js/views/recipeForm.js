@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
-//import CategoryCheckboxes from "./../components/CategoryCheckboxes.jsx";
+import { CategoryCheckboxes } from "./../components/CategoryCheckboxes.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
 import { UploadImage } from "../components/UploadImage.jsx";
@@ -10,6 +10,7 @@ const RecipeForm = () => {
 		recipeTitle: "",
 		elaboration: "",
 		category: [],
+		singleCategory: "",
 		ingredients: [],
 		singleIngredient: ""
 	});
@@ -20,14 +21,15 @@ const RecipeForm = () => {
 	});
 
 	const handelChange = event => {
-		console.log("recipe form", event.target.value, event.target.name);
+		// console.log("recipe form", event.target.value, event.target.name);
 		setRecipe({ ...recipe, [event.target.name]: event.target.value });
+		// console.log(recipe);
 	};
 	const handelSubmit = e => {
 		e.preventDefault();
 		console.log("estoy en el publishSubmit");
 	};
-	console.log(recipe);
+	// console.log(recipe);
 
 	return (
 		<div>
@@ -51,6 +53,8 @@ const RecipeForm = () => {
 				<div>
 					<h4 className="h4title">Choose one or more categories for your recipe</h4>
 				</div>
+
+				<CategoryCheckboxes name="category" onChange={handelChange} recipe={recipe} setRecipe={setRecipe} />
 
 				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 				<div className="mb-3">

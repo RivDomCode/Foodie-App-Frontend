@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import IngredientList from "./IngredientList.jsx";
 
 const AddIngredients = ({ recipe, setRecipe }) => {
-	const [itemList, updateItemList] = useState([]);
-
 	const addItemToList = () => {
 		const newIngredient = [...recipe.ingredients];
 		console.log(newIngredient);
@@ -17,7 +15,12 @@ const AddIngredients = ({ recipe, setRecipe }) => {
 			singleIngredient: ""
 		});
 	};
-
+	useEffect(
+		() => {
+			// console.log(recipe, "qskdhfkqhsdfhqsdfnmqsdfqdjfqsdmlfmqsjdfq");
+		},
+		[recipe]
+	);
 	return (
 		<div className="addingredientGroup">
 			<div>
