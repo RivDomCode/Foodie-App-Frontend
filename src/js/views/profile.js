@@ -10,10 +10,6 @@ import { Context } from "../store/appContext";
 
 const Profile = () => {
 	const { store, actions } = useContext(Context);
-	const [user, setUser] = useState({
-		username: store.user.username,
-		email: store.user.email
-	});
 	useEffect(() => {
 		actions.getUser();
 	}, []);
