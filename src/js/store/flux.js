@@ -140,7 +140,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						actions.getRecipeByUser();
 					});
+			},
+			//*********** GET USER */
+			getUser: () => {
+				const token = localStorage.getItem("token");
+				const store = getStore();
+				fetch(url + "user", {
+					method: "GET",
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+					.then(data => {
+						//console.log(data);
+						setStore({ user: data });
+					});
 			}
+			///
 		}
 	};
 };
