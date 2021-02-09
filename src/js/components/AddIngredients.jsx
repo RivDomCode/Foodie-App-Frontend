@@ -6,8 +6,8 @@ import IngredientList from "./IngredientList.jsx";
 const AddIngredients = ({ recipe, setRecipe }) => {
 	const [ingredient, setIngredient] = useState("");
 
-	const addItemToList = e => {
-		e.preventDefault();
+	const addItemToList = () => {
+		//e.preventDefault();
 		let newIngredients = [...recipe.ingredients, ingredient];
 		setRecipe({
 			...recipe,
@@ -26,7 +26,7 @@ const AddIngredients = ({ recipe, setRecipe }) => {
 					name="singleIngredient"
 					onChange={() => setIngredient(event.target.value)}
 				/>
-				<button className="buttonAddIngredients" onClick={e => addItemToList(e)}>
+				<button className="buttonAddIngredients" onClick={() => addItemToList()}>
 					<i className="fas fa-plus " />
 				</button>
 			</div>
