@@ -8,7 +8,7 @@ import DetailComments from "../components/Detail-Comments.jsx";
 import "../../styles/detail-comment.scss";
 import "../../styles/comment.scss";
 
-const RecipeDetail = ({ imageUrl, recipeTitle }) => {
+const RecipeDetail = ({ recipe }) => {
 	/*  	useEffect(() => {
 		fetch("", {
 			method: "POST",
@@ -31,18 +31,12 @@ const RecipeDetail = ({ imageUrl, recipeTitle }) => {
 			<Navbar />
 			<div className="detail">
 				<div className="header-image">
-					<img
-						className="photo-post"
-						src="https://cdn.pixabay.com/photo/2016/02/19/10/00/food-1209007_960_720.jpg"
-						alt="post-photo"
-					/>
+					<img className="photo-post" src={recipe.image} alt="post-photo" />
 				</div>
 				<div className="inside-detail">
 					<div className="recipe-title row">
 						<div className="detail-title">
-							<p className="title-bold">
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere beatae et nisi
-							</p>
+							<p className="title-bold">{recipe.title}</p>
 						</div>
 						<div className="like">
 							<i className="far fa-heart" />
@@ -100,9 +94,9 @@ const RecipeDetail = ({ imageUrl, recipeTitle }) => {
 };
 
 RecipeDetail.propTypes = {
-	imageUrl: PropTypes.string,
-	username: PropTypes.string,
-	recipeTitle: PropTypes.string
+	image: PropTypes.string,
+	title: PropTypes.string,
+	recipe: PropTypes.object
 };
 
 export default RecipeDetail;
