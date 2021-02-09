@@ -10,9 +10,7 @@ const RecipeForm = () => {
 		recipeTitle: "",
 		elaboration: "",
 		category: [],
-		singleCategory: "",
-		ingredients: [],
-		singleIngredient: ""
+		ingredients: []
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({
@@ -20,21 +18,18 @@ const RecipeForm = () => {
 		status: false
 	});
 
-	const handelChange = event => {
-		// console.log("recipe form", event.target.value, event.target.name);
+	const handleChange = event => {
 		setRecipe({ ...recipe, [event.target.name]: event.target.value });
-		// console.log(recipe);
 	};
-	const handelSubmit = e => {
+	const handleSubmit = e => {
 		e.preventDefault();
-		console.log("estoy en el publishSubmit");
+		console.log(recipe);
 	};
-	// console.log(recipe);
 
 	return (
 		<div>
 			<h2 className="sectionTitle">New recipe</h2>
-			<form onChange={handelChange} onSubmit={handelSubmit}>
+			<form>
 				<div className="NoPhotoGreyBackgourd">
 					<div className="noPhoto">
 						<i className="fas fa-image" />
@@ -48,13 +43,14 @@ const RecipeForm = () => {
 						className="form-control placeholder"
 						name="recipeTitle"
 						placeholder="Your recipe title"
+						onChange={handleChange}
 					/>
 				</div>
 				<div>
 					<h4 className="h4title">Choose one or more categories for your recipe</h4>
 				</div>
 
-				<CategoryCheckboxes name="category" onChange={handelChange} recipe={recipe} setRecipe={setRecipe} />
+				<CategoryCheckboxes name="category" recipe={recipe} setRecipe={setRecipe} />
 
 				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 				<div className="mb-3">
@@ -64,9 +60,10 @@ const RecipeForm = () => {
 						rows="3"
 						placeholder="Elaboration here"
 						name="elaboration"
+						onChange={handleChange}
 					/>
 				</div>
-				<button type="button" className="buttonPublish">
+				<button type="button" className="buttonPublish" onClick={handleSubmit}>
 					<div className="buttonTextPublish">Publish recipe</div>
 				</button>
 				<button type="button" className="buttonCancel">

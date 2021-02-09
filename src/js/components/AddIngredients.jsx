@@ -4,31 +4,27 @@ import PropTypes from "prop-types";
 import IngredientList from "./IngredientList.jsx";
 
 const AddIngredients = ({ recipe, setRecipe }) => {
-	const addItemToList = () => {
-		const newIngredient = [...recipe.ingredients];
-		console.log(newIngredient);
-		newIngredient.push(recipe.singleIngredient);
-		console.log(newIngredient);
+	const [ingredient, setIngredient] = useState("");
+
+	const addItemToList = e => {
+		e.preventDefault();
+		let newIngredients = [...recipe.ingredients, ingredient];
 		setRecipe({
 			...recipe,
-			ingredients: newIngredient,
-			singleIngredient: ""
+			ingredients: newIngredients
 		});
+		setIngredient("");
 	};
-	useEffect(
-		() => {
-			// console.log(recipe, "qskdhfkqhsdfhqsdfnmqsdfqdjfqsdmlfmqsjdfq");
-		},
-		[recipe]
-	);
+
 	return (
 		<div className="addingredientGroup">
 			<div>
 				<input
 					placeholder="Add your ingredient here"
-					value={recipe.singleIngredient}
+					value={ingredient}
 					className="inputIngredients"
 					name="singleIngredient"
+					onChange={() => setIngredient(event.target.value)}
 				/>
 				<button className="buttonAddIngredients" onClick={addItemToList}>
 					<i className="fas fa-plus " />

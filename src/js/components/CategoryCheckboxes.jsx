@@ -8,45 +8,22 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	const [checkedItems, setCheckedItems] = useState({});
 	const [allCategories, setAllCategories] = useState([]);
 
-	const addItemToList = () => {
-		const newCategory = allCategories;
-		console.log(newCategory, "///////////");
-		setRecipe({
-			...recipe,
-			category: newCategory
-		});
-	};
-
 	const handleChange = event => {
+		let newAllCategories = [];
+
 		let isInArray = allCategories.find(element => element == event.target.name);
 
 		setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
+
 		if (!isInArray) {
-			setAllCategories([...allCategories, event.target.name]);
+			newAllCategories = [...allCategories, event.target.name];
 		} else {
-			// setAllCategories(allCategories => allCategories.filter(element => element !== event.target.name));
-			// allCategories.splice(isInArray, 1);
-			// setAllCategories(allCategories => allCategories.splice(checkedItems, 1));
-			// setAllCategories(allCategories =>
-			// 	allCategories.filter(element => element != isInArray).splice(checkedItems, 1)
-			// );
+			newAllCategories = allCategories.filter(element => element !== event.target.name);
 		}
+		console.log(newAllCategories);
+		setAllCategories(newAllCategories);
+		setRecipe({ ...recipe, category: newAllCategories });
 	};
-
-	useEffect(
-		() => {
-			addItemToList();
-			console.log(allCategories, "==============");
-		},
-		[checkedItems]
-	);
-
-	useEffect(
-		() => {
-			console.log(recipe, "*************");
-		},
-		[recipe]
-	);
 
 	const checkboxes = [
 		{
@@ -97,9 +74,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 						name={item.name}
 						checked={checkedItems[item.name]}
 						onChange={handleChange}
-						recipe={recipe}
 						setRecipe={setRecipe}
-						onClick={addItemToList}
 					/>
 				</label>
 			))}
