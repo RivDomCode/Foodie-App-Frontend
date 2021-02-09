@@ -2,12 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function IngredientList({ recipe, setRecipe }) {
-	const deleteItem = index => {
-		console.log(index);
-		const newList = [...recipe.ingredients];
-		console.log(newList);
+	//console.log("props", props);
+	const deleteItem = (e, index) => {
+		//const newList = props.itemList.filter(itemObj => {
+		//return itemObj.label != key; //Va a devolver todos los items de la lista menos el item que hemos borrado
+		//});
+		//props.updateItemList(newList);
+		e.preventDefault();
+		const newList = recipe.ingredients;
+
 		const deleteArray = newList.splice(index, 1);
-		console.log(deleteArray);
 		console.log(newList);
 		setRecipe({ ...recipe, ingredients: newList });
 	};
@@ -18,7 +22,7 @@ function IngredientList({ recipe, setRecipe }) {
 				return (
 					<div key={index} className="input-group">
 						<p>{ingredients}</p>
-						<button className="buttonDeleteTask" onClick={() => deleteItem(index)}>
+						<button className="buttonDeleteTask" onClick={e => deleteItem(e, index)}>
 							<i className="fas fa-minus" />
 						</button>
 					</div>

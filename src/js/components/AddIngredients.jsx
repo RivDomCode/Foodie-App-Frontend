@@ -26,7 +26,7 @@ const AddIngredients = ({ recipe, setRecipe }) => {
 					name="singleIngredient"
 					onChange={() => setIngredient(event.target.value)}
 				/>
-				<button className="buttonAddIngredients" onClick={addItemToList}>
+				<button className="buttonAddIngredients" onClick={e => addItemToList(e)}>
 					<i className="fas fa-plus " />
 				</button>
 			</div>

@@ -34,7 +34,7 @@ const Layout = props => {
 					<Route exact path="/comments" component={Comments} />
 					<Route exact path="/profile" component={Profile} />
 					<Route exact path="/editProfile" component={EditProfile} />
-					<Route exact path="/recipeForm" component={RecipeForm} />
+					<Route exact path="/newRecipeForm" component={RecipeForm} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>

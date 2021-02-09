@@ -112,30 +112,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						setStore({ myRecipes: [...store.myRecipes, ...data] });
 					});
-			},
-			//////////*** GENERATE NEW RECIPE */
-			createRecipe: () => {
-				const newRecipe = {
-					image: recipe.image,
-					recipeTitle: recipe.title,
-					category: recipe.category,
-					ingredients: recipe.ingredients,
-					elaboration: recipe.elaboration
-				};
-				fetch(url + "user/" + id + "/recipe", {
-					method: "POST",
-					body: JSON.stringify(newRecipe),
-					headers: {
-						"Content-Type": "application/json"
-					}
-				})
-					.then(res => res.json())
-					.then(data => {
-						localStorage.setItem("token", data.access_token);
-						props.history.push("/");
-					})
-					.catch(error => console.log(error));
 			}
+			//////////*** GENERATE NEW RECIPE */
+			// createRecipe: () => {
+			// 	const newRecipe = {
+			// 		image: recipe.image,
+			// 		recipeTitle: recipe.title,
+			// 		category: recipe.category,
+			// 		ingredients: recipe.ingredients,
+			// 		elaboration: recipe.elaboration
+			// 	};
+			// 	fetch(url + "user/" + id + "/recipe", {
+			// 		method: "POST",
+			// 		body: JSON.stringify(newRecipe),
+			// 		headers: {
+			// 			"Content-Type": "application/json"
+			// 		}
+			// 	})
+			// 		.then(res => res.json())
+			// 		.then(data => {
+			// 			localStorage.setItem("token", data.access_token);
+			// 			props.history.push("/");
+			// 		})
+			// 		.catch(error => console.log(error));
+			// }
 		}
 	};
 };
