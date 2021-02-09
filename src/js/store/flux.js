@@ -59,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 			/////*********** GET FAVORITES
-			getFavoritesByUser: () => {
+			getFavorites: () => {
 				const token = localStorage.getItem("token");
 				const store = getStore();
 				fetch(url + "favorites", {
@@ -67,9 +67,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					headers: { Authorization: " Bearer " + token }
 				})
 					.then(res => res.json())
-					.then(data => {
-						setStore({ favorites: [...store.favorites, data] });
-					});
+
+					.then(data => setStore({ favorites: data }))
+
+					.catch(err => console.log("Err", err));
 			},
 
 			/////**************ADD FAVORITE
@@ -88,8 +89,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			/////****************DELETE FAVORITE */
 			deleteFavorites: favorite => {
-				const state = getStore();
+				console.log(favorite, "id para borrado");
+				const token = localStorage.getItem("token");
+				const store = getStore();
+				const actions = getActions();
+
 				console.log(favorite);
+				fetch(url + favorite.id, {
+					method: "PUT",
+					headers: {
+						Authorization: " Bearer " + token
+					}
+				})
+					.then(res => {
+						if (res.ok) {
+							console.log("todo ok");
+						} else {
+							console.log("todo mal");
+						}
+						res.json();
+					})
+					.catch(err => alert("No ha sido posible borrar el favorito"))
+					.then(data => {
+						actions.getFavorites();
+					});
 			},
 
 			////********* RECIPE HOME */

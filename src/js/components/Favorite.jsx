@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const Favorite = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
-		actions.getFavoritesByUser();
+		actions.getFavorites();
 	}, []);
 
 	return (
