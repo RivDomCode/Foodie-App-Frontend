@@ -32,7 +32,7 @@ const Recipes = () => {
 												<div>
 													<i
 														onClick={() => {
-															actions.deleteRecipe(index);
+															actions.deleteRecipe(recipe);
 														}}
 														className="far fa-trash-alt trash"
 													/>

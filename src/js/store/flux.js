@@ -110,16 +110,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						setStore({ myRecipes: [...store.myRecipes, ...data] });
+						setStore({ myRecipes: data });
 					});
 			},
 			/////****************DELETE Recipe */
-			deleteRecipe: id => {
+			deleteRecipe: recipe => {
+				/////
+				console.log(recipe, "el id para borrar");
+				const token = localStorage.getItem("token");
 				const state = getStore();
-				let recipeDelete = [...state.recipes];
-				console.log(recipeDelete, "estoy borrado", id);
-				recipeDelete.splice(id, 1);
-				setStore({ recipes: recipeDelete });
+				const actions = getActions();
+
+				/////
+
+				fetch(url + "delete/recipe/" + recipe.id, {
+					method: "PUT",
+
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => {
+						if (res.ok) {
+							console.log("todo ok");
+						} else {
+							console.log("todo mal");
+						}
+						res.json();
+					})
+					.catch(error => alert("la receta no se ha borrado"))
+					.then(data => {
+						actions.getRecipeByUser();
+					});
 			}
 		}
 	};
