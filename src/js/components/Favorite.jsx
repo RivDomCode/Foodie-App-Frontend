@@ -2,9 +2,14 @@ import React, { useState, useContext } from "react";
 import "../../styles/tabs.scss";
 import { Context } from "../store/appContext";
 import "../../styles/favorite-post.scss";
+import { useEffect } from "react";
 
 const Favorite = props => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.getFavoritesByUser();
+	}, []);
+
 	return (
 		<div className="favorite-tab">
 			{store.favorites.length == 0 ? (
@@ -25,7 +30,7 @@ const Favorite = props => {
 										<i
 											className="fas fa-heart like-favorite-post"
 											onClick={() => {
-												actions.deleteFavorites(key);
+												actions.deleteFavorites(favorite);
 											}}
 										/>
 									</div>

@@ -1,4 +1,4 @@
-const url = "https://3000-jade-bobolink-7zloswnb.ws-eu03.gitpod.io/";
+const url = "https://3000-turquoise-mollusk-5jkhmq63.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -58,6 +58,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
+			/////*********** GET FAVORITES
+			getFavoritesByUser: () => {
+				const token = localStorage.getItem("token");
+				const store = getStore();
+				fetch(url + "favorites", {
+					method: "GET",
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+					.then(data => {
+						setStore({ favorites: [...store.favorites, data] });
+					});
+			},
+
 			/////**************ADD FAVORITE
 			addToFavorites: recipe => {
 				const state = getStore();
@@ -73,11 +87,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			/////****************DELETE FAVORITE */
-			deleteFavorites: id => {
+			deleteFavorites: favorite => {
 				const state = getStore();
-				let favlist = [...state.favorites];
-				favlist.splice(id, 1);
-				setStore({ favorites: favlist });
+				console.log(favorite);
 			},
 
 			////********* RECIPE HOME */
@@ -85,7 +97,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const token = localStorage.getItem("token");
 				const store = getStore();
 				const actions = getActions();
-				fetch(url + "recipes/page/" + page, {
+				fetch(url + "recipe/page/" + page, {
 					method: "GET",
 					headers: {
 						"Content-Type": "application/json",
@@ -97,7 +109,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("estoy en home", data);
 						setStore({ recipes: [...store.recipes, ...data] });
 						actions.nextPage();
-					});
+					})
+					.catch(error => console.log(error));
 			},
 			///////*** RECIPE BY USER */
 			getRecipeByUser: () => {
