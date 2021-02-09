@@ -17,9 +17,9 @@ const DetailComments = () => {
 			setComments([...comments, { label: inputComment, done: false }]);
 		}
 		setInputComment("");
-    };
-    
-//Obtener todos los comentarios
+	};
+
+	//Obtener todos los comentarios
 
 	/*useEffect(() => {
 		fetch("url")
