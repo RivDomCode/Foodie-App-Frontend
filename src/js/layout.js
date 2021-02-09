@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./views/login";
 import { Home } from "./views/home";
@@ -8,48 +8,40 @@ import Comments from "./views/comments";
 import RecipeDetail from "./views/recipeDetail";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
-
 import injectContext from "./store/appContext";
-
-const Layout = () => {
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
+import PropsType from "prop-types";
+import { Context } from "./store/appContext";
+const Layout = props => {
+	const { store, actions } = useContext(Context);
 	const basename = process.env.BASENAME || "";
-	// const path = window.location.pathname
-	const location = window.location.pathname;
+	const [location, setlocation] = useState(window.location.pathname);
+	useEffect(() => {}, [store.pathName]);
+	console.log(store.pathName);
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
+				{store.pathName == "/login" || store.pathName == "/signup" ? "" : <Navbar />}
 				<Switch>
-					<Route exact path="/">
-						<Home />
-					</Route>
-					<Route exact path="/Login">
-						<Login />
-					</Route>
-					<Route exact path="/signup">
-						<SignUp />
-					</Route>
-					<Route exact path="/card">
-						<Card />
-					</Route>
-					<Route exact path="/comments">
-						<Comments />
-					</Route>
-					<Route exact path="/detail">
-						<RecipeDetail />
-					</Route>
-					<Route exact path="/profile">
-						<Profile />
-					</Route>
-					<Route exact path="/editProfile">
-						<EditProfile />
-					</Route>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/signup" component={SignUp} />
+					<Route exact path="/card" component={Card} />
+					<Route exact path="/comments" component={Comments} />
+					<Route exact path="/profile" component={Profile} />
+					<Route exact path="/editProfile" component={EditProfile} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>
 				</Switch>
-				{/*location == "/login" || location == "/signup" ? null : <Footer />*/}
+				{store.pathName == "/login" || store.pathName == "/signup" ? "" : <Footer />}
 			</BrowserRouter>
 		</div>
 	);
 };
+Layout.propsType = {
+	history: PropsType.object
+};
+
 export default injectContext(Layout);
