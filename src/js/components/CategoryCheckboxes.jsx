@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Checkbox from "../components/Checkbox.jsx";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
+import "../../styles/categoryCheckboxes.scss";
 
 export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	const [checkedItems, setCheckedItems] = useState({});
@@ -9,7 +10,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 
 	const addItemToList = () => {
 		const newCategory = allCategories;
-		console.log(newCategory);
+		console.log(newCategory, "///////////");
 		setRecipe({
 			...recipe,
 			category: newCategory
@@ -18,25 +19,31 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 
 	const handleChange = event => {
 		let isInArray = allCategories.find(element => element == event.target.name);
+
 		setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
 		if (!isInArray) {
 			setAllCategories([...allCategories, event.target.name]);
 		} else {
-			// setAllCategories(allCategories => allCategories.pop(element => element != event.target.name));
+			// setAllCategories(allCategories => allCategories.filter(element => element !== event.target.name));
+			// allCategories.splice(isInArray, 1);
+			// setAllCategories(allCategories => allCategories.splice(checkedItems, 1));
+			// setAllCategories(allCategories =>
+			// 	allCategories.filter(element => element != isInArray).splice(checkedItems, 1)
+			// );
 		}
 	};
 
 	useEffect(
 		() => {
 			addItemToList();
-			console.log(allCategories);
+			console.log(allCategories, "==============");
 		},
 		[checkedItems]
 	);
 
 	useEffect(
 		() => {
-			console.log(recipe);
+			console.log(recipe, "*************");
 		},
 		[recipe]
 	);
@@ -81,11 +88,12 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	];
 
 	return (
-		<div>
+		<div id="checkboxSection">
 			{checkboxes.map(item => (
 				<label key={item.key}>
 					{item.name}
 					<Checkbox
+						id="checkbox"
 						name={item.name}
 						checked={checkedItems[item.name]}
 						onChange={handleChange}

@@ -66,14 +66,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let favlist = [...state.favorites];
 				favlist.splice(id, 1);
 				setStore({ favorites: favlist });
-			},
-
-			activateCheck: category => {
-				const state = getStore();
-				if (state.category.length > 0) {
-					const existCategory = state.category.filter();
-				}
 			}
+
+			// activateCheck: category => {
+			// 	const state = getStore();
+			// 	if (state.category.length > 0) {
+			// 		const existCategory = state.category.filter();
+			// 	}
+			// }
 		}
 	};
 };
