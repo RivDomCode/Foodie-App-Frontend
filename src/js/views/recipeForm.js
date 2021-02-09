@@ -7,10 +7,11 @@ import { UploadImage } from "../components/UploadImage.jsx";
 
 const RecipeForm = () => {
 	const [recipe, setRecipe] = useState({
+		image: "",
 		recipeTitle: "",
-		elaboration: "",
 		category: [],
-		ingredients: []
+		ingredients: [],
+		elaboration: ""
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({

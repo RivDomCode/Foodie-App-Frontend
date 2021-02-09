@@ -70,6 +70,9 @@ const SignUp = props => {
 		validateInputs(user);
 		actions.registerUser(user, props);
 	};
+	const changePathName = () => {
+		actions.setPathName("/login");
+	};
 	//****HTML****//
 	return (
 		<div className="backgroundUser">
@@ -136,6 +139,7 @@ const SignUp = props => {
 							<label className="form-check-label text-login" htmlFor="exampleCheck1">
 								Already have an account?{" "}
 								<Link
+									onClick={changePathName}
 									to={{
 										pathname: "/login"
 									}}>

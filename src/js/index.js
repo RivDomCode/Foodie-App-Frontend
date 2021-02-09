@@ -10,15 +10,6 @@ import "../styles/index.scss";
 
 //import your own components
 import Layout from "./layout";
-import Footer from "./components/Footer.jsx";
-
 //render your react application
 
-const location = window.location.pathname;
-ReactDOM.render(
-	<>
-		<Layout />
-		{location == "/login" || location == "/signup" ? null : <Footer />}
-	</>,
-	document.querySelector("#app")
-);
+ReactDOM.render(<Layout />, document.querySelector("#app"));
