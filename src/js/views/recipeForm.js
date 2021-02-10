@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import { CategoryCheckboxes } from "./../components/CategoryCheckboxes.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
-import { UploadImage } from "../components/UploadImage.jsx";
+
 import { Context } from "../store/appContext";
 
 const RecipeForm = () => {
@@ -22,14 +22,33 @@ const RecipeForm = () => {
 	});
 
 	const handleChange = event => {
-		setRecipe({ ...recipe, [event.target.name]: event.target.value });
+		if (event.target.name == "image") {
+			console.log("entrado en imagen", event.target.files[0]);
+			const read = new FileReader();
+			read.onload = () => {
+				if (read.readyState === 2) {
+					console.log("entrado en el read", read.result);
+					setRecipe({
+						...recipe,
+						image: read.result
+					});
+				}
+			};
+			if (event.target.files[0] != undefined) {
+				read.readAsDataURL(event.target.files[0]);
+			}
+		} else {
+			setRecipe({ ...recipe, [event.target.name]: event.target.value });
+		}
 	};
 	const handleSubmit = e => {
-		actions.createRecipe(recipe);
-		//e.preventDefault();
+		e.preventDefault();
+		const file = document.querySelector("#file");
+		actions.createRecipe(recipe, file.files[0]);
+
 		console.log(recipe);
 	};
-
+	console.log(recipe);
 	return (
 		<div>
 			<h2 className="sectionTitle">New recipe</h2>
@@ -38,8 +57,9 @@ const RecipeForm = () => {
 				<div className="noPhoto">
 					<i className="fas fa-image" />
 					<p className="textUploadPhoto">Click here to upload recipe photo</p>
+					<input id="file" type="file" name="image" onChange={handleChange} />
+					{recipe.image == "" ? null : <img src={recipe.image} />}
 				</div>
-				<UploadImage />
 			</div>
 			<div className="mb-3 recipeTitle">
 				<input

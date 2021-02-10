@@ -114,13 +114,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			//////////*** GENERATE NEW RECIPE */
-			createRecipe: newRecipe => {
+			createRecipe: (newRecipe, file) => {
+				console.log(file);
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
-				formData.append(
-					"image",
-					"https://www.chihuahuasvilladelreymarbella.com/miniaturas/phpThumb.php?src=/script/photo/1530897990comportamiento%20y%20caracter%20del%20chihuahua.jpg&w=1026&h=700&zc=1"
-				);
+				formData.append("image", file, file.name);
 				formData.append("categories", "Meat");
 				formData.append("ingredients", newRecipe.ingredients);
 				formData.append("elaboration", newRecipe.elaboration);
