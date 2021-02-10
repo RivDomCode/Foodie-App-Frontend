@@ -11,7 +11,7 @@ const RecipeForm = () => {
 	const [recipe, setRecipe] = useState({
 		image: "",
 		recipeTitle: "",
-		category: [],
+		categories: [],
 		ingredients: [],
 		elaboration: ""
 	});
@@ -27,7 +27,7 @@ const RecipeForm = () => {
 	const handleSubmit = e => {
 		actions.createRecipe(recipe);
 		//e.preventDefault();
-		//console.log(recipe);
+		console.log(recipe);
 	};
 
 	return (

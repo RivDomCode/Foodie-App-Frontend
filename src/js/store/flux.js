@@ -115,17 +115,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//////////*** GENERATE NEW RECIPE */
 			createRecipe: newRecipe => {
-				const id = fetch(url + "user/" + id + "/recipe", {
+				const formData = new FormData();
+				formData.append("title", newRecipe.recipeTitle);
+				formData.append(
+					"image",
+					"https://www.chihuahuasvilladelreymarbella.com/miniaturas/phpThumb.php?src=/script/photo/1530897990comportamiento%20y%20caracter%20del%20chihuahua.jpg&w=1026&h=700&zc=1"
+				);
+				formData.append("categories", "Meat");
+				formData.append("ingredients", newRecipe.ingredients);
+				formData.append("elaboration", newRecipe.elaboration);
+				console.log(newRecipe);
+				console.log(FormData);
+				const token = localStorage.getItem("token");
+				let headers = { Authorization: " Bearer " + token };
+
+				fetch(url + "recipe", {
 					method: "POST",
-					body: JSON.stringify(newRecipe),
-					headers: {
-						"Content-Type": "application/json"
-					}
+
+					body: formData,
+					headers: headers
 				})
 					.then(res => res.json())
 					.then(data => {
-						localStorage.setItem("token", data.access_token);
-						props.history.push("/");
+						console.log(data);
+						//props.history.push("/");
 					})
 					.catch(error => console.log(error));
 			}
