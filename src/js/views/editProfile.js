@@ -25,7 +25,7 @@ const EditProfile = () => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		actions.editProfile(userName, () => {
-			history.push("/Profile");
+			history.push("/profile");
 		});
 	};
 	return (

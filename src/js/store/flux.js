@@ -169,6 +169,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(data => {
 						callback();
 					});
+			},
+			////*** LOGOUT */
+			logoutUser: callback => {
+				console.log("ESTOY EN LOG");
+				localStorage.clear();
+				callback();
 			}
 		}
 	};
