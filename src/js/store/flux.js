@@ -1,4 +1,4 @@
-const url = "https://3000-jade-bobolink-7zloswnb.ws-eu03.gitpod.io/";
+const url = "https://3000-scarlet-cat-vmp5tp7q.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -110,9 +110,52 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						setStore({ myRecipes: [...store.myRecipes, ...data] });
+						setStore({ myRecipes: data });
+					});
+			},
+			/////****************DELETE Recipe */
+			deleteRecipe: recipe => {
+				/////
+				console.log(recipe, "el id para borrar");
+				const token = localStorage.getItem("token");
+				const state = getStore();
+				const actions = getActions();
+
+				/////
+
+				fetch(url + "delete/recipe/" + recipe.id, {
+					method: "PUT",
+
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => {
+						if (res.ok) {
+							console.log("todo ok");
+						} else {
+							console.log("todo mal");
+						}
+						res.json();
+					})
+					.catch(error => alert("la receta no se ha borrado"))
+					.then(data => {
+						actions.getRecipeByUser();
+					});
+			},
+			//*********** GET USER */
+			getUser: () => {
+				const token = localStorage.getItem("token");
+				const store = getStore();
+				fetch(url + "user", {
+					method: "GET",
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+					.then(data => {
+						//console.log(data);
+						setStore({ user: data });
 					});
 			}
+			///
 		}
 	};
 };
