@@ -75,6 +75,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			/////**************ADD FAVORITE
 			addToFavorites: recipe => {
+				const token = localStorage.getItem("token");
 				const state = getStore();
 				if (state.favorites.length > 0) {
 					const existRecipe = state.favorites.filter(
@@ -86,6 +87,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} else {
 					setStore({ favorites: [...state.favorites, recipe] });
 				}
+				fetch(url + "favorites", {
+					method: "POST",
+					body: JSON.stringify(recipe),
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+
+					.catch(error => console.error("Error:", error))
+
+					.then(response => console.log("Success:", response));
 			},
 			/////****************DELETE FAVORITE */
 			deleteFavorites: favorite => {
@@ -103,9 +114,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						if (res.ok) {
-							console.log("todo ok");
+							console.log("ok");
 						} else {
-							console.log("todo mal");
+							console.log("mal");
 						}
 						res.json();
 					})
