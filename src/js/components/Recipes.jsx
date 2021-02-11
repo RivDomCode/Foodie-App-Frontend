@@ -17,30 +17,25 @@ const Recipes = () => {
 						<p className="start-message">You have not published any recipe yet.</p>
 					) : (
 						store.myRecipes.map((recipe, index) => {
-							//return <ViewCard recipe={(recipe, index)} key={index} />;
 							return (
 								<div className="post" key={index}>
-									<div className="row no-gutters">
-										<div className="col-md-6 post-image">
-											<img src={recipe.image} className="post-img" alt="..." />
+									<div className="post-image">
+										<img src={recipe.image} className="post-img" alt="..." />
+									</div>
+									<div className="right-side">
+										<div className="text-title">
+											<p className="post-title">{recipe.title}</p>
 										</div>
-										<div className="col-md-6 right-side">
-											<div className="card-body">
-												<h5 className="post-title">{recipe.title}</h5>
-											</div>
-											<div className="back-to-edit-profile row icons-recipe">
-												<div>
-													<i
-														onClick={() => {
-															actions.deleteRecipe(recipe);
-														}}
-														className="far fa-trash-alt trash"
-													/>
-												</div>
-												<Link to="/editRecipe" recipe={recipe} key={index}>
-													<i className="far fa-edit" />
-												</Link>
-											</div>
+										<div className="back-to-edit-profile row icons-recipe">
+											<i
+												onClick={() => {
+													actions.deleteRecipe(recipe);
+												}}
+												className="far fa-trash-alt trash"
+											/>
+											<Link to="/editRecipe" recipe={recipe} key={index}>
+												<i className="far fa-edit" />
+											</Link>
 										</div>
 									</div>
 								</div>

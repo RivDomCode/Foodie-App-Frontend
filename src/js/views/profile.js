@@ -32,12 +32,9 @@ const Profile = () => {
 						</button>
 					</Link>
 				</div>
-				{/* Tabs */}
 				<Tabs />
 			</div>
-			<Link to="/login">
-				<Logout />
-			</Link>
+			<Logout />
 		</div>
 	);
 };

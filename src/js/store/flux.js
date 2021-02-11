@@ -154,8 +154,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 						//console.log(data);
 						setStore({ user: data });
 					});
+			},
+			//****EDIT USER */
+			editProfile: (userName, callback) => {
+				const token = localStorage.getItem("token");
+				const formData = new FormData();
+				formData.append("user_name", userName);
+				fetch(url + "user", {
+					method: "PUT",
+					body: formData,
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+					.then(data => {
+						callback();
+					});
+			},
+			////*** LOGOUT */
+			logoutUser: callback => {
+				console.log("ESTOY EN LOG");
+				localStorage.clear();
+				callback();
 			}
-			///
 		}
 	};
 };
