@@ -17,10 +17,8 @@ const Recipes = () => {
 						<p className="start-message">You have not published any recipe yet.</p>
 					) : (
 						store.myRecipes.map((recipe, index) => {
-							//return <ViewCard recipe={(recipe, index)} key={index} />;
 							return (
 								<div className="post" key={index}>
-									{/* <div className="row no-gutters"> */}
 									<div className="post-image">
 										<img src={recipe.image} className="post-img" alt="..." />
 									</div>
@@ -40,7 +38,6 @@ const Recipes = () => {
 											</Link>
 										</div>
 									</div>
-									{/* </div> */}
 								</div>
 							);
 						})

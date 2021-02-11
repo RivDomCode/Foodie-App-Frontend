@@ -1,18 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .post {
     max-height: 8.75rem;
     max-width: 22.5rem;
     min-width: 22.5rem;
     margin: auto;
     display: flex;
-    //flex-direction: row;
     margin-bottom: 20px;
     margin-top: 20px;
-    //font-family: roboto;
     box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
     overflow: hidden;
     position: relative;
+    border-radius: 0.375rem;
 }
 .post-img{
     max-width: 8.75rem;

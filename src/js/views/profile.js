@@ -7,11 +7,9 @@ import Tabs from "../components/Tabs.jsx";
 import { Link } from "react-router-dom";
 import Logout from "../../icons/logout.jsx";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
 
 const Profile = () => {
 	const { store, actions } = useContext(Context);
-	let history = useHistory();
 	useEffect(() => {
 		actions.getUser();
 	}, []);
@@ -34,10 +32,8 @@ const Profile = () => {
 						</button>
 					</Link>
 				</div>
-				{/* Tabs */}
 				<Tabs />
 			</div>
-
 			<Logout />
 		</div>
 	);
