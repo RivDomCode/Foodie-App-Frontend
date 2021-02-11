@@ -119,7 +119,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				formData.append("image", file, file.name);
-				formData.append("categories", "Meat");
+				formData.append("categories", newRecipe.categories);
 				formData.append("ingredients", newRecipe.ingredients);
 				formData.append("elaboration", newRecipe.elaboration);
 				console.log(newRecipe);

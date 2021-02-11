@@ -57,8 +57,12 @@ const RecipeForm = () => {
 				<div className="noPhoto">
 					<i className="fas fa-image" />
 					<p className="textUploadPhoto">Click here to upload recipe photo</p>
-					<input id="file" type="file" name="image" onChange={handleChange} />
-					{recipe.image == "" ? null : <img src={recipe.image} />}
+					<div>
+						<span>
+							<input className="fileSelect" id="file" type="file" name="image" onChange={handleChange} />
+							{recipe.image == "" ? null : <img src={recipe.image} />}
+						</span>
+					</div>
 				</div>
 			</div>
 			<div className="mb-3 recipeTitle">

@@ -17,8 +17,8 @@ const AddIngredients = ({ recipe, setRecipe }) => {
 	};
 
 	return (
-		<div className="addingredientGroup">
-			<div>
+		<div>
+			<div className="addingredientGroup">
 				<input
 					placeholder="Add your ingredient here"
 					value={ingredient}
@@ -30,10 +30,7 @@ const AddIngredients = ({ recipe, setRecipe }) => {
 					<i className="fas fa-plus " />
 				</button>
 			</div>
-
-			<div>
-				<IngredientList recipe={recipe} setRecipe={setRecipe} />
-			</div>
+			<IngredientList recipe={recipe} setRecipe={setRecipe} />
 		</div>
 	);
 };

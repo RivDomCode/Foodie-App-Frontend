@@ -16,12 +16,12 @@ function IngredientList({ recipe, setRecipe }) {
 		setRecipe({ ...recipe, ingredients: newList });
 	};
 	return (
-		<div>
+		<div className="row rowIngredients">
 			{recipe.ingredients.map((ingredients, index) => {
 				//itemObj va a contener todos los items uno por uno
 				return (
-					<div key={index} className="input-group">
-						<p>{ingredients}</p>
+					<div key={index} className="ingredientsList col-2">
+						<p id="ingredientText">{ingredients}</p>
 						<button className="buttonDeleteTask" onClick={() => deleteItem(index)}>
 							<i className="fas fa-minus" />
 						</button>
