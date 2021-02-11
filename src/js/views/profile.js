@@ -38,16 +38,7 @@ const Profile = () => {
 				<Tabs />
 			</div>
 
-			<button
-				onClick={() => {
-					actions.logoutUser(() => {
-						history.push("/login");
-					});
-				}}
-				type="button"
-				className="buttonAdd">
-				<Logout />
-			</button>
+			<Logout />
 		</div>
 	);
 };

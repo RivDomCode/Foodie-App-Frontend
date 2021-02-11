@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/logout.scss";
+import { Context } from "../js/store/appContext";
+import { useHistory } from "react-router-dom";
 
 const Logout = () => {
+	const { store, actions } = useContext(Context);
+	let history = useHistory();
 	return (
-		<div className="logout">
+		<div
+			onClick={() => {
+				actions.logoutUser(() => {
+					history.push("/login");
+				});
+			}}
+			className="logout">
 			<p>
 				Log out
 				<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
