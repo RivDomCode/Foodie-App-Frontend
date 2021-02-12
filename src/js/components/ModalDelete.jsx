@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import "../../styles/modalDelete.scss";
 
 export const ModalDelete = props => {
 	const { actions } = useContext(Context);
@@ -37,13 +37,13 @@ export const ModalDelete = props => {
 						<p>{`Do you want to delete ${props.recipe.title} `}</p>
 					</div>
 					<div className="modal-footer">
-						<button onClick={() => props.onClose()} type="button" className="btn btn-primary">
+						<button onClick={() => props.onClose()} type="button" className="btn btn-ohNo">
 							Oh no!
 						</button>
 
 						<button
 							type="button"
-							className="btn btn-secondary"
+							className="btn btn-Doit"
 							data-dismiss="modal"
 							onClick={() => {
 								handleDelete();
