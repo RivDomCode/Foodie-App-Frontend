@@ -1,4 +1,4 @@
-const url = "https://3000-scarlet-cat-vmp5tp7q.ws-eu03.gitpod.io/";
+const url = "https://3000-pink-donkey-u2u78cvl.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -58,26 +58,71 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
+
+			/////*********** GET FAVORITES
+			getFavorites: () => {
+				const token = localStorage.getItem("token");
+				const store = getStore();
+
+				fetch(url + "favorites", {
+					method: "GET",
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+
+					.then(data => setStore({ favorites: data }))
+
+					.catch(err => console.log("Err", err));
+			},
+
 			/////**************ADD FAVORITE
 			addToFavorites: recipe => {
+				const token = localStorage.getItem("token");
 				const state = getStore();
+				const actions = getActions();
+				console.log(recipe);
 				if (state.favorites.length > 0) {
-					const existRecipe = state.favorites.filter(
-						recipeFavorites => recipeFavorites.title == recipe.title
-					);
+					const existRecipe = state.favorites.filter(recipeFavorites => recipeFavorites.id == recipe.id);
 					if (existRecipe.length == 0) {
 						setStore({ favorites: [...state.favorites, recipe] });
 					}
 				} else {
 					setStore({ favorites: [...state.favorites, recipe] });
 				}
+
+				fetch(url + "favorites/" + recipe.id, {
+					method: "POST",
+					/*body: JSON.stringify(recipe),*/
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+
+					.catch(error => console.error("Error:", error))
+
+					.then(response => actions.getFavorites());
 			},
 			/////****************DELETE FAVORITE */
 			deleteFavorites: id => {
-				const state = getStore();
-				let favlist = [...state.favorites];
-				favlist.splice(id, 1);
-				setStore({ favorites: favlist });
+				const token = localStorage.getItem("token");
+				const actions = getActions();
+				fetch(url + "favorites/" + id, {
+					method: "PUT",
+					headers: {
+						Authorization: " Bearer " + token
+					}
+				})
+					.then(res => {
+						if (res.ok) {
+							console.log("ok");
+						} else {
+							console.log("mal");
+						}
+						res.json();
+					})
+					.catch(err => alert("No ha sido posible borrar el favorito"))
+					.then(data => {
+						actions.getFavorites();
+					});
 			},
 
 			////********* RECIPE HOME */

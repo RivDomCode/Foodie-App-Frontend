@@ -1,10 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../../styles/tabs.scss";
 import { Context } from "../store/appContext";
 import "../../styles/favorite-post.scss";
 
 const Favorite = props => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.getFavorites();
+	}, []);
 	return (
 		<div className="favorite-tab">
 			{store.favorites.length == 0 ? (
@@ -15,7 +18,7 @@ const Favorite = props => {
 						<div className="favorite-post" key={key}>
 							<div className="row no-gutters">
 								<div className="col-md-6 favorite-post-image">
-									<img src={favorite.recipeImg} className="favorite-post-img" alt="..." />
+									<img src={favorite.image} className="favorite-post-img" alt="..." />
 								</div>
 								<div className="col-md-6 right-side">
 									<div className="card-body">
@@ -25,7 +28,7 @@ const Favorite = props => {
 										<i
 											className="fas fa-heart like-favorite-post"
 											onClick={() => {
-												actions.deleteFavorites(key);
+												actions.deleteFavorites(favorite.id);
 											}}
 										/>
 									</div>

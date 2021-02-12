@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../styles/card.scss";
 import { Link } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
@@ -7,17 +7,13 @@ import { Context } from "../store/appContext";
 
 const Card = ({ recipe }) => {
 	const { store, actions } = useContext(Context);
-	const recipeFavorite = {
-		title: recipe.title,
-		recipeImg: recipe.image
-	};
 	const heart = () => {
 		if (store.favorites.length == 0) {
 			return <i className="far fa-heart like" />;
 		} else {
 			let isFound = false;
 			store.favorites.map(recipeFavorite => {
-				if (recipeFavorite.title == recipe.title) {
+				if (recipeFavorite.recipe_id == recipe.id) {
 					isFound = true;
 				}
 			});
