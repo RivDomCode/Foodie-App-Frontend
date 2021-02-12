@@ -123,7 +123,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				/////
 
-				fetch(url + "delete/recipe/" + recipe.id, {
+				fetch(url + "delete/recipe/" + recipe, {
 					method: "PUT",
 
 					headers: { Authorization: " Bearer " + token }

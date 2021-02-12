@@ -24,6 +24,7 @@ const EditProfile = () => {
 	///Para enviar los datos modificados
 	const handleSubmit = event => {
 		event.preventDefault();
+		console.log(userName);
 		actions.editProfile(userName, () => {
 			history.push("/profile");
 		});
