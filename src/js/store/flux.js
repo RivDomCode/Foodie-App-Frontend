@@ -115,15 +115,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//////////*** GENERATE NEW RECIPE */
 			createRecipe: (newRecipe, file) => {
-				console.log(file);
+				console.log(newRecipe);
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				formData.append("image", file, file.name);
-				formData.append("categories", newRecipe.categories);
+				// for (let i = 0; i < newRecipe.categories.length; i++) {
+				console.log(newRecipe.categories);
+				formData.append("categories", JSON.stringify(newRecipe.categories));
+				// }
+
 				formData.append("ingredients", newRecipe.ingredients);
 				formData.append("elaboration", newRecipe.elaboration);
-				console.log(newRecipe);
-				console.log(FormData);
+				// console.log(newRecipe);
+				// console.log(FormData);
 				const token = localStorage.getItem("token");
 				let headers = { Authorization: " Bearer " + token };
 

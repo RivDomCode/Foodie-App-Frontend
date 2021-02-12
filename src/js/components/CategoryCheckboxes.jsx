@@ -20,9 +20,9 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 		} else {
 			newAllCategories = allCategories.filter(element => element !== event.target.name);
 		}
-		console.log(newAllCategories);
+
 		setAllCategories(newAllCategories);
-		setRecipe({ ...recipe, category: newAllCategories });
+		setRecipe({ ...recipe, categories: newAllCategories });
 	};
 
 	const checkboxes = [

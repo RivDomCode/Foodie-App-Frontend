@@ -10,10 +10,10 @@ const RecipeForm = () => {
 	const { store, actions } = useContext(Context);
 	const [recipe, setRecipe] = useState({
 		image: "",
-		recipeTitle: "",
-		categories: [],
-		ingredients: [],
-		elaboration: ""
+		recipeTitle: "titulo",
+		categories: ["Meat", "Vegan"],
+		ingredients: ["ingrediente", "ingrediente02"],
+		elaboration: "elaboration"
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({
@@ -23,7 +23,7 @@ const RecipeForm = () => {
 
 	const handleChange = event => {
 		if (event.target.name == "image") {
-			console.log("entrado en imagen", event.target.files[0]);
+			// console.log("entrado en imagen", event.target.files[0]);
 			const read = new FileReader();
 			read.onload = () => {
 				if (read.readyState === 2) {
@@ -78,7 +78,7 @@ const RecipeForm = () => {
 				<h4 className="h4title">Choose one or more categories for your recipe</h4>
 			</div>
 
-			<CategoryCheckboxes name="category" recipe={recipe} setRecipe={setRecipe} />
+			<CategoryCheckboxes name="categories" recipe={recipe} setRecipe={setRecipe} />
 
 			<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 			<div className="mb-3">
