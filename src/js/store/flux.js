@@ -115,7 +115,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//////////*** GENERATE NEW RECIPE */
 			createRecipe: (newRecipe, file) => {
-				console.log(newRecipe);
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				formData.append("image", file, file.name);
@@ -124,13 +123,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				formData.append("categories", JSON.stringify(newRecipe.categories));
 				// }
 
-				formData.append("ingredients", newRecipe.ingredients);
+				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
+
 				formData.append("elaboration", newRecipe.elaboration);
 				// console.log(newRecipe);
 				// console.log(FormData);
 				const token = localStorage.getItem("token");
 				let headers = { Authorization: " Bearer " + token };
-
+				console.log(formData, "##############");
 				fetch(url + "recipe", {
 					method: "POST",
 

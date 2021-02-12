@@ -10,10 +10,10 @@ const RecipeForm = () => {
 	const { store, actions } = useContext(Context);
 	const [recipe, setRecipe] = useState({
 		image: "",
-		recipeTitle: "titulo",
-		categories: ["Meat", "Vegan"],
-		ingredients: ["ingrediente", "ingrediente02"],
-		elaboration: "elaboration"
+		recipeTitle: "",
+		categories: [],
+		ingredients: [],
+		elaboration: ""
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({
@@ -27,7 +27,7 @@ const RecipeForm = () => {
 			const read = new FileReader();
 			read.onload = () => {
 				if (read.readyState === 2) {
-					console.log("entrado en el read", read.result);
+					// console.log("entrado en el read", read.result);
 					setRecipe({
 						...recipe,
 						image: read.result
