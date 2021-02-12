@@ -67,6 +67,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => {
 						console.log(data);
+						console.log(data.access_token, "este viene del back");
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
 					})

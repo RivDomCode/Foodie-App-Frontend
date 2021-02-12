@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -19,6 +19,9 @@ const SignUp = props => {
 		password: "",
 		cpassword: ""
 	});
+	useEffect(() => {
+		actions.setPathName("/signup");
+	}, []);
 	//****validation functions****//
 
 	const validatePassword = user => {

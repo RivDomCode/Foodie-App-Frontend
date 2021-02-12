@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 
 const Login = props => {
 	//VAR
-	const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 	const [user, setUser] = useState({
 		email: "",
 		password: ""
