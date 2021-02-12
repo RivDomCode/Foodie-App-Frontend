@@ -6,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			recipes: [],
 			myRecipes: [],
-			pathName: "/login",
+			pathName: "/",
 			page: 1
 		},
 		actions: {

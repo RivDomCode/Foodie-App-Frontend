@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "../../styles/login.scss";
 import PropsType from "prop-types";
@@ -16,6 +16,9 @@ const Login = props => {
 	const [error, setError] = useState({
 		msg: "",
 		status: false
+	});
+	useEffect(() => {
+		actions.setPathName("/login");
 	});
 
 	// This should be in the Data Base. Just to check Login Funcionality
