@@ -57,7 +57,6 @@ const SignUp = props => {
 				msg: "All fields are required",
 				status: true
 			});
-			console.log("mostrar error imputs VACIOS");
 		}
 	};
 
@@ -68,11 +67,12 @@ const SignUp = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-		actions.registerUser(user, props);
+		actions.registerUser(user, props, setError, setSpinner);
 	};
 	const changePathName = () => {
 		actions.setPathName("/login");
 	};
+
 	//****HTML****//
 	return (
 		<div className="backgroundUser">
