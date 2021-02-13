@@ -7,6 +7,9 @@ import { Context } from "../store/appContext";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.setPathName("/");
+	}, []);
 
 	useEffect(() => {
 		actions.getFavorites();

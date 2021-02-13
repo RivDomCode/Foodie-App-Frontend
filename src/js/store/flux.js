@@ -18,8 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ page: page + 1 });
 			},
 			//**************LOGIN */
-			login: (user, props) => {
-				console.log(props, "en el fetch");
+			login: (user, props, setError, setSpinner) => {
 				fetch(url + "user/login", {
 					method: "POST",
 					body: JSON.stringify(user),
@@ -27,18 +26,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
-					.then(res => res.json())
+					.then(res => {
+						res.json();
+						if (res.status == 404) {
+							setError({ msg: "User not exist", status: true });
+							setSpinner(false);
+						}
+						if (res.status == 401) {
+							setError({ msg: "Invalid username or password", status: true });
+							setSpinner(false);
+						}
+						if (res.status == 500) {
+							setError({ msg: "try again later", status: true });
+							setSpinner(false);
+						}
+					})
 					.then(data => {
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
 						setStore({ pathName: "/" });
-						//window.location.replace("/");
 					})
-					.catch(error => console.log(error));
+					.catch(error => {
+						console.log(error);
+					});
 			},
 			//**************SIGNUP */
-			registerUser: (user, props) => {
-				console.log(user);
+			registerUser: (user, props, setError, setSpinner) => {
 				const new_user = {
 					user_name: user.username,
 					email: user.email,
@@ -51,10 +64,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
-					.then(res => res.json())
+					.then(res => {
+						if (res.status == 409) {
+							setError({ msg: "User Name or email exist", status: true });
+							setSpinner(false);
+							return;
+						}
+						if (res.status == 500) {
+							setError({ msg: "try again later", status: true });
+							setSpinner(false);
+							return;
+						}
+						return res.json();
+					})
 					.then(data => {
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
+						setStore({ pathName: "/" });
 					})
 					.catch(error => console.log(error));
 			},
