@@ -77,6 +77,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			/////**************ADD FAVORITE
 			addToFavorites: recipe => {
+				console.log("en añadir favoritos");
 				const token = localStorage.getItem("token");
 				const state = getStore();
 				const actions = getActions();

@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 .favorite-post {
-    max-height: 150px;
-    max-width: 350px;
+    max-height: 8.75rem;
+    max-width: 22.5rem;
+    min-width: 22.5rem;
     margin: auto;
     display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    font-family: roboto;
+    margin-bottom: 40px;
+    margin-top: 40px;
     box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
+    overflow: hidden;
+    position: relative;
+    border-radius: 0.375rem;
 }
 
 .favorite-post-img{
@@ -20,9 +22,9 @@
 }
 
 .favorite-title {
-     font-family: roboto;
+    font-family: roboto;
+    font-size: 16px;
     margin-top: 5px;
-    margin-left: 15px;
     font-weight: bold;
     width: 13.74rem;
     padding: 1rem;
