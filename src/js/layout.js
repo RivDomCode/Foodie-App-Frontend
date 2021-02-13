@@ -5,10 +5,9 @@ import { Home } from "./views/home";
 import SignUp from "./views/signup";
 import Card from "./components/Card.jsx";
 import Comments from "./views/comments";
-//import recipe Detail from "./views/recipe detail";
+import RecipeDetail from "./views/recipeDetail";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
-
 import injectContext from "./store/appContext";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -34,6 +33,7 @@ const Layout = props => {
 					<Route exact path="/profile" component={Profile} />
 					<Route exact path="/editProfile" component={EditProfile} />
 					<Route exact path="/modalDelete" component={ModalDelete} />
+					<Route exact path="/recipeDetail" component={RecipeDetail} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>

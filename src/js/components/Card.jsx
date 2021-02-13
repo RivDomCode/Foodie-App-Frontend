@@ -48,7 +48,7 @@ const Card = ({ recipe }) => {
 	return (
 		<div className="component-card">
 			<div className="card">
-				<Link to={"/detail"}>
+				<Link to={"/recipeDetail"}>
 					<img src={recipe.image} className="card-img-top" alt="..." />
 				</Link>
 				<div className="card-body">
@@ -64,7 +64,7 @@ const Card = ({ recipe }) => {
 						</span>
 					</div>
 					<p className="comment">
-						<Link to={"/detail"} className="comments-link">
+						<Link to={"/recipeDetail"} className="comments-link">
 							Read all comments
 						</Link>
 					</p>
