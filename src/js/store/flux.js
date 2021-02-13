@@ -65,7 +65,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						console.log(res);
 						if (res.status == 409) {
 							setError({ msg: "User Name or email exist", status: true });
 							setSpinner(false);
@@ -79,7 +78,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return res.json();
 					})
 					.then(data => {
-						console.log(data);
 						localStorage.setItem("token", data.access_token);
 						props.history.push("/");
 						setStore({ pathName: "/" });

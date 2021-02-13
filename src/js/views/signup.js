@@ -25,33 +25,26 @@ const SignUp = props => {
 	//****validation functions****//
 
 	const validatePassword = user => {
-		console.log("entrando validar pass");
 		if (user.password == user.cpassword) {
-			console.log("pass iguales");
 			if (user.password.length >= 8) {
-				console.log("pass mayor igual 8");
 				setError({
 					msg: "",
 					status: false
 				});
 				setSpinner(true);
 			} else {
-				console.log("passs menor 8");
 				setError({
 					msg: "The password must be 8 characters",
 					status: true
 				});
 				return true;
-				console.log("mensaje de error en password debe tener 8 caracteres");
 			}
 		} else {
-			console.log("contraseñas incorrectas");
 			setError({
 				msg: "The password must be the same",
 				status: true
 			});
 			return true;
-			console.log("mensaje de error en password");
 		}
 	};
 	const validateInputs = user => {
@@ -61,11 +54,8 @@ const SignUp = props => {
 			user.password.trim() != "" &&
 			user.cpassword.trim() != ""
 		) {
-			console.log("validando inputs");
-
 			return validatePassword(user);
 		} else {
-			console.log("Else validate input");
 			setError({
 				msg: "All fields are required",
 				status: true
@@ -79,14 +69,11 @@ const SignUp = props => {
 		setUser({ ...user, [event.target.name]: event.target.value });
 	};
 	const handleSubmit = event => {
-		console.log("haciendo click");
 		event.preventDefault();
 		const e = validateInputs(user);
-		console.log("variable de error", e);
 
 		//hacer un condicional
 		if (e != true) {
-			console.log("registar", e);
 			actions.registerUser(user, props, setError, setSpinner);
 		}
 	};
