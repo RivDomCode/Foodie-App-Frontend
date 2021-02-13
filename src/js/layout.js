@@ -11,10 +11,12 @@ import EditProfile from "./views/editProfile";
 
 import injectContext from "./store/appContext";
 import Navbar from "./components/Navbar.jsx";
+import RecipeForm from "./views/recipeForm";
 import Footer from "./components/Footer.jsx";
 import ModalDelete from "./components/ModalDelete.jsx";
 import PropsType from "prop-types";
 import { Context } from "./store/appContext";
+
 const Layout = props => {
 	const { store, actions } = useContext(Context);
 	const basename = process.env.BASENAME || "";
@@ -33,6 +35,7 @@ const Layout = props => {
 					<Route exact path="/comments" component={Comments} />
 					<Route exact path="/profile" component={Profile} />
 					<Route exact path="/editProfile" component={EditProfile} />
+					<Route exact path="/newRecipeForm" component={RecipeForm} />
 					<Route exact path="/modalDelete" component={ModalDelete} />
 					<Route>
 						<h1>Not found!</h1>

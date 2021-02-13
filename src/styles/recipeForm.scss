@@ -1,0 +1,294 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fdfdfd;
+}
+
+.sectionTitle{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    text-align: center;
+    font-size: 23px;
+    color: #F53158;
+}
+
+.NoPhotoGreyBackgourd{
+    width: 90%;
+    height: 20.625rem;
+    max-width: 37.5rem;
+    background-color: #D8D8D8;
+    border-radius: 5px;
+    margin: auto;
+    
+    margin-bottom: 3%;
+}
+
+.fileSelect{
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.fileSelect::before{
+    background-color:rgb(136, 136, 136);
+    color: #fdfdfd;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'here'; /* texto por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.fileSelect input[type="file"]{
+    border-radius: 3px;
+    opacity: 0;
+    width: 12.5rem;
+    height: 2rem;
+    display: inline-block;   
+}
+
+#file::before{
+    content: 'Click';
+}
+
+
+
+
+.noPhoto{
+    font-size: 92px;
+    color: #fdfdfd;
+    margin: auto;
+    padding-top: 15%;
+    text-align: center;
+    
+}
+.textUploadPhoto{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: rgb(136, 136, 136);
+    margin: auto;
+}
+
+/*Input para el titulo de la receta*/
+.form-control{
+    display: flex;
+    margin: auto;
+    margin-top: 1%;
+    width: 90%;
+    max-width: 37.5rem;
+    font-size: medium;
+    color:#6c757d;
+    margin-bottom: 0;
+}
+.h4title{
+    font-family: Roboto;
+    /*font-style: normal;*/
+    font-weight: 700;
+    text-align: center;
+    font-size: 18px;
+    color: #333333;
+}
+.categoryChecks{
+    display: flex;
+    margin: auto;
+    margin-top: 1%;
+    width: 90%;
+    max-width: 37.5rem;
+    
+}
+
+/*Input para añadir ingredientes*/
+.input-group{
+    display: flex;
+    margin: auto;
+    width: 90%;
+    max-width: 37.5rem;
+    margin-top: 1%;
+}
+.addingredientGroup{
+    display: flex;
+    margin: auto;
+    margin-top: 1%;
+    width: 90%;
+    max-width: 37.5rem;
+}
+.inputIngredients{
+     width: 90%;
+     border:1px solid #CED0DA;
+     border-radius: 4px;
+}
+
+.buttonAddIngredients{
+    width: 10%;
+    height: 32px;
+    margin-left: 2%;
+    margin-top: 1%;
+    padding: 0;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+    border-radius: 4px;
+    background-color: #F53158;
+}
+.buttonAddIngredients:active{
+    
+    background-color: rgb(212, 25, 63);
+    border: none;
+    
+}
+
+.buttonAddIngredients:focus{
+    outline:none;
+}
+
+.addIconDropdown{
+    margin: auto;
+}
+.fa-plus{
+    font-size: 15px;
+    color: #fdfdfd;
+    
+}
+.rowIngredients{
+    max-width: 37.5rem;
+    margin: auto;
+}
+
+
+.fa-minus{
+    border: none;
+    background: none;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 0.125rem;
+}
+
+.ingredientsList, col-2{
+    display: flex;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    
+    background-color: #f3f3f3;
+    border-radius: 4px;
+    border: 1px solid #CED0DA;
+    max-width: none;
+    min-width: none;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-right: 1rem;
+    padding-left:  1rem;
+    text-align: center;
+    justify-content: center;
+
+}
+
+#ingredientText{
+    margin-bottom: 0px !important;
+}
+
+.buttonDeleteTask{
+    outline:none;
+    border: none;
+    background: none;
+    text-decoration: none;
+    border-style: none;
+    border-color: none;
+    border-image: none;
+    color: #333333;
+    padding-left: 1rem;
+}
+  
+
+.textArea{
+    width: 90%;
+    max-width: 37.5rem;
+    display: flex;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 4px;
+    border: 1px solid #CED0DA;
+    padding: 1% 2% 2% 2%;
+
+}
+
+
+.buttonPublish{
+    width: 40%;
+    height: 3rem;
+    max-width: 25rem;
+    min-width: 14.375rem;
+    display: flex;
+    margin: auto;
+    margin-top: 3%;
+    text-align: center;
+    background-color: #F53158;
+    color: #fdfdfd;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
+}
+
+.buttonPublish:active {
+    background-color: rgb(212, 25, 63);
+    border: none;
+}
+.buttonPublish:focus{
+    outline: none;
+}
+
+
+.buttonCancel{
+    width: 40%;
+    height: 3rem;
+    max-width: 25rem;
+    min-width: 14.375rem;
+    display: flex;
+    margin: auto;
+    background-color: #fdfdfd;
+    color:#3D9382;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
+    filter: drop-shadow(8px 6px 16px rgba(0, 0, 0, 0.25));
+    margin-top: 3%;
+    border-width: 0px;
+    border-style: none;
+    border-color: none;
+    border-image: initial;
+}
+.buttonCancel:active{
+    background-color: rgb(203, 247, 238);
+    color:#3D9382;
+    border: none;
+}
+.buttonCancel:focus{
+    outline: none;
+}
+
+.buttonTextPublish{
+    margin: auto;
+}
+
+.buttonTextCancel{
+    margin: auto;
+   
+}

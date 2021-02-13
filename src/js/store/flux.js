@@ -1,3 +1,4 @@
+
 const url = "https://3000-pink-donkey-u2u78cvl.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -227,6 +228,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ user: data });
 					});
 			},
+
+			//////////*** GENERATE NEW RECIPE */
+			createRecipe: (newRecipe, file) => {
+				const formData = new FormData();
+				formData.append("title", newRecipe.recipeTitle);
+				formData.append("image", file, file.name);
+				// for (let i = 0; i < newRecipe.categories.length; i++) {
+				console.log(newRecipe.categories);
+				formData.append("categories", JSON.stringify(newRecipe.categories));
+				// }
+
+				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
+
+				formData.append("elaboration", newRecipe.elaboration);
+				// console.log(newRecipe);
+				// console.log(FormData);
+				const token = localStorage.getItem("token");
+				let headers = { Authorization: " Bearer " + token };
+				console.log(formData, "##############");
+				fetch(url + "recipe", {
+					method: "POST",
+
+					body: formData,
+					headers: headers
+				})
+					.then(res => res.json())
+					.then(data => {
+						console.log(data);
+						//props.history.push("/");
+					})
+					.catch(error => console.log(error));
+      },
 			//****EDIT USER */
 			editProfile: (userName, callback) => {
 				const token = localStorage.getItem("token");
