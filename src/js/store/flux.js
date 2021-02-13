@@ -234,18 +234,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				formData.append("image", file, file.name);
-				
-				
+
 				formData.append("categories", JSON.stringify(newRecipe.categories));
-				
 
 				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
 
 				formData.append("elaboration", newRecipe.elaboration);
-				
+
 				const token = localStorage.getItem("token");
 				let headers = { Authorization: " Bearer " + token };
-				
+
 				fetch(url + "recipe", {
 					method: "POST",
 

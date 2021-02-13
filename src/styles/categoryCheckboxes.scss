@@ -1,5 +1,25 @@
+.oneCheckbox{
+    height: 1.5rem;
+    width:  1.5rem;
+    margin-left: 0.5rem;
+   
+}
+
+
 #checkboxSection{
-    //display: flex;
+    display: flex;
     margin: auto;
-    max-width: 600px;
+   /* margin-top: 1rem;*/
+    max-width: 37.5rem;
+    justify-content: space-between;
+
+}
+
+.labelCheckbox{
+    display: flex;
+    align-items: center;
+}
+
+.itemName{
+    margin: 0.25rem 0rem 0rem 0rem;
 }
