@@ -81,10 +81,12 @@ const SignUp = props => {
 	const handleSubmit = event => {
 		console.log("haciendo click");
 		event.preventDefault();
-		const error = validateInputs(user);
+		const e = validateInputs(user);
+		console.log("variable de error", e);
+
 		//hacer un condicional
-		if (error != true) {
-			console.log("registar", error);
+		if (e != true) {
+			console.log("registar", e);
 			actions.registerUser(user, props, setError, setSpinner);
 		}
 	};

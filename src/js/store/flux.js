@@ -64,11 +64,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 						"Content-Type": "application/json"
 					}
 				})
-					.then(res => res.json())
+					.then(res => {
+						console.log(res);
+						if (res.status == 409) {
+							setError({ msg: "User Name or email exist", status: true });
+							setSpinner(false);
+							return;
+						}
+						if (res.status == 500) {
+							setError({ msg: "try again later", status: true });
+							setSpinner(false);
+							return;
+						}
+						return res.json();
+					})
 					.then(data => {
 						console.log(data);
-						//localStorage.setItem("token", data.access_token);
-						//props.history.push("/");
+						localStorage.setItem("token", data.access_token);
+						props.history.push("/");
+						setStore({ pathName: "/" });
 					})
 					.catch(error => console.log(error));
 			},
