@@ -1,30 +1,33 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
 import Navbar from "../components/Navbar.jsx";
 import "../../styles/editProfile.scss";
 import { Context } from "../store/appContext";
+import { useHistory } from "react-router-dom";
 
 const EditProfile = () => {
 	const { store, actions } = useContext(Context);
+	let history = useHistory();
+	useEffect(() => {
+		actions.getUser();
+	}, []);
 	console.log(store.user);
 
-	const [user, setUser] = useState({
-		username: store.user.username,
-		email: store.user.email
-	});
-	console.log(user, "holaaaa");
+	const [userName, setUserName] = useState(store.user.user_name);
 
 	//Para recoger los datos modifcados
 	const handleChange = event => {
-		setUser({ ...user, [event.target.name]: event.target.value });
-		console.log(user);
+		event.preventDefault();
+		setUserName(event.target.value);
 	};
 	///Para enviar los datos modificados
 	const handleSubmit = event => {
 		event.preventDefault();
-		///****LLAMAR A LA FUNCION DE EDITAR PERFIL****//
-		//actions.editProfile(user.username);
+		console.log(userName);
+		actions.editProfile(userName, () => {
+			history.push("/profile");
+		});
 	};
 	return (
 		<div className="editProfile">
@@ -40,11 +43,11 @@ const EditProfile = () => {
 									name="username"
 									className="name-input"
 									type="text"
-									defaultValue={user.username}
+									defaultValue={store.user.user_name}
 								/>
 							</div>
 							<p className="email" name="email">
-								{user.email}
+								{store.user.email}
 							</p>
 						</div>
 						<div className="buttons-edit">

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../../styles/signup.scss";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -19,6 +19,9 @@ const SignUp = props => {
 		password: "",
 		cpassword: ""
 	});
+	useEffect(() => {
+		actions.setPathName("/signup");
+	}, []);
 	//****validation functions****//
 
 	const validatePassword = user => {
@@ -34,14 +37,14 @@ const SignUp = props => {
 					msg: "The password must be 8 characters",
 					status: true
 				});
-				console.log("mensaje de error en password debe tener 8 caracteres");
+				return true;
 			}
 		} else {
 			setError({
 				msg: "The password must be the same",
 				status: true
 			});
-			console.log("mensaje de error en password");
+			return true;
 		}
 	};
 	const validateInputs = user => {
@@ -51,13 +54,13 @@ const SignUp = props => {
 			user.password.trim() != "" &&
 			user.cpassword.trim() != ""
 		) {
-			validatePassword(user);
+			return validatePassword(user);
 		} else {
 			setError({
 				msg: "All fields are required",
 				status: true
 			});
-			console.log("mostrar error imputs VACIOS");
+			return true;
 		}
 	};
 
@@ -67,12 +70,17 @@ const SignUp = props => {
 	};
 	const handleSubmit = event => {
 		event.preventDefault();
-		validateInputs(user);
-		actions.registerUser(user, props);
+		const e = validateInputs(user);
+
+		//hacer un condicional
+		if (e != true) {
+			actions.registerUser(user, props, setError, setSpinner);
+		}
 	};
 	const changePathName = () => {
 		actions.setPathName("/login");
 	};
+
 	//****HTML****//
 	return (
 		<div className="backgroundUser">

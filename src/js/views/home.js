@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "../../styles/home.scss";
 import Navbar from "../components/Navbar.jsx";
 import Card from "../components/Card.jsx";
@@ -7,6 +7,13 @@ import { Context } from "../store/appContext";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.setPathName("/");
+	}, []);
+
+	useEffect(() => {
+		actions.getFavorites();
+	}, []);
 
 	return (
 		<div className="Home">

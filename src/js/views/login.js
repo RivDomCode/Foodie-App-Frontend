@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import "../../styles/login.scss";
 import PropsType from "prop-types";
@@ -6,7 +6,7 @@ import { Context } from "../store/appContext";
 
 const Login = props => {
 	//VAR
-	const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 	const [user, setUser] = useState({
 		email: "",
 		password: ""
@@ -17,6 +17,9 @@ const Login = props => {
 		msg: "",
 		status: false
 	});
+	useEffect(() => {
+		actions.setPathName("/login");
+	}, []);
 
 	// This should be in the Data Base. Just to check Login Funcionality
 
@@ -24,23 +27,15 @@ const Login = props => {
 
 	const validateInputs = user => {
 		setSpinner(true);
-		//aqui el se llamaría a la función que compruebe si los email está en base de datos, y en caso de existir que esté asociado al password dado
-		console.log("Todo Bien");
 		if (user.email.trim() == "" || user.password.trim() == "") {
 			setError({
 				msg: "All fields are required",
 				status: true
 			});
+			setSpinner(false);
 		} else {
-			actions.login(user, props);
+			actions.login(user, props, setError, setSpinner);
 		}
-		/*else {
-			setError({
-				msg: "Email or password incorrect",
-				status: true
-			});
-			console.log("alguno vacio");
-		}*/
 	};
 
 	//EVENTS
@@ -51,9 +46,7 @@ const Login = props => {
 
 	const handleSubmit = event => {
 		event.preventDefault();
-
 		validateInputs(user);
-		console.log(props);
 		actions.login(user, props);
 	};
 	const changePathName = () => {

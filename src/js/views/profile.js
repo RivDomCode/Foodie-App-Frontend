@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "../../styles/profile.scss";
 import User from "../../icons/user.jsx";
 import Edit from "../../icons/edit.jsx";
@@ -9,11 +9,10 @@ import Logout from "../../icons/logout.jsx";
 import { Context } from "../store/appContext";
 
 const Profile = () => {
-	const { store } = useContext(Context);
-	const [user, setUser] = useState({
-		username: store.user.username,
-		email: store.user.email
-	});
+	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.getUser();
+	}, []);
 	return (
 		<div className="profile">
 			<div className="allBody">
@@ -22,8 +21,8 @@ const Profile = () => {
 					<Edit />
 				</div>
 				<div className="user-data">
-					<h5 className="name">{user.username}</h5>
-					<p className="email">{user.email}</p>
+					<h5 className="name">{store.user.user_name}</h5>
+					<p className="email">{store.user.email}</p>
 				</div>
 
 				<div className="addRecipeButton">
@@ -33,12 +32,9 @@ const Profile = () => {
 						</button>
 					</Link>
 				</div>
-				{/* Tabs */}
 				<Tabs />
 			</div>
-			<Link to="/login">
-				<Logout />
-			</Link>
+			<Logout />
 		</div>
 	);
 };
