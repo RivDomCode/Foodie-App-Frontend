@@ -89,11 +89,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} else {
 					setStore({ favorites: [...state.favorites, recipe] });
 				}
-
+				console.log(JSON.stringify(recipe));
 				fetch(url + "favorites/" + recipe.id, {
 					method: "POST",
-					/*body: JSON.stringify(recipe),*/
-					headers: { Authorization: " Bearer " + token }
+					body: JSON.stringify(recipe),
+					headers: { Authorization: " Bearer " + token, "Content-Type": "application/json" }
 				})
 					.then(res => res.json())
 

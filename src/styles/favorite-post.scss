@@ -13,23 +13,30 @@
 }
 
 .favorite-post-img{
-    max-width: 175px;
-    min-width: 175px;
-    max-height: 150px;
-    min-height: 150px;
+    max-width: 8.75rem;
+    min-width: 8.75rem;
+    max-height: 8.75rem;
+    min-height: 8.75rem;
 }
 
 .favorite-title {
-    font-family: roboto;
+     font-family: roboto;
     margin-top: 5px;
     margin-left: 15px;
     font-weight: bold;
+    width: 13.74rem;
+    padding: 1rem;
 }
 
 
 .like-favorite-post{
+    width: 14px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
     color: #F53158;
-    margin-left: 75%;
+
 }
 
 
