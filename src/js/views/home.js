@@ -8,11 +8,8 @@ import { Context } from "../store/appContext";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
-		actions.setPathName("/");
-	}, []);
-
-	useEffect(() => {
 		actions.getFavorites();
+		actions.setPathName("/");
 	}, []);
 
 	return (
@@ -23,6 +20,7 @@ export const Home = () => {
 						<p className="start-message">Recipes is empty</p>
 					) : (
 						store.recipes.map((recipe, index) => {
+							console.log(recipe, index);
 							return <Card recipe={recipe} key={index} />;
 						})
 					)}
