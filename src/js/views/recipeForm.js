@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import Form from "react-bootstrap/Form";
+
 import { CategoryCheckboxes } from "./../components/CategoryCheckboxes.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
+import PropsType from "prop-types";
 
 import { Context } from "../store/appContext";
 
-const RecipeForm = () => {
+const RecipeForm = props => {
 	const { store, actions } = useContext(Context);
 	const [recipe, setRecipe] = useState({
 		image: "",
@@ -44,7 +45,7 @@ const RecipeForm = () => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
-		actions.createRecipe(recipe, file.files[0]);
+		actions.createRecipe(recipe, file.files[0], props);
 
 		console.log(recipe);
 	};
@@ -99,6 +100,10 @@ const RecipeForm = () => {
 			</button>
 		</div>
 	);
+};
+
+RecipeForm.propsType = {
+	history: PropsType.object
 };
 
 export default RecipeForm;

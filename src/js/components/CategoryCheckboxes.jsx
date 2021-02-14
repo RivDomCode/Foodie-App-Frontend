@@ -67,8 +67,8 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	return (
 		<div id="checkboxSection">
 			{checkboxes.map(item => (
-				<label key={item.key}>
-					{item.name}
+				<label className="labelCheckbox" key={item.key}>
+					<p className="itemName">{item.name}</p>
 					<Checkbox
 						id="checkbox"
 						name={item.name}

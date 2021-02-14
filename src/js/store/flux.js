@@ -1,5 +1,4 @@
-
-const url = "https://3000-pink-donkey-u2u78cvl.ws-eu03.gitpod.io/";
+const url = "https://3000-eebc3df8-f426-41f7-8f32-d9211915975b.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -28,7 +27,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						res.json();
 						if (res.status == 404) {
 							setError({ msg: "User not exist", status: true });
 							setSpinner(false);
@@ -41,6 +39,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							setError({ msg: "try again later", status: true });
 							setSpinner(false);
 						}
+						return res.json();
 					})
 					.then(data => {
 						localStorage.setItem("token", data.access_token);
@@ -191,7 +190,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				/////
 				console.log(recipe, "el id para borrar");
 				const token = localStorage.getItem("token");
-				const state = getStore();
+
 				const actions = getActions();
 
 				/////
@@ -212,6 +211,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => alert("la receta no se ha borrado"))
 					.then(data => {
 						actions.getRecipeByUser();
+						setStore({ page: 1, recipes: [] });
+						actions.getRecipe(1);
 					});
 			},
 			//*********** GET USER */
@@ -230,23 +231,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			//////////*** GENERATE NEW RECIPE */
-			createRecipe: (newRecipe, file) => {
+			createRecipe: (newRecipe, file, props) => {
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				formData.append("image", file, file.name);
-				// for (let i = 0; i < newRecipe.categories.length; i++) {
-				console.log(newRecipe.categories);
+
 				formData.append("categories", JSON.stringify(newRecipe.categories));
-				// }
 
 				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
 
 				formData.append("elaboration", newRecipe.elaboration);
-				// console.log(newRecipe);
-				// console.log(FormData);
+
 				const token = localStorage.getItem("token");
 				let headers = { Authorization: " Bearer " + token };
-				console.log(formData, "##############");
+
 				fetch(url + "recipe", {
 					method: "POST",
 
@@ -256,10 +254,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(data => {
 						console.log(data);
-						//props.history.push("/");
+						setStore({ page: 1, recipes: [], pathName: "/" });
+						getActions().getRecipe(1);
+						props.history.push("/");
 					})
 					.catch(error => console.log(error));
-      },
+			},
 			//****EDIT USER */
 			editProfile: (userName, callback) => {
 				const token = localStorage.getItem("token");
