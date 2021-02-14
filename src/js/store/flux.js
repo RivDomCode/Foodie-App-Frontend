@@ -261,10 +261,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 			//****EDIT USER */
-			editProfile: (userName, callback) => {
+			editProfile: (user, file, props) => {
 				const token = localStorage.getItem("token");
 				const formData = new FormData();
-				formData.append("user_name", userName);
+				formData.append("user_name", user.user_name);
+				//formData.append("image", file, file.name);
 				fetch(url + "user", {
 					method: "PUT",
 					body: formData,
@@ -272,7 +273,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						callback();
+						props.history.push("/profile");
 					});
 			},
 			////*** LOGOUT */
