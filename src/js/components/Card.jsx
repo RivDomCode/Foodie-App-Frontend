@@ -53,10 +53,7 @@ const Card = ({ recipe }) => {
 				</Link>
 				<div className="card-body">
 					<h5 className="card-title">{recipe.title}</h5>
-					<p className="card-text">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe corrupti hic ad delectus,
-						blanditiis ratione, tempora tenetur veritatis eum accusamus ullam itaque facilis dolore, rem
-					</p>
+					<p className="card-text">{recipe.elaboration}</p>
 					<div className="row author-heart d-flex">
 						<span>By {recipe.user_name}</span>{" "}
 						<span>
