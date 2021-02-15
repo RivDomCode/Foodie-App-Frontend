@@ -1,15 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
-import User from "../../icons/user.jsx";
-import Edit from "../../icons/edit.jsx";
-import Navbar from "../components/Navbar.jsx";
 import "../../styles/editProfile.scss";
 import { Context } from "../store/appContext";
-import { useHistory } from "react-router-dom";
 import PropsType from "prop-types";
 
 const EditProfile = props => {
 	const { store, actions } = useContext(Context);
-	//let history = useHistory();
 	useEffect(
 		() => {
 			actions.getUser();
@@ -18,7 +13,6 @@ const EditProfile = props => {
 	);
 	console.log(store.user);
 
-	//const [userName, setUserName] = useState(store.user.user_name);
 	const [userProfile, setUserProfile] = useState({
 		image: "",
 		user_name: ""
@@ -27,13 +21,12 @@ const EditProfile = props => {
 	//Para recoger los datos modifcados
 	const handleChange = event => {
 		event.preventDefault();
-		// setUserName(event.target.value);
 		if (event.target.name == "image") {
-			console.log("entrado en imagen", event.target.files[0]);
+			//console.log("entrado en imagen", event.target.files[0]);
 			const read = new FileReader();
 			read.onload = () => {
 				if (read.readyState === 2) {
-					console.log("entrado en el read", read.result);
+					//console.log("entrado en el read", read.result);
 					setUserProfile({
 						...userProfile,
 						image: read.result
@@ -51,12 +44,8 @@ const EditProfile = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		const file = document.querySelector("#photo");
-		console.log("imagen", userProfile);
 		actions.editProfile(userProfile, file.files[0], props);
-		console.log(userProfile, "USER");
-		/*actions.editProfile(userName () => {
-			history.push("/profile");
-		});*/
+		
 	};
 	return (
 		<div className="editProfile">
@@ -65,7 +54,6 @@ const EditProfile = props => {
 					<h5 className="title">Edit Profile</h5>
 					{/*<form onChange={handleChange} onSubmit={handleSubmit}>*/}
 					<div className="user">
-						{/*<User /> este es el icono de user*/}
 						{userProfile.image == "" ? (
 							<img src={store.user.urlImg} className="img-top" alt="Photo Profile" />
 						) : (
