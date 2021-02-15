@@ -11,22 +11,17 @@ const EditProfile = props => {
 		},
 		[userProfile]
 	);
-	console.log(store.user);
-
 	const [userProfile, setUserProfile] = useState({
 		image: "",
 		user_name: ""
 	});
-	console.log(userProfile, "modificadodddddd");
 	//Para recoger los datos modifcados
 	const handleChange = event => {
 		event.preventDefault();
 		if (event.target.name == "image") {
-			//console.log("entrado en imagen", event.target.files[0]);
 			const read = new FileReader();
 			read.onload = () => {
 				if (read.readyState === 2) {
-					//console.log("entrado en el read", read.result);
 					setUserProfile({
 						...userProfile,
 						image: read.result
@@ -52,7 +47,6 @@ const EditProfile = props => {
 			<div className="allBody">
 				<div className="container">
 					<h5 className="title">Edit Profile</h5>
-					{/*<form onChange={handleChange} onSubmit={handleSubmit}>*/}
 					<div className="user">
 						{userProfile.image == "" ? (
 							<img src={store.user.urlImg} className="img-top" alt="Photo Profile" />
@@ -84,7 +78,6 @@ const EditProfile = props => {
 							<p className="text-button">Cancel</p>
 						</button>
 					</div>
-					{/*</form>*/}
 				</div>
 			</div>
 		</div>
