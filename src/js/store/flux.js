@@ -265,7 +265,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const token = localStorage.getItem("token");
 				const formData = new FormData();
 				formData.append("user_name", user.user_name);
-				//formData.append("image", file, file.name);
+				formData.append("urlImg", file, file.name);
 				fetch(url + "user", {
 					method: "PUT",
 					body: formData,

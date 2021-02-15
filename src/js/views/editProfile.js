@@ -10,17 +10,20 @@ import PropsType from "prop-types";
 const EditProfile = props => {
 	const { store, actions } = useContext(Context);
 	//let history = useHistory();
-	useEffect(() => {
-		actions.getUser();
-	}, []);
+	useEffect(
+		() => {
+			actions.getUser();
+		},
+		[userProfile]
+	);
 	console.log(store.user);
 
 	//const [userName, setUserName] = useState(store.user.user_name);
 	const [userProfile, setUserProfile] = useState({
-		image: store.user.urlImg,
-		username: store.user.user_name
+		image: "",
+		user_name: ""
 	});
-
+	console.log(userProfile, "modificadodddddd");
 	//Para recoger los datos modifcados
 	const handleChange = event => {
 		event.preventDefault();
@@ -63,14 +66,18 @@ const EditProfile = props => {
 					{/*<form onChange={handleChange} onSubmit={handleSubmit}>*/}
 					<div className="user">
 						{/*<User /> este es el icono de user*/}
-						{store.user.urlImg == "" ? null : <img src={store.user.urlImg} className="img-top" alt="..." />}
+						{userProfile.image == "" ? (
+							<img src={store.user.urlImg} className="img-top" alt="Photo Profile" />
+						) : (
+							<img src={userProfile.image} className="img-top" alt="NewPhoto Profile" />
+						)}
 						<input onChange={handleChange} className="fileSelect" id="photo" type="file" name="image" />
 					</div>
 
 					<div className="user-data">
 						<div className="name">
 							<input
-								name="username"
+								name="user_name"
 								className="name-input"
 								type="text"
 								defaultValue={store.user.user_name}
