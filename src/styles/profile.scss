@@ -39,7 +39,6 @@ body{
     color: rgba(61, 147, 130, 1);
     font-style: normal;
     font-weight: bold;
-    //font-weight: 500;
     font-size: 23px;
     width: 224px;
     height: 48px;
@@ -102,8 +101,9 @@ a {
     margin: auto;
 }
 .img-user-profile{
-    width:8.5rem;
-    height:8.5rem;
+    width:9.5rem;
+    height:9.5rem;
+    border-radius: 100%;
 }
 @media screen and(max-width:768px){
     .allBody{
