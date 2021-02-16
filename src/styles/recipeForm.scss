@@ -15,18 +15,25 @@ body{
     color: #F53158;
 }
 
-.NoPhotoGreyBackgourd{
+/*.NoPhotoGreyBackgourd{
     width: 90%;
-    height: 20.625rem;
-    max-width: 37.5rem;
+    max-height: 37.5rem;
+    min-height: 22.5rem;
+    min-width: 18.75rem;
+    max-width: 25rem;
     background-color: #D8D8D8;
     border-radius: 5px;
     margin: auto;
     margin-bottom:2rem;
-}
+}*/
 .recipeFormPhoto{
-    /*width: 90%;*/
-    height: 20.625rem;
+    width: 90%;
+    display: flex;
+    margin: auto;
+    object-fit: cover;
+    min-height: 10.313rem;
+    min-width: 18.75rem;
+    max-height: 20.625rem;
     max-width: 37.5rem;
     border-radius: 5px;
     margin: auto;
@@ -122,7 +129,7 @@ body{
     font-weight: 900;
     text-align: center;
     font-size: 18px;
-    color: #333333;
+    color: #3D9382;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
@@ -131,7 +138,7 @@ body{
     margin-bottom: 2rem;
 }
 
-.bodyChecksTitle{
+/*.bodyChecksTitle{
     
     margin: auto;
     
@@ -140,7 +147,7 @@ body{
     max-width: 37.5rem;
     background-color: #eeeeee;
     border-radius: 4px;
-}
+}*/
 
 .categoryChecks{
     display: flex;

@@ -54,7 +54,7 @@ const RecipeForm = props => {
 		<div>
 			<h2 className="sectionTitle">New recipe</h2>
 
-			<div className="recipeFormPhoto">
+			<div>
 				{recipe.image == "" ? (
 					<img
 						src="https://dummyimage.com/600x330/D8D8D8/888888&text=Click+the+button+to+upload+your+recipe+photo"
