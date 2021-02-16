@@ -24,40 +24,68 @@ body{
     margin: auto;
     margin-bottom:2rem;
 }
+.recipeFormPhoto{
+    /*width: 90%;*/
+    height: 20.625rem;
+    max-width: 37.5rem;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom:1rem;
+    
+}
 
 .fileSelect{
-    border-radius: 3px;
-    position: relative;
-    display: inline-block;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    background-color:#F53158;
+    color: #fdfdfd;
+    border-radius: 4px;
+    width: 12.5rem;
+    height: 2rem;
+    /*position: relative;
+    /*display: inline-block;*/
     cursor: pointer;
+    margin-bottom:2rem;
+   
 }
 
 .fileSelect::before{
-    background-color:rgb(136, 136, 136);
+    background-color:#F53158;
     color: #fdfdfd;
     display: flex;            
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
-    content: 'here'; /* texto por defecto */
-    position: absolute;
+    border-radius: 4px;
+    width: 12.5rem;
+    height:2rem;
+    content: 'Upload new photo'; /* texto por defecto */
+    /*position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;
+    bottom: 0;*/
 }
-.fileSelect input[type="file"]{
-    border-radius: 3px;
-    opacity: 0;
+#file input[type="file"]{
     width: 12.5rem;
     height: 2rem;
-    display: inline-block;   
+    border-radius: 4px;
+    opacity: 0;
 }
 
-#file::before{
-    content: 'Click';
+/*#file::before{
+    content: 'Upload new photo';
+}*/
+
+.fileSelect:active{
+    background-color: rgb(212, 25, 63);
+    border: none;
+    
 }
 
+.fileSelect:focus{
+    outline:none;
+}
 
 
 
@@ -95,17 +123,29 @@ body{
     text-align: center;
     font-size: 18px;
     color: #333333;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 .mb-3{
     margin-bottom: 0rem !important;
     margin-bottom: 2rem;
 }
 
+.bodyChecksTitle{
+    
+    margin: auto;
+    
+    width: 90%;
+    height: 6.25rem;
+    max-width: 37.5rem;
+    background-color: #eeeeee;
+    border-radius: 4px;
+}
+
 .categoryChecks{
     display: flex;
     margin: auto;
-    margin-top: 1%;
+    margin-top: 2rem;
     width: 90%;
     max-width: 37.5rem;
     
