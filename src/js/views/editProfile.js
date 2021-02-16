@@ -5,6 +5,10 @@ import PropsType from "prop-types";
 
 const EditProfile = props => {
 	const { store, actions } = useContext(Context);
+	const [error, setError] = useState({
+		msg: "",
+		status: false
+	});
 	useEffect(
 		() => {
 			actions.getUser();
@@ -39,7 +43,7 @@ const EditProfile = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		const file = document.querySelector("#photo");
-		actions.editProfile(userProfile, file.files[0], props);
+		actions.editProfile(userProfile, file.files[0], props, setError);
 	};
 	return (
 		<div className="editProfile">
@@ -57,6 +61,19 @@ const EditProfile = props => {
 
 					<div className="user-data">
 						<div className="name">
+							{/**inicio mensaje de error */}
+							{error.status ? (
+								<div className="alert" id="error">
+									<p>
+										{" "}
+										{error.msg}
+										<i className="fas fa-exclamation-circle" id="icono-msn" />
+									</p>
+								</div>
+							) : (
+								""
+							)}
+							{/**fin mensaje de error */}
 							<input
 								name="user_name"
 								className="name-input"

@@ -225,7 +225,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						//console.log(data);
 						setStore({ user: data });
 					});
 			},
@@ -253,7 +252,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log(data);
 						setStore({ page: 1, recipes: [], pathName: "/" });
 						getActions().getRecipe(1);
 						props.history.push("/");
@@ -261,7 +259,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 			//****EDIT USER */
-			editProfile: (user, file, props) => {
+			editProfile: (user, file, props, setError) => {
 				const token = localStorage.getItem("token");
 				const formData = new FormData();
 				formData.append("user_name", user.user_name);
@@ -274,27 +272,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: formData,
 					headers: { Authorization: " Bearer " + token }
 				})
-					.then(res => res.json())
-					.then(function(response) {
-						console.log(response.type);
-						console.log(response.url);
-						console.log(response.useFinalURL);
-						console.log(response.status);
-						console.log(response.ok);
-						console.log(response.msg);
-						console.log(response.headers);
-						if (!response.ok) {
-							throw new Error("HTTP error, status = " + response.msg);
+					.then(res => {
+						if (res.status == 403) {
+							setError({ msg: "User Name or email exist", status: true });
+							console.log("El usuario ya existe");
+						} else {
+							res.json();
+							props.history.push("/profile");
 						}
 					})
-					.then(data => {
-						props.history.push("/profile");
-					})
+
 					.catch(error => console.log(error));
 			},
 			////*** LOGOUT */
 			logoutUser: callback => {
-				console.log("ESTOY EN LOG");
 				localStorage.clear();
 				callback();
 			}
