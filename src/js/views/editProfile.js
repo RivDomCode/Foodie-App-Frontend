@@ -63,7 +63,7 @@ const EditProfile = props => {
 						<div className="name">
 							{/**inicio mensaje de error */}
 							{error.status ? (
-								<div className="alert" id="error">
+								<div className="alert-msg" id="error">
 									<p>
 										{" "}
 										{error.msg}
