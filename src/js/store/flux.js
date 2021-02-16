@@ -265,16 +265,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const token = localStorage.getItem("token");
 				const formData = new FormData();
 				formData.append("user_name", user.user_name);
-				formData.append("urlImg", file, file.name);
+				if (file) {
+					formData.append("urlImg", file, file.name);
+				}
+
 				fetch(url + "user", {
 					method: "PUT",
 					body: formData,
 					headers: { Authorization: " Bearer " + token }
 				})
 					.then(res => res.json())
+					.then(function(response) {
+						console.log(response.type);
+						console.log(response.url);
+						console.log(response.useFinalURL);
+						console.log(response.status);
+						console.log(response.ok);
+						console.log(response.msg);
+						console.log(response.headers);
+						if (!response.ok) {
+							throw new Error("HTTP error, status = " + response.msg);
+						}
+					})
 					.then(data => {
 						props.history.push("/profile");
-					});
+					})
+					.catch(error => console.log(error));
 			},
 			////*** LOGOUT */
 			logoutUser: callback => {
