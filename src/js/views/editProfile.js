@@ -40,7 +40,6 @@ const EditProfile = props => {
 		event.preventDefault();
 		const file = document.querySelector("#photo");
 		actions.editProfile(userProfile, file.files[0], props);
-		
 	};
 	return (
 		<div className="editProfile">
