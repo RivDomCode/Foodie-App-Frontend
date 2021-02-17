@@ -47,7 +47,7 @@ const EditProfile = props => {
 		const file = document.querySelector("#photo");
 		actions.editProfile(userProfile, file.files[0], props, setError);
 	};
-	const handleCancel = e => {
+	const handleCancel = () => {
 		history.push("/profile");
 	};
 	return (
