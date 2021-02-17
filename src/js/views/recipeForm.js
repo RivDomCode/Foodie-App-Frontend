@@ -51,7 +51,7 @@ const RecipeForm = props => {
 	};
 	console.log(recipe);
 	return (
-		<div>
+		<div className="bodyRecipeForm">
 			<h2 className="sectionTitle">New recipe</h2>
 
 			<div>
@@ -71,16 +71,15 @@ const RecipeForm = props => {
 
 			<input
 				type="text"
+				id="inputTitleRecipe"
 				className="form-control placeholder"
 				name="recipeTitle"
 				placeholder="Your recipe title"
 				onChange={handleChange}
 			/>
 
-			<div className="bodyChecksTitle">
-				<h4 className="h4title">Choose one or more categories for your recipe</h4>
-				<CategoryCheckboxes name="categories" recipe={recipe} setRecipe={setRecipe} />
-			</div>
+			<h4 className="h4title">Choose one or more categories for your recipe</h4>
+			<CategoryCheckboxes name="categories" recipe={recipe} setRecipe={setRecipe} />
 
 			<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 			<div className="mb-3">

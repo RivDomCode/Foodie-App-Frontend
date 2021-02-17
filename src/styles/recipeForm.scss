@@ -6,6 +6,10 @@ body{
     background-color: #fdfdfd;
 }
 
+.bodyRecipeForm{
+    min-height: 90vh;
+}
+
 .sectionTitle{
     font-family: Roboto;
     font-style: normal;
@@ -114,10 +118,10 @@ body{
 }
 
 /*Input para el titulo de la receta*/
-.form-control{
+#inputTitleRecipe{
     display: flex;
     margin: auto;
-   
+    padding-left: 0.5rem;
     width: 90%;
     max-width: 37.5rem;
     font-size: medium;
@@ -140,13 +144,8 @@ body{
 
 /*.bodyChecksTitle{
     
-    margin: auto;
+
     
-    width: 90%;
-    height: 6.25rem;
-    max-width: 37.5rem;
-    background-color: #eeeeee;
-    border-radius: 4px;
 }*/
 
 .categoryChecks{
@@ -175,6 +174,7 @@ body{
 }
 .inputIngredients{
      width: 90%;
+     padding-left: 0.5rem;
      border:1px solid #CED0DA;
      border-radius: 4px;
 }
@@ -269,7 +269,7 @@ body{
     margin-top: 3%;
     border-radius: 4px;
     border: 1px solid #CED0DA;
-    padding: 1% 2% 2% 2%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem ;
 
 }
 
