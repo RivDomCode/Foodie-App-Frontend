@@ -2,9 +2,11 @@ import React, { useState, useContext, useEffect } from "react";
 import "../../styles/editProfile.scss";
 import { Context } from "../store/appContext";
 import PropsType from "prop-types";
+import { useHistory } from "react-router-dom";
 
 const EditProfile = props => {
 	const { store, actions } = useContext(Context);
+	let history = useHistory();
 	const [error, setError] = useState({
 		msg: "",
 		status: false
@@ -44,6 +46,9 @@ const EditProfile = props => {
 		event.preventDefault();
 		const file = document.querySelector("#photo");
 		actions.editProfile(userProfile, file.files[0], props, setError);
+	};
+	const handleCancel = e => {
+		history.push("/profile");
 	};
 	return (
 		<div className="editProfile">
@@ -91,7 +96,10 @@ const EditProfile = props => {
 							<p className="text-button">Save Changes</p>
 						</button>
 						<button type="submit" className="buttonCancel">
-							<p className="text-button">Cancel</p>
+							<p className="text-button" onClick={handleCancel}>
+								{" "}
+								Cancel
+							</p>
 						</button>
 					</div>
 				</div>
