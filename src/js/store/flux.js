@@ -17,6 +17,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let page = getStore().page;
 				setStore({ page: page + 1 });
 			},
+			////
+			userLogged: () => {
+				const token = localStorage.getItem("token");
+				if (token) {
+					return true;
+				} else if (!token) {
+					return false;
+				}
+			},
+			sendToLogin: props => {
+				const token = localStorage.getItem("token");
+				if (!token) {
+					props.history.push("/login");
+				}
+			},
 			//**************LOGIN */
 			login: (user, props, setError, setSpinner) => {
 				fetch(url + "user/login", {

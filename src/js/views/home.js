@@ -2,10 +2,9 @@ import React, { useContext, useEffect } from "react";
 import "../../styles/home.scss";
 import Navbar from "../components/Navbar.jsx";
 import Card from "../components/Card.jsx";
-import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-export const Home = () => {
+export const Home = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getFavorites();
