@@ -4,10 +4,24 @@ import "../../styles/recipe-detail.scss";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
+import Comment from "../components/Comment.jsx";
 
 const RecipeDetail = () => {
 	const { store, actions } = useContext(Context);
-	console.log(store.selectedRecipe);
+	const [inputComment, setInputComment] = useState("");
+	const [comments, setComments] = useState([]);
+
+	const inputCommentHandler = e => {
+		setInputComment(e.target.value);
+	};
+
+	const submitCommentHandler = e => {
+		e.preventDefault();
+		if (inputComment != "" && inputComment != null) {
+			setComments([...comments, { label: inputComment, done: false }]);
+		}
+		setInputComment("");
+	};
 	/*  	useEffect(() => {
 		fetch("", {
 			method: "POST",
@@ -23,7 +37,7 @@ const RecipeDetail = () => {
 			.catch(error => {
 				console.error("Error:", error);
 			});
-	}, []);*/
+    }, []);*/
 
 	return (
 		<div className="container-fluid">
@@ -58,30 +72,27 @@ const RecipeDetail = () => {
 						</div>
 						<div className="comment-component row d-flex">
 							<div className="detailcomments">
-								<form>
+								<form onClick={submitCommentHandler}>
 									<div className="comment-detail row d-flex">
-										<Avatar
-											className="post_avatar"
-											alt="Pedro"
-											src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfsNnj_fxuHXEtqJ6MposaM67ua9_PWPhMFw&usqp=CAU"
-										/>
+										<Avatar className="avatar lololo" />
 										<input
 											className="add-comment-input"
 											type="text"
 											placeholder="Add your comment"
-											/*value={inputComment}*/
-											/*onChange={inputCommentHandler}*/
+											value={inputComment}
+											onChange={inputCommentHandler}
 										/>
-										<button
-											type="button"
-											className="btn btn-danger add-comment-button"
-											/*onClick={submitCommentHandler}*/
-										>
+										<button type="submit" className="btn btn-danger add-comment-button">
 											Add
 										</button>
 									</div>
+									<div className="comments-container-detail">
+										<div className="single-comment">
+											<Comment comments={comments} setComments={setComments} />
+										</div>
+									</div>
 								</form>
-								<div className="comments-number">{/*{comments.length}*/} comments</div>
+								<div className="comments-number">{comments.length} comments</div>
 							</div>
 						</div>
 					</div>
