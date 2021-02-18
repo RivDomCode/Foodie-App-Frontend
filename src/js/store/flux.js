@@ -225,7 +225,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						//console.log(data);
 						setStore({ user: data });
 					});
 			},
@@ -253,7 +252,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log(data);
 						setStore({ page: 1, recipes: [], pathName: "/" });
 						getActions().getRecipe(1);
 						props.history.push("/");
@@ -261,23 +259,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 			//****EDIT USER */
-			editProfile: (userName, callback) => {
+			editProfile: (user, file, props, setError) => {
 				const token = localStorage.getItem("token");
 				const formData = new FormData();
-				formData.append("user_name", userName);
+				formData.append("user_name", user.user_name);
+				if (file) {
+					formData.append("urlImg", file, file.name);
+				}
+
 				fetch(url + "user", {
 					method: "PUT",
 					body: formData,
 					headers: { Authorization: " Bearer " + token }
 				})
-					.then(res => res.json())
-					.then(data => {
-						callback();
-					});
+					.then(res => {
+						if (res.status == 403) {
+							setError({ msg: "User Name or email exist", status: true });
+							console.log("El usuario ya existe");
+						} else {
+							res.json();
+							props.history.push("/profile");
+						}
+					})
+
+					.catch(error => console.log(error));
 			},
 			////*** LOGOUT */
 			logoutUser: callback => {
-				console.log("ESTOY EN LOG");
 				localStorage.clear();
 				callback();
 			}

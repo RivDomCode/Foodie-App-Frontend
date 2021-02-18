@@ -17,7 +17,8 @@ const Profile = () => {
 		<div className="profile">
 			<div className="allBody">
 				<div className="container">
-					<User />
+					{/*<User />foto statica user*/}
+					<img src={store.user.urlImg} className="img-user-profile" alt="..." />
 					<Edit />
 				</div>
 				<div className="user-data">
