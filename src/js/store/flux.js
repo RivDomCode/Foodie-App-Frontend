@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			recipes: [],
 			myRecipes: [],
+			selectedRecipe: {},
 			pathName: "/",
 			page: 1
 		},
@@ -275,6 +276,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 						callback();
 					});
 			},
+			////***SELECT RECIPE */
+
+			selectedRecipe: recipe => {
+				const store = getStore();
+				setStore({ selectedRecipe: recipe });
+			},
+
 			////*** LOGOUT */
 			logoutUser: callback => {
 				console.log("ESTOY EN LOG");

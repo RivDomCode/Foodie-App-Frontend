@@ -1,17 +1,13 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar.jsx";
 import "../../styles/recipe-detail.scss";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-const RecipeDetail = props => {
+const RecipeDetail = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		actions.getRecipe();
-	}, []);
-
+	console.log(store.selectedRecipe);
 	/*  	useEffect(() => {
 		fetch("", {
 			method: "POST",
@@ -33,16 +29,12 @@ const RecipeDetail = props => {
 		<div className="container-fluid">
 			<div className="detail">
 				<div className="header-image">
-					<img
-						className="photo-post"
-						src="https://cdn.pixabay.com/photo/2018/05/26/18/58/sushi-3432035__340.jpg"
-						alt="post-photo"
-					/>
+					<img className="photo-post" src={store.selectedRecipe.image} alt="post-photo" />
 				</div>
 				<div className="inside-detail">
 					<div className="recipe-title row">
 						<div className="detail-title">
-							<p className="title-bold">Futti di Mare</p>
+							<p className="title-bold">{store.selectedRecipe.title}</p>
 						</div>
 					</div>
 					<div className="ingredients">
@@ -50,27 +42,14 @@ const RecipeDetail = props => {
 							<i className="fas fa-shopping-basket" />
 							<p className="titles">Ingredients</p>
 						</div>
-						<div className="ingredient-list">
-							<p>Pasta</p>
-							<p>Calamares</p>
-							<p>Gambas</p>
-							<p>Cebolla</p>
-							<p>Vino blanco</p>
-						</div>
+						<div className="ingredient-list">{store.selectedRecipe.ingredients}</div>
 					</div>
 					<div className="elaboration">
 						<div className="row elaboration-title">
 							<i className="fas fa-utensils" />
 							<p className="titles">Elaboration</p>
 						</div>
-						<p className="elaboration-text">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris elit nulla, pulvinar sit
-							amet purus id, euismod dapibus neque. Maecenas non est sodales, egestas urna at, ultricies
-							urna. Ut imperdiet metus sed velit sodales, quis tristique augue vehicula. Nunc vitae ex a
-							massa ullamcorper egestas. Integer eu dui nec diam lacinia placerat. Nulla facilisi. Vivamus
-							et dolor erat. Morbi urna sem, mollis sit amet augue vitae, blandit ornare lacus. Phasellus
-							mollis euismod odio, nec condimentum tortor pulvinar ac. Nam maximus.
-						</p>
+						<p className="elaboration-text">{store.selectedRecipe.elaboration}</p>
 					</div>
 					<div className="comments">
 						<div className="row comments-title">
@@ -113,10 +92,6 @@ const RecipeDetail = props => {
 };
 
 RecipeDetail.propTypes = {
-	title: PropTypes.string,
-	image: PropTypes.string,
-	ingredients: PropTypes.string,
-	elaboration: PropTypes.string,
 	recipe: PropTypes.object
 };
 

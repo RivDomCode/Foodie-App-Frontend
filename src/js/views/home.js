@@ -5,7 +5,8 @@ import Card from "../components/Card.jsx";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-export const Home = () => {
+export const Home = props => {
+	console.log(props);
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getFavorites();
@@ -21,7 +22,7 @@ export const Home = () => {
 					) : (
 						store.recipes.map((recipe, index) => {
 							console.log(recipe, index);
-							return <Card recipe={recipe} key={index} />;
+							return <Card recipe={recipe} key={index} history={props.history} />;
 						})
 					)}
 				</div>
@@ -33,4 +34,8 @@ export const Home = () => {
 			</div>
 		</div>
 	);
+};
+
+Home.propTypes = {
+	history: PropTypes.object
 };

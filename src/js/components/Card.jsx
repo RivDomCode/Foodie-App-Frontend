@@ -5,7 +5,7 @@ import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-const Card = ({ recipe }) => {
+const Card = ({ recipe, history }) => {
 	const { store, actions } = useContext(Context);
 	const heart = () => {
 		if (store.favorites.length == 0) {
@@ -45,12 +45,19 @@ const Card = ({ recipe }) => {
 			}
 		}
 	};
+
+	const selectedRecipe = () => {
+		console.log(recipe);
+		actions.selectedRecipe(recipe);
+		history.push("/detail");
+	};
+
 	return (
 		<div className="component-card">
 			<div className="card">
-				<Link to={"/detail"}>
+				<p onClick={selectedRecipe}>
 					<img src={recipe.image} className="card-img-top" alt="..." />
-				</Link>
+				</p>
 				<div className="card-body">
 					<h5 className="card-title">{recipe.title}</h5>
 					<p className="card-text">{recipe.elaboration}</p>
@@ -61,7 +68,7 @@ const Card = ({ recipe }) => {
 						</span>
 					</div>
 					<p className="comment">
-						<Link to={"/detail"} className="comments-link">
+						<Link to={"/detail"} className="comments-link" onClick={selectedRecipe}>
 							Read all comments
 						</Link>
 					</p>
@@ -75,6 +82,7 @@ Card.propTypes = {
 	/*	recipeImg: PropTypes.string,
 	username: PropTypes.string,
     recipeTitle: PropTypes.string*/
+	history: PropTypes.object,
 	recipe: PropTypes.object
 };
 
