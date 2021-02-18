@@ -301,6 +301,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.log("Err", err));
 			},
 
+			////****CREATE COMMENTS */
+
+			createComments: comments => {
+				const token = localStorage.getItem("token");
+				const state = getStore();
+				setStore({ comments: selectedRecipe });
+				console.log(JSON.stringify(recipe));
+				fetch(url + "comments" + recipe.id, {
+					method: "POST",
+					body: JSON.stringify(recipe),
+					headers: { Authorization: " Bearer " + token, "Content-Type": "application/json" }
+				})
+					.then(res => res.json())
+
+					.catch(error => console.error("Error:", error))
+
+					.then(response => actions.getComments());
+			},
 			////*** LOGOUT */
 			logoutUser: callback => {
 				console.log("ESTOY EN LOG");
