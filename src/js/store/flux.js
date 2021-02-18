@@ -6,6 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			recipes: [],
 			myRecipes: [],
+			comments: [],
 			selectedRecipe: {},
 			pathName: "/",
 			page: 1
@@ -281,6 +282,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 			selectedRecipe: recipe => {
 				const store = getStore();
 				setStore({ selectedRecipe: recipe });
+			},
+
+			/////*****COMMENTS */
+
+			getComments: () => {
+				const token = localStorage.getItem("token");
+				const store = getStore();
+
+				fetch(url + "comments", {
+					method: "GET",
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+
+					.then(data => setStore({ comments: data }))
+
+					.catch(err => console.log("Err", err));
 			},
 
 			////*** LOGOUT */

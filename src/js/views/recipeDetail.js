@@ -8,6 +8,9 @@ import Comment from "../components/Comment.jsx";
 
 const RecipeDetail = () => {
 	const { store, actions } = useContext(Context);
+	useEffect(() => {
+		actions.getFavorites();
+	}, []);
 	const [inputComment, setInputComment] = useState("");
 	const [comments, setComments] = useState([]);
 
