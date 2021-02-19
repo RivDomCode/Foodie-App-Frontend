@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/home.scss";
-import Navbar from "../components/Navbar.jsx";
+import { Category } from "../components/Category.jsx";
 import Card from "../components/Card.jsx";
 import { Context } from "../store/appContext";
 
@@ -11,8 +11,12 @@ export const Home = props => {
 		actions.setPathName("/");
 	}, []);
 
+	const categoryButtons = store.categories.map((category, index) => {
+		return <Category key={index} category={category} />;
+	});
 	return (
 		<div className="Home">
+			<div className="categories">{categoryButtons}</div>
 			<div className="col-sm-12 col-3">
 				<div className="row first-line d-flex justify-content-sm-center justif">
 					{store.recipes.length == 0 ? (
