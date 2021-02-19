@@ -13,8 +13,8 @@ export const Home = () => {
 	}, []);
 
 	return (
-		<div className="Home">
-			<div className="col-sm-12 col-3">
+		<div className="bodyHome">
+			<div className="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="cardsBody">
 				<div className="row first-line d-flex justify-content-sm-center justif">
 					{store.recipes.length == 0 ? (
 						<p className="start-message">Recipes is empty</p>
