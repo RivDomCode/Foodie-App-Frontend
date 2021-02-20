@@ -3,6 +3,7 @@ import "../../styles/home.scss";
 import { Category } from "../components/Category.jsx";
 import Card from "../components/Card.jsx";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
 export const Home = props => {
 	const { store, actions } = useContext(Context);
