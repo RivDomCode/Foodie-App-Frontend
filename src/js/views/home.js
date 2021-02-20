@@ -1,18 +1,21 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/home.scss";
-import Navbar from "../components/Navbar.jsx";
+import { Category } from "../components/Category.jsx";
 import Card from "../components/Card.jsx";
-import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
-export const Home = () => {
+export const Home = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getFavorites();
 		actions.setPathName("/");
 	}, []);
 
+	const categoryButtons = store.categories.map((category, index) => {
+		return <Category key={index} category={category} />;
+	});
 	return (
+
 		<div className="homeBody">
 			<div>
 				<img
@@ -21,9 +24,21 @@ export const Home = () => {
 					alt="homePhotoCover"
 				/>
 			</div>
-
-			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
-				<div className="row first-line d-flex justify-content-sm-center justif">
+		
+			<div className="categories">
+				{" "}
+				<button
+					onClick={() => {
+						actions.getRecipe(1);
+					}}
+					type="button"
+					className="btn btn-danger btn-category">
+					All
+				</button>
+				{categoryButtons}
+			</div>
+			
+				<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
 					{store.recipes.length == 0 ? (
 						<p className="start-message">Recipes is empty</p>
 					) : (
