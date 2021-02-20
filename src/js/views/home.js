@@ -13,8 +13,16 @@ export const Home = () => {
 	}, []);
 
 	return (
-		<div className="bodyHome">
-			<div className="col-sm-12 col-md-10 col-lg-10 col-xl-10" id="cardsBody">
+		<div className="homeBody">
+			<div>
+				<img
+					className="photoCoverHome"
+					src="https://res.cloudinary.com/df9k0kc8n/image/upload/v1613820053/photo_cover_4096x1539_k2empj.png"
+					alt="homePhotoCover"
+				/>
+			</div>
+
+			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
 				<div className="row first-line d-flex justify-content-sm-center justif">
 					{store.recipes.length == 0 ? (
 						<p className="start-message">Recipes is empty</p>

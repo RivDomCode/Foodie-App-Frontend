@@ -9,6 +9,14 @@
    
 }
 
+.photoCoverHome{
+    margin: auto;
+    object-fit: cover;
+    width: 100%;
+    max-height: 28.125rem;
+    margin-bottom: 1.75rem;
+}
+
 #cardsBody{
     margin-right: 0px;
     margin: auto;
@@ -24,5 +32,6 @@
     border-radius: 6px;
     margin: auto;
     margin-top: 2%;
+    margin-bottom: 5rem;
     color:#FFFFFF;
 }
