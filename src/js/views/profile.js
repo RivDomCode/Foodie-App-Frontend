@@ -7,17 +7,20 @@ import Tabs from "../components/Tabs.jsx";
 import { Link } from "react-router-dom";
 import Logout from "../../icons/logout.jsx";
 import { Context } from "../store/appContext";
+import PropsType from "prop-types";
 
-const Profile = () => {
+const Profile = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getUser();
+		actions.sendToLogin(props);
 	}, []);
 	return (
 		<div className="profile">
 			<div className="allBody">
 				<div className="container">
-					<User />
+					{/*<User />foto statica user*/}
+					<img src={store.user.urlImg} className="img-user-profile" alt="..." />
 					<Edit />
 				</div>
 				<div className="user-data">
@@ -37,5 +40,8 @@ const Profile = () => {
 			<Logout />
 		</div>
 	);
+};
+Profile.propsType = {
+	history: PropsType.object
 };
 export default Profile;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-
+import { Link } from "react-router-dom";
 import { CategoryCheckboxes } from "./../components/CategoryCheckboxes.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
@@ -24,11 +24,11 @@ const RecipeForm = props => {
 
 	const handleChange = event => {
 		if (event.target.name == "image") {
-			// console.log("entrado en imagen", event.target.files[0]);
+			console.log("entrado en imagen", event.target.files[0]);
 			const read = new FileReader();
 			read.onload = () => {
 				if (read.readyState === 2) {
-					// console.log("entrado en el read", read.result);
+					console.log("entrado en el read", read.result);
 					setRecipe({
 						...recipe,
 						image: read.result
@@ -51,34 +51,34 @@ const RecipeForm = props => {
 	};
 	console.log(recipe);
 	return (
-		<div>
+		<div className="bodyRecipeForm">
 			<h2 className="sectionTitle">New recipe</h2>
 
-			<div className="NoPhotoGreyBackgourd">
-				<div className="noPhoto">
-					<i className="fas fa-image" />
-					<p className="textUploadPhoto">Click here to upload recipe photo</p>
-					<div>
-						<span>
-							<input className="fileSelect" id="file" type="file" name="image" onChange={handleChange} />
-							{recipe.image == "" ? null : <img src={recipe.image} />}
-						</span>
-					</div>
-				</div>
-			</div>
-			<div className="mb-3 recipeTitle">
-				<input
-					type="text"
-					className="form-control placeholder"
-					name="recipeTitle"
-					placeholder="Your recipe title"
-					onChange={handleChange}
-				/>
+			<div>
+				{recipe.image == "" ? (
+					<img
+						src="https://dummyimage.com/600x330/D8D8D8/888888&text=Click+the+button+to+upload+your+recipe+photo"
+						className="recipeFormPhoto"
+						alt="Photo Profile"
+					/>
+				) : (
+					<img src={recipe.image} className="recipeFormPhoto" alt="newPhotoRecipe" />
+				)}
 			</div>
 			<div>
-				<h4 className="h4title">Choose one or more categories for your recipe</h4>
+				<input onChange={handleChange} className="fileSelect" id="file" type="file" name="image" />
 			</div>
 
+			<input
+				type="text"
+				id="inputTitleRecipe"
+				className="form-control placeholder"
+				name="recipeTitle"
+				placeholder="Your recipe title"
+				onChange={handleChange}
+			/>
+
+			<h4 className="h4title">Choose one or more categories for your recipe</h4>
 			<CategoryCheckboxes name="categories" recipe={recipe} setRecipe={setRecipe} />
 
 			<AddIngredients recipe={recipe} setRecipe={setRecipe} />
@@ -95,9 +95,11 @@ const RecipeForm = props => {
 			<button className="buttonPublish" onClick={handleSubmit}>
 				<div className="buttonTextPublish">Publish recipe</div>
 			</button>
-			<button type="button" className="buttonCancel">
-				<div className="buttonTextCancel">Cancel</div>
-			</button>
+			<Link to={"/profile"}>
+				<button type="button" className="buttonCancel">
+					<div className="buttonTextCancel">Cancel</div>
+				</button>
+			</Link>
 		</div>
 	);
 };

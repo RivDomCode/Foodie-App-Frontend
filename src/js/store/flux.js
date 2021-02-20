@@ -1,4 +1,5 @@
 const url = "https://3000-pink-donkey-u2u78cvl.ws-eu03.gitpod.io/";
+const url = "https://3000-scarlet-cat-vmp5tp7q.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -9,6 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			comments: [],
 			selectedRecipe: {},
 			pathName: "/",
+			categories: [],
 			page: 1
 		},
 		actions: {
@@ -18,6 +20,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			nextPage: () => {
 				let page = getStore().page;
 				setStore({ page: page + 1 });
+			},
+			////
+			userLogged: () => {
+				const token = localStorage.getItem("token");
+				if (token) {
+					return true;
+				} else if (!token) {
+					return false;
+				}
+			},
+			sendToLogin: props => {
+				const token = localStorage.getItem("token");
+				if (!token) {
+					props.history.push("/login");
+				}
 			},
 			//**************LOGIN */
 			login: (user, props, setError, setSpinner) => {
@@ -168,7 +185,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log("estoy en home", data);
 						setStore({ recipes: [...store.recipes, ...data] });
 						actions.nextPage();
 					});
@@ -220,14 +236,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//*********** GET USER */
 			getUser: () => {
 				const token = localStorage.getItem("token");
-				const store = getStore();
 				fetch(url + "user", {
 					method: "GET",
 					headers: { Authorization: " Bearer " + token }
 				})
 					.then(res => res.json())
 					.then(data => {
-						//console.log(data);
 						setStore({ user: data });
 					});
 			},
@@ -255,7 +269,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log(data);
 						setStore({ page: 1, recipes: [], pathName: "/" });
 						getActions().getRecipe(1);
 						props.history.push("/");
@@ -263,19 +276,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 			//****EDIT USER */
-			editProfile: (userName, callback) => {
+			editProfile: (user, file, props, setError) => {
 				const token = localStorage.getItem("token");
 				const formData = new FormData();
-				formData.append("user_name", userName);
+				formData.append("user_name", user.user_name);
+				if (file) {
+					formData.append("urlImg", file, file.name);
+				}
+
 				fetch(url + "user", {
 					method: "PUT",
 					body: formData,
 					headers: { Authorization: " Bearer " + token }
 				})
-					.then(res => res.json())
-					.then(data => {
-						callback();
-					});
+					.then(res => {
+						if (res.status == 403) {
+							setError({ msg: "User Name or email exist", status: true });
+							console.log("El usuario ya existe");
+						} else {
+							res.json();
+							props.history.push("/profile");
+						}
+					})
+
+					.catch(error => console.log(error));
 			},
 			////***SELECT RECIPE */
 
@@ -326,9 +350,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			////*** LOGOUT */
 			logoutUser: callback => {
-				console.log("ESTOY EN LOG");
 				localStorage.clear();
 				callback();
+			},
+			//////CATEGORIES
+			getCategories: () => {
+				fetch(url + "categories", {
+					method: "GET"
+				})
+					.then(res => res.json())
+					.then(data => {
+						setStore({ categories: data });
+					});
+			},
+			//////RECIPES by CATEGORIES
+			getRecipeCategory: id_category => {
+				console.log("id category", id_category);
+				const store = getStore();
+				const recipe_by_category = [];
+
+				fetch(url + "category/" + id_category, {
+					method: "GET"
+				})
+					.then(res => res.json())
+					.then(data => {
+						if (data) {
+							data.map((recipe, index) => {
+								recipe_by_category.push(recipe.category);
+								console.log(recipe.category, "receta selec", index);
+							});
+							console.log(recipe_by_category, "el array");
+							setStore({ recipes: [...recipe_by_category] });
+							console.log("set del store en recipe", store.recipes);
+						}
+					});
 			}
 		}
 	};

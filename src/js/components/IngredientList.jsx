@@ -23,7 +23,7 @@ function IngredientList({ recipe, setRecipe }) {
 					<div key={index} className="ingredientsList col-2">
 						<p id="ingredientText">{ingredients}</p>
 						<button className="buttonDeleteTask" onClick={() => deleteItem(index)}>
-							<i className="fas fa-minus" />
+							<i className="fas fa-times" />
 						</button>
 					</div>
 				);

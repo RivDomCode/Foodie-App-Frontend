@@ -20,6 +20,9 @@ body{
 .card-title{
     font-weight: bold;
     font-size: 16px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
 }
 
 .card-text{
