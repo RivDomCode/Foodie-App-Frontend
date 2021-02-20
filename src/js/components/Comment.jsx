@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import "../../styles/comment.scss";
 
 const Comment = props => {
+	console.log(props.comments);
 	/*const deleteHandler = key => {
 		const updatedCommentList = props.comments.filter(commentObj => {
 			return commentObj.label != key;
@@ -13,11 +14,11 @@ const Comment = props => {
 	return (
 		<div className="sigleComment ">
 			{props.comments.map((commentObj, index) => {
-				if (commentObj.label != "") {
+				if (commentObj.text != "") {
 					return (
 						<div key={index} className="comment-container row d-flex">
 							<Avatar className="avatar" />
-							<p className="single-comment">{commentObj.label}</p>
+							<p className="single-comment">{commentObj.text}</p>
 							{/*	<i
 								className="fas fa-trash-alt delete-comment-button"
 								onClick={() => deleteHandler(commentObj.label)}
@@ -31,8 +32,7 @@ const Comment = props => {
 };
 
 Comment.propTypes = {
-	comments: PropTypes.array,
-	setComments: PropTypes.func
+	comments: PropTypes.array
 };
 
 export default Comment;

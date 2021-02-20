@@ -8,11 +8,11 @@ import Comment from "../components/Comment.jsx";
 
 const RecipeDetail = () => {
 	const { store, actions } = useContext(Context);
-	useEffect(() => {
-		actions.getFavorites();
-	}, []);
 	const [inputComment, setInputComment] = useState("");
 	const [comments, setComments] = useState([]);
+	useEffect(() => {
+		actions.getComments(store.selectedRecipe, setComments);
+	}, []);
 
 	const inputCommentHandler = e => {
 		setInputComment(e.target.value);
@@ -21,7 +21,7 @@ const RecipeDetail = () => {
 	const submitCommentHandler = e => {
 		e.preventDefault();
 		if (inputComment != "" && inputComment != null) {
-			setComments([...comments, { label: inputComment, done: false }]);
+			actions.createComments(inputComment, store.selectedRecipe);
 		}
 		setInputComment("");
 	};
@@ -75,7 +75,7 @@ const RecipeDetail = () => {
 						</div>
 						<div className="comment-component row d-flex">
 							<div className="detailcomments">
-								<form onClick={submitCommentHandler}>
+								<form>
 									<div className="comment-detail row d-flex">
 										<Avatar className="avatar lololo" />
 										<input
@@ -85,13 +85,16 @@ const RecipeDetail = () => {
 											value={inputComment}
 											onChange={inputCommentHandler}
 										/>
-										<button type="submit" className="btn btn-danger add-comment-button">
+										<button
+											type="submit"
+											className="btn btn-danger add-comment-button"
+											onClick={submitCommentHandler}>
 											Add
 										</button>
 									</div>
 									<div className="comments-container-detail">
 										<div className="single-comment">
-											<Comment comments={comments} setComments={setComments} />
+											<Comment comments={store.comments} />
 										</div>
 									</div>
 								</form>

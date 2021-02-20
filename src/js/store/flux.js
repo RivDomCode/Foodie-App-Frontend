@@ -286,11 +286,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			/////*****COMMENTS */
 
-			getComments: () => {
+			getComments: recipe => {
 				const token = localStorage.getItem("token");
 				const store = getStore();
 
-				fetch(url + "comments", {
+				fetch(url + "comments/" + recipe.id, {
 					method: "GET",
 					headers: { Authorization: " Bearer " + token }
 				})
@@ -303,21 +303,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			////****CREATE COMMENTS */
 
-			createComments: comments => {
+			createComments: (comments, selectedRecipe) => {
+				console.log(comments, selectedRecipe);
 				const token = localStorage.getItem("token");
 				const state = getStore();
-				setStore({ comments: selectedRecipe });
-				console.log(JSON.stringify(recipe));
-				fetch(url + "comments" + recipe.id, {
+				const actions = getActions();
+				const body = {
+					text: comments,
+					recipe_id: selectedRecipe.id
+				};
+				console.log(JSON.stringify(comments));
+				fetch(url + "comments", {
 					method: "POST",
-					body: JSON.stringify(recipe),
+					body: JSON.stringify(body),
 					headers: { Authorization: " Bearer " + token, "Content-Type": "application/json" }
 				})
 					.then(res => res.json())
 
 					.catch(error => console.error("Error:", error))
 
-					.then(response => actions.getComments());
+					.then(response => actions.getComments(selectedRecipe));
 			},
 			////*** LOGOUT */
 			logoutUser: callback => {
