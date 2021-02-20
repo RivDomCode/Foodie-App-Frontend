@@ -8,10 +8,22 @@
 }
 
 .avatar{
-    height: 38px !important;
-    width: 38px !important;
+    height: 35px !important;
+    width: 35px !important;
+    background-color: #3D9382 !important;
+    font-family: roboto !important;
+
+
+    
 }
 
 .single-comment{
     margin-left: 8px;
+    padding: 20px;
+}
+
+.comment-userName{
+    font-family: roboto;
+    color: #3D9382;
+    font-size: bold;
 }

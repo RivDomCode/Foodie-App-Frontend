@@ -25,22 +25,6 @@ const RecipeDetail = () => {
 		}
 		setInputComment("");
 	};
-	/*  	useEffect(() => {
-		fetch("", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify([])
-		})
-			.then(response => response.json())
-			.then(data => {
-				console.log("Success:", data);
-			})
-			.catch(error => {
-				console.error("Error:", error);
-			});
-    }, []);*/
 
 	return (
 		<div className="container-fluid">
@@ -98,7 +82,7 @@ const RecipeDetail = () => {
 										</div>
 									</div>
 								</form>
-								<div className="comments-number">{comments.length} comments</div>
+								<div className="comments-number">{store.comments.length} comments</div>
 							</div>
 						</div>
 					</div>
