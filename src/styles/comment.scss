@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+.comment-container{
+    margin-top: 20px;
+    margin-left: 8px;
+    margin-bottom: 20px;
+}
+
+.avatar{
+    height: 35px !important;
+    width: 35px !important;
+    background-color: #3D9382 !important;
+    font-family: roboto !important;
+
+
+    
+}
+
+.single-comment{
+    margin-left: 8px;
+    padding: 20px;
+}
+
+.comment-userName{
+    font-family: roboto;
+    color: #3D9382;
+    font-size: bold;
+}

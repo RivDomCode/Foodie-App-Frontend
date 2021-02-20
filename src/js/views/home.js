@@ -35,7 +35,7 @@ export const Home = props => {
 					) : (
 						store.recipes.map((recipe, index) => {
 							console.log(recipe, index);
-							return <Card recipe={recipe} key={index} />;
+							return <Card recipe={recipe} key={index} history={props.history} />;
 						})
 					)}
 				</div>
@@ -47,4 +47,8 @@ export const Home = props => {
 			</div>
 		</div>
 	);
+};
+
+Home.propTypes = {
+	history: PropTypes.object
 };

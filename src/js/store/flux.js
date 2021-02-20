@@ -1,3 +1,4 @@
+const url = "https://3000-pink-donkey-u2u78cvl.ws-eu03.gitpod.io/";
 const url = "https://3000-scarlet-cat-vmp5tp7q.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -6,6 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			recipes: [],
 			myRecipes: [],
+			comments: [],
+			selectedRecipe: {},
 			pathName: "/",
 			categories: [],
 			page: 1
@@ -297,6 +300,53 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 
 					.catch(error => console.log(error));
+			},
+			////***SELECT RECIPE */
+
+			selectedRecipe: recipe => {
+				const store = getStore();
+				setStore({ selectedRecipe: recipe });
+			},
+
+			/////*****COMMENTS */
+
+			getComments: recipe => {
+				const token = localStorage.getItem("token");
+				const store = getStore();
+
+				fetch(url + "comments/" + recipe.id, {
+					method: "GET",
+					headers: { Authorization: " Bearer " + token }
+				})
+					.then(res => res.json())
+
+					.then(data => setStore({ comments: data }))
+
+					.catch(err => console.log("Err", err));
+			},
+
+			////****CREATE COMMENTS */
+
+			createComments: (comments, selectedRecipe) => {
+				console.log(comments, selectedRecipe);
+				const token = localStorage.getItem("token");
+				const state = getStore();
+				const actions = getActions();
+				const body = {
+					text: comments,
+					recipe_id: selectedRecipe.id
+				};
+				console.log(JSON.stringify(comments));
+				fetch(url + "comments", {
+					method: "POST",
+					body: JSON.stringify(body),
+					headers: { Authorization: " Bearer " + token, "Content-Type": "application/json" }
+				})
+					.then(res => res.json())
+
+					.catch(error => console.error("Error:", error))
+
+					.then(response => actions.getComments(selectedRecipe));
 			},
 			////*** LOGOUT */
 			logoutUser: callback => {

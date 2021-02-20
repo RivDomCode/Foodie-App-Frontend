@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar.jsx";
 import RecipeForm from "./views/recipeForm";
 import Footer from "./components/Footer.jsx";
 import ModalDelete from "./components/ModalDelete.jsx";
+import RecipeDetail from "./views/recipeDetail";
 import PropsType from "prop-types";
 import { Context } from "./store/appContext";
 
@@ -37,6 +38,7 @@ const Layout = props => {
 					<Route exact path="/editProfile" component={EditProfile} />
 					<Route exact path="/newRecipeForm" component={RecipeForm} />
 					<Route exact path="/modalDelete" component={ModalDelete} />
+					<Route exact path="/detail" component={RecipeDetail} />
 					<Route>
 						<h1>Not found!</h1>
 					</Route>
