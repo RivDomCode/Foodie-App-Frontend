@@ -16,7 +16,18 @@ export const Home = props => {
 	});
 	return (
 		<div className="Home">
-			<div className="categories">{categoryButtons}</div>
+			<div className="categories">
+				{" "}
+				<button
+					onClick={() => {
+						actions.getRecipe(1);
+					}}
+					type="button"
+					className="btn btn-danger btn-category">
+					All
+				</button>
+				{categoryButtons}
+			</div>
 			<div className="col-sm-12 col-3">
 				<div className="row first-line d-flex justify-content-sm-center justif">
 					{store.recipes.length == 0 ? (
