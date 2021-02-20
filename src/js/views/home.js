@@ -16,7 +16,16 @@ export const Home = props => {
 		return <Category key={index} category={category} />;
 	});
 	return (
-		<div className="Home">
+
+		<div className="homeBody">
+			<div>
+				<img
+					className="photoCoverHome"
+					src="https://res.cloudinary.com/df9k0kc8n/image/upload/v1613820053/photo_cover_4096x1539_k2empj.png"
+					alt="homePhotoCover"
+				/>
+			</div>
+		
 			<div className="categories">
 				{" "}
 				<button
@@ -29,8 +38,8 @@ export const Home = props => {
 				</button>
 				{categoryButtons}
 			</div>
-			<div className="col-sm-12 col-3">
-				<div className="row first-line d-flex justify-content-sm-center justif">
+			
+				<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
 					{store.recipes.length == 0 ? (
 						<p className="start-message">Recipes is empty</p>
 					) : (
