@@ -38,7 +38,7 @@ export const Home = props => {
 				{categoryButtons}
 			</div>
 
-			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
+			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-11" id="cardsBody">
 				<div className="row first-line d-flex justify-content-sm-center justif">
 					{store.recipes.length == 0 ? (
 						<p className="start-message">Recipes is empty</p>
