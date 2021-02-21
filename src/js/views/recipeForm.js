@@ -46,10 +46,8 @@ const RecipeForm = props => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
 		actions.createRecipe(recipe, file.files[0], props);
-
-		console.log(recipe);
 	};
-	console.log(recipe);
+
 	return (
 		<div className="bodyRecipeForm">
 			<h2 className="sectionTitle">New recipe</h2>
