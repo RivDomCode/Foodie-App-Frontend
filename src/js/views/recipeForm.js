@@ -45,6 +45,7 @@ const RecipeForm = props => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
+		setSpinner(true);
 		actions.createRecipe(recipe, file.files[0], props);
 	};
 
@@ -90,9 +91,19 @@ const RecipeForm = props => {
 					onChange={handleChange}
 				/>
 			</div>
-			<button className="buttonPublish" onClick={handleSubmit}>
-				<div className="buttonTextPublish">Publish recipe</div>
-			</button>
+			{/*boton de publicar receta con spiner */}
+			{spinner == false ? (
+				<button className="buttonPublish" onClick={handleSubmit}>
+					<div className="buttonTextPublish">Publish recipe</div>
+				</button>
+			) : (
+				<div className="btn-s">
+					<button className="btn-load" id="load">
+						<div className="spinner-border text-light" role="status" />
+					</button>
+				</div>
+			)}
+			{/*fin del boton*/}
 			<Link to={"/profile"}>
 				<button type="button" className="buttonCancel">
 					<div className="buttonTextCancel">Cancel</div>
