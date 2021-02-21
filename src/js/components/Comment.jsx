@@ -15,7 +15,8 @@ const Comment = props => {
 		});
 		props.setComments(updatedCommentList);
     };*/
-
+	const currDate = new Date().toLocaleDateString();
+	const currTime = new Date().toLocaleTimeString();
 	return (
 		<div className="sigleComment ">
 			{props.comments.map((commentObj, index, user) => {
@@ -27,13 +28,13 @@ const Comment = props => {
 									avatar={
 										<Avatar
 											aria-label="recipe"
-											alt={store.selectedRecipe.user_name}
+											alt={store.user.user_name}
 											src={store.user.urlImg}
 										/>
 									}
 									action={<IconButton aria-label="settings" />}
 									title={commentObj.text}
-									subheader="September 14, 2016"
+									subheader={currDate}
 									className="single-comment"
 								/>
 							</Card>

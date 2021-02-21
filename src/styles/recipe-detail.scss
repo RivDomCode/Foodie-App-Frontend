@@ -96,7 +96,7 @@ body{
 }
 
 .elaboration-text{
-    padding: 20px;
+    margin-left: 20px;
 }
 
 .add-comment-button{
@@ -122,9 +122,15 @@ body{
 .comment-detail{
     width:100%;
      margin-left: 20px;
+     display:flex;
+     flex-direction: row;
 
 }
 
 .lololo{
     margin-top: 5px;
+}
+
+.comment-input{
+    width: 75%;
 }

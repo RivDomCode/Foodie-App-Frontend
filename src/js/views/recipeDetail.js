@@ -65,7 +65,7 @@ const RecipeDetail = () => {
 										<div className="input-group mb-3">
 											<input
 												type="text"
-												className="form-control"
+												className="form-control comment-input"
 												placeholder="Add your comment"
 												aria-label="Username"
 												aria-describedby="basic-addon1"
@@ -79,13 +79,6 @@ const RecipeDetail = () => {
 												Add
 											</button>
 										</div>
-										{/*<input
-											className="add-comment-input"
-											type="text"
-											placeholder="Add your comment"
-											value={inputComment}
-											onChange={inputCommentHandler}
-                                        />*/}
 									</div>
 									<div className="comments-container-detail">
 										<div className="single-comment">
