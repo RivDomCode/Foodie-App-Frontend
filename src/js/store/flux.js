@@ -1,4 +1,4 @@
-const url = "https://3000-eebc3df8-f426-41f7-8f32-d9211915975b.ws-eu03.gitpod.io/";
+const url = "https://3000-scarlet-cat-vmp5tp7q.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -353,14 +353,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				callback();
 			},
 			//////CATEGORIES
-			getCategories: () => {
-				fetch(url + "categories", {
+			getCategories: async () => {
+				const response = await fetch(url + "categories", {
 					method: "GET"
-				})
-					.then(res => res.json())
-					.then(data => {
-						setStore({ categories: data });
-					});
+				});
+				const data = await response.json();
+				setStore({ categories: data });
 			},
 			//////RECIPES by CATEGORIES
 			getRecipeCategory: id_category => {
