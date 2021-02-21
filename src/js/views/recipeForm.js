@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import { CategoryCheckboxes } from "./../components/CategoryCheckboxes.jsx";
 import "../../styles/recipeForm.scss";
 import AddIngredients from "../components/AddIngredients.jsx";
-import PropsType from "prop-types";
-
+import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 const RecipeForm = props => {
+	const recipeUpdate = props.history.location.state.recipe;
+	const title = props.history.location.state.title;
 	const { store, actions } = useContext(Context);
 	const [recipe, setRecipe] = useState({
-		image: "",
-		recipeTitle: "",
-		categories: [],
+		image: title == "update recipe" ? recipeUpdate.image : "",
+		recipeTitle: title == "update recipe" ? recipeUpdate.title : "",
+		categories: title == "update recipe" ? recipeUpdate.categories : [],
 		ingredients: [],
-		elaboration: ""
+		elaboration: title == "update recipe" ? recipeUpdate.elaboration : ""
 	});
 	const [spinner, setSpinner] = useState(false);
 	const [error, setError] = useState({
@@ -75,7 +76,11 @@ const RecipeForm = props => {
 						alt="Photo Profile"
 					/>
 				) : (
-					<img src={recipe.image} className="recipeFormPhoto" alt="newPhotoRecipe" />
+					<img
+						src={title == "update recipe" ? recipeUpdate.image : recipe.image}
+						className="recipeFormPhoto"
+						alt="newPhotoRecipe"
+					/>
 				)}
 			</div>
 			<div>
@@ -87,6 +92,7 @@ const RecipeForm = props => {
 				id="inputTitleRecipe"
 				className="form-control placeholder"
 				name="recipeTitle"
+				defaultValue={title == "update recipe" ? recipeUpdate.title : ""}
 				placeholder="Your recipe title"
 				onChange={handleChange}
 			/>
@@ -102,6 +108,7 @@ const RecipeForm = props => {
 					rows="3"
 					placeholder="Elaboration here"
 					name="elaboration"
+					defaultValue={title == "update recipe" ? recipeUpdate.elaboration : ""}
 					onChange={handleChange}
 				/>
 			</div>
@@ -139,8 +146,11 @@ const RecipeForm = props => {
 	);
 };
 
-RecipeForm.propsType = {
-	history: PropsType.object
+RecipeForm.propTypes = {
+	history: PropTypes.any,
+	location: PropTypes.object,
+	recipe: PropTypes.object,
+	state: PropTypes.object
 };
 
 export default RecipeForm;

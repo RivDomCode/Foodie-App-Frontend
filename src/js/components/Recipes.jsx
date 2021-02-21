@@ -5,7 +5,6 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { ModalDelete } from "../components/ModalDelete.jsx";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 
 const Recipes = () => {
 	const { store, actions } = useContext(Context);
@@ -48,7 +47,14 @@ const Recipes = () => {
 												}}*/
 												className="far fa-trash-alt trash"
 											/>
-											<Link to="/editRecipe" recipe={recipe} key={index}>
+											<Link
+												to={{
+													pathname: "/newRecipeForm",
+													state: {
+														title: "update recipe",
+														recipe: recipe
+													}
+												}}>
 												<i className="far fa-edit" />
 											</Link>
 										</div>

@@ -7,9 +7,10 @@ import Tabs from "../components/Tabs.jsx";
 import { Link } from "react-router-dom";
 import Logout from "../../icons/logout.jsx";
 import { Context } from "../store/appContext";
-import PropsType from "prop-types";
+import PropTypes from "prop-types";
 
 const Profile = props => {
+	//console.log(props.history.location.state, "****************************");
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getUser();
@@ -29,7 +30,13 @@ const Profile = props => {
 				</div>
 
 				<div className="addRecipeButton">
-					<Link to="/newRecipeForm">
+					<Link
+						to={{
+							pathname: "/newRecipeForm",
+							state: {
+								title: "Add new recipe"
+							}
+						}}>
 						<button type="button" className="buttonAdd">
 							+ Add new recipe
 						</button>
@@ -41,7 +48,10 @@ const Profile = props => {
 		</div>
 	);
 };
-Profile.propsType = {
-	history: PropsType.object
+Profile.propTypes = {
+	history: PropTypes.any,
+	location: PropTypes.object,
+	recipe: PropTypes.object,
+	state: PropTypes.object
 };
 export default Profile;
