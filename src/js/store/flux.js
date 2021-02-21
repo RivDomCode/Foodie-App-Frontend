@@ -204,14 +204,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			/////****************DELETE Recipe */
 			deleteRecipe: recipe => {
-				/////
-				console.log(recipe, "el id para borrar");
 				const token = localStorage.getItem("token");
-
 				const actions = getActions();
-
-				/////
-
 				fetch(url + "delete/recipe/" + recipe, {
 					method: "PUT",
 
@@ -273,6 +267,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 						props.history.push("/");
 					})
 					.catch(error => console.log(error));
+			},
+
+			//****EDIT RECIPE */
+			editRecipe: (newRecipe, file, props) => {
+				console.log(newRecipe, "este es texto");
+				console.log(file, "foto");
+				console.log(props, "props");
+				const formData = new FormData();
+				console.log("ESTOY EDITANDO RECETA");
+				formData.append("title", newRecipe.recipeTitle);
+
+				formData.append("image", file, file.name);
+
+				formData.append("categories", JSON.stringify(newRecipe.categories));
+
+				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
+
+				formData.append("elaboration", newRecipe.elaboration);
+
+				const token = localStorage.getItem("token");
+				let headers = { Authorization: " Bearer " + token };
+
+				// fetch(url + "recipe", {
+				// 	method: "PUT",
+
+				// 	body: formData,
+				// 	headers: headers
+				// })
+				// 	.then(res => res.json())
+				// 	.then(data => {
+				// 		setStore({ page: 1, recipes: [], pathName: "/" });
+				// 		getActions().getRecipe(1);
+				// 		props.history.push("/");
+				// 	})
+				// 	.catch(error => console.log(error));
 			},
 			//****EDIT USER */
 			editProfile: (user, file, props, setError) => {

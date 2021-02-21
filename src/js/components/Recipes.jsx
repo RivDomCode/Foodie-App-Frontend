@@ -27,7 +27,6 @@ const Recipes = () => {
 						<p className="start-message">You have not published any recipe yet.</p>
 					) : (
 						store.myRecipes.map((recipe, index) => {
-							console.log(recipe, "Map recipe");
 							return (
 								<div className="post" key={index}>
 									<div className="post-image">
@@ -42,9 +41,6 @@ const Recipes = () => {
 												onClick={() => {
 													handleShow(recipe);
 												}}
-												/*onClick={() => {
-													actions.deleteRecipe(recipe);
-												}}*/
 												className="far fa-trash-alt trash"
 											/>
 											<Link

@@ -59,28 +59,35 @@ const RecipeForm = props => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
 		const validate = validateInputs(recipe);
-		if (validate != true) {
+		if (validate != true && title == "Add new recipe") {
 			actions.createRecipe(recipe, file.files[0], props);
+		}
+		if (validate != true && title == "update recipe") {
+			actions.editRecipe(recipe, file.files[0], props);
 		}
 	};
 
 	return (
 		<div className="bodyRecipeForm">
-			<h2 className="sectionTitle">New recipe</h2>
+			{title == "Add new recipe" ? (
+				<h2 className="sectionTitle">New recipe</h2>
+			) : (
+				<h2 className="sectionTitle">Edit recipe</h2>
+			)}
 
 			<div>
 				{recipe.image == "" ? (
 					<img
-						src="https://dummyimage.com/600x330/D8D8D8/888888&text=Click+the+button+to+upload+your+recipe+photo"
+						src={
+							title == "update recipe"
+								? recipeUpdate.image
+								: "https://dummyimage.com/600x330/D8D8D8/888888&text=Click+the+button+to+upload+your+recipe+photo"
+						}
 						className="recipeFormPhoto"
 						alt="Photo Profile"
 					/>
 				) : (
-					<img
-						src={title == "update recipe" ? recipeUpdate.image : recipe.image}
-						className="recipeFormPhoto"
-						alt="newPhotoRecipe"
-					/>
+					<img src={recipe.image} className="recipeFormPhoto" alt="newPhotoRecipe" />
 				)}
 			</div>
 			<div>
@@ -99,7 +106,11 @@ const RecipeForm = props => {
 
 			<h4 className="h4title">Choose one or more categories for your recipe</h4>
 			<CategoryCheckboxes name="categories" recipe={recipe} setRecipe={setRecipe} />
-
+			{/*title == "update recipe" ? (
+				<AddIngredients recipe={recipeUpdate} setRecipe={"setRecipe"} />
+			) : (
+				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
+            )*/}
 			<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 			<div className="mb-3">
 				<textarea

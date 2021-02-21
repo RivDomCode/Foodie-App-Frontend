@@ -10,7 +10,6 @@ import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 const Profile = props => {
-	//console.log(props.history.location.state, "****************************");
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getUser();
@@ -20,7 +19,6 @@ const Profile = props => {
 		<div className="profile">
 			<div className="allBody">
 				<div className="container">
-					{/*<User />foto statica user*/}
 					<img src={store.user.urlImg} className="img-user-profile" alt="..." />
 					<Edit />
 				</div>
