@@ -7,6 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			recipes: [],
 			myRecipes: [],
 			pathName: "/",
+			categories: [],
 			page: 1
 		},
 		actions: {
@@ -16,6 +17,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 			nextPage: () => {
 				let page = getStore().page;
 				setStore({ page: page + 1 });
+			},
+			////
+			userLogged: () => {
+				const token = localStorage.getItem("token");
+				if (token) {
+					return true;
+				} else if (!token) {
+					return false;
+				}
+			},
+			sendToLogin: props => {
+				const token = localStorage.getItem("token");
+				if (!token) {
+					props.history.push("/login");
+				}
 			},
 			//**************LOGIN */
 			login: (user, props, setError, setSpinner) => {
@@ -166,7 +182,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						console.log("estoy en home", data);
 						setStore({ recipes: [...store.recipes, ...data] });
 						actions.nextPage();
 					});
@@ -218,7 +233,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//*********** GET USER */
 			getUser: () => {
 				const token = localStorage.getItem("token");
-				const store = getStore();
 				fetch(url + "user", {
 					method: "GET",
 					headers: { Authorization: " Bearer " + token }
@@ -288,6 +302,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 			logoutUser: callback => {
 				localStorage.clear();
 				callback();
+			},
+			//////CATEGORIES
+			getCategories: () => {
+				fetch(url + "categories", {
+					method: "GET"
+				})
+					.then(res => res.json())
+					.then(data => {
+						setStore({ categories: data });
+					});
+			},
+			//////RECIPES by CATEGORIES
+			getRecipeCategory: id_category => {
+				console.log("id category", id_category);
+				const store = getStore();
+				const recipe_by_category = [];
+
+				fetch(url + "category/" + id_category, {
+					method: "GET"
+				})
+					.then(res => res.json())
+					.then(data => {
+						if (data) {
+							data.map((recipe, index) => {
+								recipe_by_category.push(recipe.category);
+								console.log(recipe.category, "receta selec", index);
+							});
+							console.log(recipe_by_category, "el array");
+							setStore({ recipes: [...recipe_by_category] });
+							console.log("set del store en recipe", store.recipes);
+						}
+					});
 			}
 		}
 	};
