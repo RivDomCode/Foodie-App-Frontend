@@ -3,6 +3,9 @@ import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import "../../styles/comment.scss";
 import { Context } from "../store/appContext";
+import CardHeader from "@material-ui/core/CardHeader";
+import IconButton from "@material-ui/core/IconButton";
+import Card from "@material-ui/core/Card";
 
 const Comment = props => {
 	const { store, actions } = useContext(Context);
@@ -11,17 +14,29 @@ const Comment = props => {
 			return commentObj.label != key;
 		});
 		props.setComments(updatedCommentList);
-	};*/
+    };*/
+
 	return (
 		<div className="sigleComment ">
 			{props.comments.map((commentObj, index, user) => {
 				if (commentObj.text != "") {
 					return (
 						<div key={index} className="comment-container ">
-							<span className="comment-userName">
-								<Avatar className="avatar lololo" />
-							</span>
-							<span className="single-comment">{commentObj.text}</span>
+							<Card className="single-comments-card">
+								<CardHeader
+									avatar={
+										<Avatar
+											aria-label="recipe"
+											alt={store.selectedRecipe.user_name}
+											src={store.user.urlImg}
+										/>
+									}
+									action={<IconButton aria-label="settings" />}
+									title={commentObj.text}
+									subheader="September 14, 2016"
+									className="single-comment"
+								/>
+							</Card>
 							{/*	<i
 								className="fas fa-trash-alt delete-comment-button"
 								onClick={() => deleteHandler(commentObj.label)}
