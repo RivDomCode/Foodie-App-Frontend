@@ -39,14 +39,16 @@ export const Home = props => {
 			</div>
 
 			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
-				{store.recipes.length == 0 ? (
-					<p className="start-message">Recipes is empty</p>
-				) : (
-					store.recipes.map((recipe, index) => {
-						console.log(recipe, index);
-						return <Card recipe={recipe} key={index} history={props.history} />;
-					})
-				)}
+				<div className="row first-line d-flex justify-content-sm-center justif">
+					{store.recipes.length == 0 ? (
+						<p className="start-message">Recipes is empty</p>
+					) : (
+						store.recipes.map((recipe, index) => {
+							console.log(recipe, index);
+							return <Card recipe={recipe} key={index} history={props.history} />;
+						})
+					)}
+				</div>
 			</div>
 
 			<div className="see-more">
