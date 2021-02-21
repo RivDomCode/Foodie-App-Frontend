@@ -22,6 +22,18 @@ const RecipeForm = props => {
 		status: false
 	});
 
+	const validateInputs = recipe => {
+		if ((recipe.image.trim() != "", recipe.recipeTitle.trim() != "", recipe.elaboration.trim() != "")) {
+			setSpinner(true);
+		} else {
+			setError({
+				msg: "All fields are required",
+				status: true
+			});
+			return true;
+		}
+	};
+
 	const handleChange = event => {
 		if (event.target.name == "image") {
 			console.log("entrado en imagen", event.target.files[0]);
@@ -45,8 +57,10 @@ const RecipeForm = props => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
-		setSpinner(true);
-		actions.createRecipe(recipe, file.files[0], props);
+		const validate = validateInputs(recipe);
+		if (validate != true) {
+			actions.createRecipe(recipe, file.files[0], props);
+		}
 	};
 
 	return (
@@ -91,6 +105,18 @@ const RecipeForm = props => {
 					onChange={handleChange}
 				/>
 			</div>
+			{/*Mensaje de error*/}
+			{error.status ? (
+				<div className="alert" id="error">
+					<p>
+						{" "}
+						{error.msg}
+						<i className="fas fa-exclamation-circle" id="icono-msn" />
+					</p>
+				</div>
+			) : (
+				""
+			)}
 			{/*boton de publicar receta con spiner */}
 			{spinner == false ? (
 				<button className="buttonPublish" onClick={handleSubmit}>
