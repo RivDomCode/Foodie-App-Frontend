@@ -16,7 +16,6 @@ export const Home = props => {
 		return <Category key={index} category={category} />;
 	});
 	return (
-
 		<div className="homeBody">
 			<div>
 				<img
@@ -25,7 +24,7 @@ export const Home = props => {
 					alt="homePhotoCover"
 				/>
 			</div>
-		
+
 			<div className="categories">
 				{" "}
 				<button
@@ -38,18 +37,18 @@ export const Home = props => {
 				</button>
 				{categoryButtons}
 			</div>
-			
-				<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
-					{store.recipes.length == 0 ? (
-						<p className="start-message">Recipes is empty</p>
-					) : (
-						store.recipes.map((recipe, index) => {
-							console.log(recipe, index);
-							return <Card recipe={recipe} key={index} history={props.history} />;
-						})
-					)}
-				</div>
+
+			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-8" id="cardsBody">
+				{store.recipes.length == 0 ? (
+					<p className="start-message">Recipes is empty</p>
+				) : (
+					store.recipes.map((recipe, index) => {
+						console.log(recipe, index);
+						return <Card recipe={recipe} key={index} history={props.history} />;
+					})
+				)}
 			</div>
+
 			<div className="see-more">
 				<button className="btn-see-more btn" onClick={() => actions.getRecipe(store.page)}>
 					See more...
