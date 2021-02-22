@@ -14,7 +14,7 @@
     object-fit: cover;
     width: 100%;
     max-height: 28.125rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 2rem;
 }
 
 #cardsBody{
@@ -34,18 +34,4 @@
     margin-top: 2%;
     margin-bottom: 5rem;
     color:#FFFFFF;
-}
-.categories{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding: 1px 40px;
-
-}
-.btn-category{
-    margin-left: 1rem;
-    background: #F53158;
-    border-radius: 6.25rem;
-    width: 8.938rem;
-    height: 1.875rem;
 }

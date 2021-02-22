@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/home.scss";
+import "../../styles/categoryTags.scss";
 import { Category } from "../components/Category.jsx";
 import Card from "../components/Card.jsx";
 import { Context } from "../store/appContext";
