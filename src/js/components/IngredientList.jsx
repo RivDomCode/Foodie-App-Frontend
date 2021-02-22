@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function IngredientList({ recipe, setRecipe }) {
-	//console.log("props", props);
 	const deleteItem = index => {
 		//const newList = props.itemList.filter(itemObj => {
 		//return itemObj.label != key; //Va a devolver todos los items de la lista menos el item que hemos borrado
@@ -12,9 +11,10 @@ function IngredientList({ recipe, setRecipe }) {
 		const newList = recipe.ingredients;
 
 		const deleteArray = newList.splice(index, 1);
-		console.log(newList);
+
 		setRecipe({ ...recipe, ingredients: newList });
 	};
+
 	return (
 		<div className="row rowIngredients">
 			{recipe.ingredients.map((ingredients, index) => {

@@ -8,7 +8,9 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	const { store, actions } = useContext(Context);
 	const [checkedItems, setCheckedItems] = useState({});
 	const [allCategories, setAllCategories] = useState([]);
+	console.log(recipe.categories, "categories");
 
+	//verificar lo que esta en recipe.categories. y si esta cambiar a true check.
 	const handleChange = event => {
 		let newAllCategories = [];
 
@@ -46,7 +48,6 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	return (
 		<div id="checkboxSection">
 			{checkboxes.map(item => {
-				console.log(item, "-------------------");
 				return (
 					<label className="labelCheckbox" key={item.key}>
 						<p className="itemName">{item.name}</p>

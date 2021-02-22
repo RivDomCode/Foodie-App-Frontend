@@ -14,7 +14,7 @@ const RecipeForm = props => {
 		image: title == "update recipe" ? recipeUpdate.image : "",
 		recipeTitle: title == "update recipe" ? recipeUpdate.title : "",
 		categories: title == "update recipe" ? recipeUpdate.categories : [],
-		ingredients: [],
+		ingredients: title == "update recipe" ? JSON.parse(recipeUpdate.ingredients) : [],
 		elaboration: title == "update recipe" ? recipeUpdate.elaboration : ""
 	});
 	const [spinner, setSpinner] = useState(false);
@@ -37,11 +37,9 @@ const RecipeForm = props => {
 
 	const handleChange = event => {
 		if (event.target.name == "image") {
-			console.log("entrado en imagen", event.target.files[0]);
 			const read = new FileReader();
 			read.onload = () => {
 				if (read.readyState === 2) {
-					console.log("entrado en el read", read.result);
 					setRecipe({
 						...recipe,
 						image: read.result
