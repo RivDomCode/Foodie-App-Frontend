@@ -52,6 +52,8 @@ const Card = ({ recipe, history }) => {
 		history.push("/detail");
 	};
 
+	const maxLength = 80;
+
 	return (
 		<div className="component-card">
 			<div className="card">
@@ -60,7 +62,19 @@ const Card = ({ recipe, history }) => {
 				</p>
 				<div className="card-body">
 					<h5 className="card-title">{recipe.title}</h5>
-					<p className="card-text">{recipe.elaboration}</p>
+					<p className="card-text">
+						{recipe.elaboration.length > maxLength ? (
+							<p>
+								{`${recipe.elaboration.substring(0, maxLength)}`}
+								<Link to={"/detail"} onClick={selectedRecipe}>
+									...
+								</Link>
+							</p>
+						) : (
+							<p>{recipe.elaboration}</p>
+						)}
+						{/*recipe.elaboration*/}
+					</p>
 					<div className="row author-heart d-flex">
 						<span>By {recipe.user_name}</span>{" "}
 						<span>

@@ -61,20 +61,28 @@ const RecipeDetail = () => {
 							<div className="detailcomments">
 								<form>
 									<div className="comment-detail row d-flex">
-										<Avatar className="avatar lololo" />
-										<input
-											className="add-comment-input"
-											type="text"
-											placeholder="Add your comment"
-											value={inputComment}
-											onChange={inputCommentHandler}
+										<Avatar
+											aria-label="recipe"
+											src={store.user.user_image}
+											className="avatar lololo"
 										/>
-										<button
-											type="submit"
-											className="btn btn-danger add-comment-button"
-											onClick={submitCommentHandler}>
-											Add
-										</button>
+										<div className="input-group mb-3">
+											<input
+												type="text"
+												className="form-control comment-input"
+												placeholder="Add your comment"
+												aria-label="Username"
+												aria-describedby="basic-addon1"
+												value={inputComment}
+												onChange={inputCommentHandler}
+											/>
+											<button
+												type="submit"
+												className="btn btn-danger add-comment-button"
+												onClick={submitCommentHandler}>
+												Add
+											</button>
+										</div>
 									</div>
 									<div className="comments-container-detail">
 										<div className="single-comment">

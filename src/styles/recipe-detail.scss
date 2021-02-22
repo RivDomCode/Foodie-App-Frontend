@@ -20,6 +20,8 @@ body{
 
 .detail-title{
     width: 75%;
+    font-size: 30px;
+    font-family: Roboto;
 }
 
 .like{
@@ -35,43 +37,50 @@ body{
 
 .photo-post{
     max-width: 1000px;
-    margin: ¡important auto;
+    margin:auto  !important ;
     max-height: 500px;
     object-fit: cover;
 }
 
 .recipe-title{
-    font-weight: bold;
+    font-weight: bolder;
     font-size: 23px;
-    text-align: center;
-    margin: auto;
+    margin-left: 20px;
 }
 
 .ingredients-title{
     color:#F53158;
-    font-size: 20px;
-    margin: auto;
-    margin-top: 20px;
+    font-size: 25px;
+    margin-top: 15px;
+    font-weight: bolder;
 }
 
 .elaboration-title{
-    font-size: 20px;
+    font-size: 25px;
     color: #3D9382;
+        font-weight: bolder;
+
 }
 
 .comments-title{
-    font-size: 20px;
+    font-size: 25px;
     color: #F56C31;
+        font-weight: bolder;
+
 }
 
 .fa-shopping-basket, .fa-comment, .fa-utensils{
     margin-left: 20px;
     padding: 10px;
     margin-bottom: 10px;
+    font-size: 25px;
+
 }
 
-.post_avatar{    margin-left: 20px;
+.ingredients-title{
+    margin-right: 20px;
 }
+
 
 .ingredient-list {
         margin-left: 20px;
@@ -87,25 +96,11 @@ body{
 }
 
 .elaboration-text{
-    padding: 20px;
-}
-
-.add-comment-input{
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    height: 35px;
-    color: gray;
-    background-color: #eef3f8;
-    border: 0.2px solid lightgray;
-    background: none;
-    outline: none;
-    width:55%;
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .add-comment-button{
-    margin-left: 8px;
+    margin-left: 6px;
     margin-top: 7px;
     height: 34px;
 }
@@ -126,8 +121,17 @@ body{
 
 .comment-detail{
     width:100%;
+     margin-left: 20px;
+     display:flex;
+     flex-direction: row;
+
 }
 
 .lololo{
     margin-top: 5px;
+}
+
+.comment-input{
+   width: 70%;
+
 }
