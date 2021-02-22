@@ -8,16 +8,25 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	const { store, actions } = useContext(Context);
 	const [checkedItems, setCheckedItems] = useState({});
 	const [allCategories, setAllCategories] = useState([]);
-	console.log(recipe.categories, "categories");
+	//console.log(recipe.categories, "categorias originales");
+	let categoriesUpdate = [];
+	recipe.categories.map((category, index) => {
+		categoriesUpdate.push(category.category_name);
+		//console.log(categoriesUpdate, "receta selec", index);
+	});
 
-	//verificar lo que esta en recipe.categories. y si esta cambiar a true check.
+	let newAllCategories = categoriesUpdate;
+
+	console.log(newAllCategories);
+
+	//verificar lo que esta en recipe.categories. y si lo que hay activar  true check.
 	const handleChange = event => {
-		let newAllCategories = [];
+		//let newAllCategories = [];
 
 		let isInArray = allCategories.find(element => element == event.target.name);
 
 		setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
-
+		console.log(isInArray, "el array de categorias");
 		if (!isInArray) {
 			newAllCategories = [...allCategories, event.target.name];
 		} else {
@@ -39,7 +48,21 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 				checked: false
 			});
 		});
+		//setCheckboxes(categories);
+		/////
+		//console.log(categories, "todas las categorias");
+		categoriesUpdate.map(name => {
+			console.log(name, "el valor de name ");
+			categories.map(item => {
+				if (item["name"] === name) {
+					item.checked = true;
+				}
+				//console.log(categories, "en el if");
+			});
+		});
 		setCheckboxes(categories);
+		console.log(categories, "en el despues del set");
+		/////
 	};
 	useEffect(() => {
 		getCheckboxes();
