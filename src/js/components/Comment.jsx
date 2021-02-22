@@ -23,9 +23,7 @@ const Comment = props => {
 						<div key={index} className="comment-container ">
 							<Card className="single-comments-card">
 								<CardHeader
-									avatar={
-										<Avatar aria-label="recipe" alt={commentObj.user} src={store.user.urlImg} />
-									}
+									avatar={<Avatar aria-label="recipe" src={store.user.image} />}
 									action={<IconButton aria-label="settings" />}
 									title={commentObj.text}
 									subheader={commentObj.date_comment}
