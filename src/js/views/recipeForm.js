@@ -123,7 +123,7 @@ const RecipeForm = props => {
 			</div>
 			{/*Mensaje de error*/}
 			{error.status ? (
-				<div className="alert" id="error">
+				<div className="alert-recipe" id="error">
 					<p>
 						{" "}
 						{error.msg}
@@ -140,7 +140,7 @@ const RecipeForm = props => {
 				</button>
 			) : (
 				<div className="btn-s">
-					<button className="btn-load" id="load">
+					<button className="btn-recipe" id="load">
 						<div className="spinner-border text-light" role="status" />
 					</button>
 				</div>
