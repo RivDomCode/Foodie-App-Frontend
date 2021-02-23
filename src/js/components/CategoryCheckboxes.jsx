@@ -17,7 +17,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 
 	let newAllCategories = categoriesUpdate;
 
-	console.log(newAllCategories);
+	//console.log(newAllCategories);
 
 	//verificar lo que esta en recipe.categories. y si lo que hay activar  true check.
 	const handleChange = event => {
@@ -26,7 +26,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 		let isInArray = allCategories.find(element => element == event.target.name);
 
 		setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
-		console.log(isInArray, "el array de categorias");
+
 		if (!isInArray) {
 			newAllCategories = [...allCategories, event.target.name];
 		} else {
@@ -51,17 +51,18 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 		//setCheckboxes(categories);
 		/////
 		//console.log(categories, "todas las categorias");
+		const selectCheckboxes = async () => {};
 		categoriesUpdate.map(name => {
 			console.log(name, "el valor de name ");
 			categories.map(item => {
 				if (item["name"] === name) {
 					item.checked = true;
 				}
-				//console.log(categories, "en el if");
+				console.log(categories, "en el if");
 			});
 		});
 		setCheckboxes(categories);
-		console.log(categories, "en el despues del set");
+		console.log(checkboxes, "en el despues del set");
 		/////
 	};
 	useEffect(() => {
