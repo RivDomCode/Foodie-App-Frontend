@@ -18,9 +18,8 @@ const Favorite = props => {
 					return (
 						<div className="favorite-post" key={key}>
 							<div className="row no-gutters">
-								<div className="col-md-6 favorite-post-image">
-									<img src={favorite.image} className="favorite-post-img" alt="..." />
-								</div>
+								<img src={favorite.image} className="favorite-post-img" alt="..." />
+
 								<div className="col-md-6 right-side">
 									<div className="card-body">
 										<h5 className="favorite-title">{favorite.title}</h5>
