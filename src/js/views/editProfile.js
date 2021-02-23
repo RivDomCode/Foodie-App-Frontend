@@ -54,7 +54,7 @@ const EditProfile = props => {
 		<div className="editProfile">
 			<div className="allBody">
 				<div className="container">
-					<h5 className="title">Edit Profile</h5>
+					<h5 className="editProfileTitle">Edit Profile</h5>
 					<div className="user">
 						{userProfile.image == "" ? (
 							<img src={store.user.urlImg} className="img-top" alt="Photo Profile" />
