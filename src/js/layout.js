@@ -8,7 +8,7 @@ import Comments from "./views/comments";
 //import recipe Detail from "./views/recipe detail";
 import Profile from "./views/profile";
 import EditProfile from "./views/editProfile";
-
+import "../../src/styles/error404.scss";
 import injectContext from "./store/appContext";
 import Navbar from "./components/Navbar.jsx";
 import RecipeForm from "./views/recipeForm";
@@ -40,7 +40,13 @@ const Layout = props => {
 					<Route exact path="/modalDelete" component={ModalDelete} />
 					<Route exact path="/detail" component={RecipeDetail} />
 					<Route>
-						<h1>Not found!</h1>
+						<div className="bodyImage404">
+							<img
+								className="Image404"
+								src="https://res.cloudinary.com/df9k0kc8n/image/upload/v1614110689/Error_404x2_trefsj.png"
+								alt="404 page not found photo"
+							/>
+						</div>
 					</Route>
 				</Switch>
 				{store.pathName == "/login" || store.pathName == "/signup" ? "" : <Footer />}
