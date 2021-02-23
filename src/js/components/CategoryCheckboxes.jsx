@@ -8,6 +8,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 	const { store, actions } = useContext(Context);
 	const [checkedItems, setCheckedItems] = useState({});
 	const [allCategories, setAllCategories] = useState([]);
+	const [pepito, setPepito] = useState([]);
 	//console.log(recipe.categories, "categorias originales");
 	let categoriesUpdate = [];
 	recipe.categories.map((category, index) => {
@@ -36,7 +37,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 		setAllCategories(newAllCategories);
 		setRecipe({ ...recipe, categories: newAllCategories });
 	};
-	const [checkboxes, setCheckboxes] = useState([]);
+
 	const getCheckboxes = async () => {
 		await actions.getCategories();
 		const categories = [];
@@ -48,21 +49,20 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 				checked: false
 			});
 		});
-		//setCheckboxes(categories);
+		//setPepito(categories);
 		/////
 		//console.log(categories, "todas las categorias");
-		const selectCheckboxes = async () => {};
+		//console.log(categoriesUpdate, typeof categoriesUpdate, "-----------------");
 		categoriesUpdate.map(name => {
-			console.log(name, "el valor de name ");
+			//console.log(name, "el valor de name ");
 			categories.map(item => {
 				if (item["name"] === name) {
 					item.checked = true;
 				}
-				console.log(categories, "en el if");
+				//console.log(categories, "en el if");
 			});
 		});
-		setCheckboxes(categories);
-		console.log(checkboxes, "en el despues del set");
+		setPepito(categories);
 		/////
 	};
 	useEffect(() => {
@@ -71,14 +71,14 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 
 	return (
 		<div id="checkboxSection">
-			{checkboxes.map(item => {
+			{pepito.map(item => {
 				return (
 					<label className="labelCheckbox" key={item.key}>
 						<p className="itemName">{item.name}</p>
 						<Checkbox
 							id="checkbox"
 							name={item.name}
-							checked={checkedItems[item.name]}
+							checked={item["checked"]}
 							onChange={handleChange}
 							setRecipe={setRecipe}
 						/>
