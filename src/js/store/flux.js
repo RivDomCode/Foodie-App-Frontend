@@ -241,11 +241,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//////////*** GENERATE NEW RECIPE and EDIT RECIPE */
 			createRecipe: (newRecipe, file, props, title, id = "") => {
-				console.log(id, " id de la recta");
+				console.log(newRecipe, " newRecipe de la recta");
+				console.log(file, " file de la recta");
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
-				formData.append("image", file, file.name);
-
+				if (file != undefined) {
+					formData.append("image", file, file.name);
+				}
 				formData.append("categories", JSON.stringify(newRecipe.categories));
 
 				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));

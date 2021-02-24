@@ -23,28 +23,24 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 		}
 	}, []);
 	let categoriesUpdate = [];
-	recipe.categories.map((category, index) => {
-		categoriesUpdate.push(category.category_name);
-	});
+	// recipe.categories.map((category, index) => {
+	// 	categoriesUpdate.push(category.category_name);
+	// });
 
 	let newAllCategories = categoriesUpdate;
 
 	//verificar lo que esta en recipe.categories. y si lo que hay activar  true check.
 	const handleChange = event => {
 		let isInArray = allCategories.find(element => element == event.target.name);
-
 		setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
-
-		if (!isInArray) {
+		if (isInArray == undefined) {
 			newAllCategories = [...allCategories, event.target.name];
 		} else {
 			newAllCategories = allCategories.filter(element => element !== event.target.name);
 		}
-
 		setAllCategories(newAllCategories);
 		setRecipe({ ...recipe, categories: newAllCategories });
 	};
-
 	const getCheckboxes = async () => {
 		await actions.getCategories();
 		const categories = [];
@@ -56,8 +52,6 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 				checked: false
 			});
 		});
-
-		/////
 		categoriesUpdate.map(name => {
 			categories.map(item => {
 				if (item["name"] === name) {
@@ -66,9 +60,7 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 			});
 		});
 		setCheckboxes(categories);
-		/////
 	};
-
 	return (
 		<div id="checkboxSection">
 			{checkboxes.map(item => {
@@ -80,7 +72,6 @@ export const CategoryCheckboxes = ({ recipe, setRecipe }) => {
 							name={item.name}
 							checked={checkedItems[item.name]}
 							onChange={handleChange}
-							setRecipe={setRecipe}
 						/>
 					</label>
 				);

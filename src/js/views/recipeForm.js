@@ -43,6 +43,11 @@ const RecipeForm = props => {
 						...recipe,
 						image: read.result
 					});
+				} else {
+					setRecipe({
+						...recipe,
+						image: read.recipeUpdate.image
+					});
 				}
 			};
 			if (event.target.files[0] != undefined) {
