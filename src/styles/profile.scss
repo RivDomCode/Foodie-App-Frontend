@@ -23,6 +23,7 @@ body{
 
 .edit-icon{
     text-align: center;
+    height: 1.5rem;
 }
 .user-data {
     display: block;
@@ -34,20 +35,18 @@ body{
 .buttonAdd{
     display: flex;
     margin:auto;
-    background-color: #fdfdfd;
+    background-color: #F53158;
     font-family: Roboto;
-    color: rgba(61, 147, 130, 1);
+    color: #fdfdfd;
     font-style: normal;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 20px;
     width: 224px;
     height: 48px;
-    border-radius:100px;
+    border-radius: 6px;
     border: none;
-    box-shadow: 6px 8px 16px 0px rgba(0, 0, 0, 0.25);
     margin-bottom: 6px;
-    padding: 1%;
-    padding-left: 4%;
+    padding: 0.5rem 0rem 0rem 1.7rem;
     outline: none;
 }
 a:hover{
@@ -104,6 +103,7 @@ a {
     width:9.5rem;
     height:9.5rem;
     border-radius: 100%;
+    object-fit: cover;
 }
 @media screen and(max-width:768px){
     .allBody{

@@ -31,7 +31,7 @@ const Profile = props => {
 				<div className="addRecipeButton">
 					<Link to="/newRecipeForm">
 						<button type="button" className="buttonAdd">
-							+ Add new recipe
+							Publish new recipe
 						</button>
 					</Link>
 				</div>

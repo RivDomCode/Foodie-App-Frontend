@@ -3,8 +3,8 @@
 .tabs{
     list-style: none;
     display: flex;
-    margin-left: 30%;
-    padding: 0;
+    margin:auto;
+    justify-content: center;
     margin-top: 3rem;
     cursor: pointer;
     color: #3D9382;
@@ -41,7 +41,4 @@
     font-family: Roboto;
     border-radius: 10px;
     font-weight: bold;
-}
-.tabs-content{
-    margin-top:5%;
 }
