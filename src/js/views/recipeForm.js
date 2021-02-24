@@ -22,6 +22,18 @@ const RecipeForm = props => {
 		status: false
 	});
 
+	const validateInputs = recipe => {
+		if ((recipe.image.trim() != "", recipe.recipeTitle.trim() != "", recipe.elaboration.trim() != "")) {
+			setSpinner(true);
+		} else {
+			setError({
+				msg: "All fields are required",
+				status: true
+			});
+			return true;
+		}
+	};
+
 	const handleChange = event => {
 		if (event.target.name == "image") {
 			console.log("entrado en imagen", event.target.files[0]);
@@ -45,7 +57,10 @@ const RecipeForm = props => {
 	const handleSubmit = e => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
-		actions.createRecipe(recipe, file.files[0], props);
+		const validate = validateInputs(recipe);
+		if (validate != true) {
+			actions.createRecipe(recipe, file.files[0], props);
+		}
 	};
 
 	return (
@@ -90,9 +105,31 @@ const RecipeForm = props => {
 					onChange={handleChange}
 				/>
 			</div>
-			<button className="buttonPublish" onClick={handleSubmit}>
-				<div className="buttonTextPublish">Publish recipe</div>
-			</button>
+			{/*Mensaje de error*/}
+			{error.status ? (
+				<div className="alert" id="error">
+					<p>
+						{" "}
+						{error.msg}
+						<i className="fas fa-exclamation-circle" id="icono-msn" />
+					</p>
+				</div>
+			) : (
+				""
+			)}
+			{/*boton de publicar receta con spiner */}
+			{spinner == false ? (
+				<button className="buttonPublish" onClick={handleSubmit}>
+					<div className="buttonTextPublish">Publish recipe</div>
+				</button>
+			) : (
+				<div className="btn-s">
+					<button className="btn-load" id="load">
+						<div className="spinner-border text-light" role="status" />
+					</button>
+				</div>
+			)}
+			{/*fin del boton*/}
 			<Link to={"/profile"}>
 				<button type="button" className="buttonCancel">
 					<div className="buttonTextCancel">Cancel</div>
