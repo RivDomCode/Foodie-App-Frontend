@@ -43,7 +43,7 @@ const Layout = props => {
 						<div className="bodyImage404">
 							<img
 								className="Image404"
-								src="https://res.cloudinary.com/df9k0kc8n/image/upload/v1614110689/Error_404x2_trefsj.png"
+								src="https://res.cloudinary.com/df9k0kc8n/image/upload/v1614159394/Error_404_ok_lbnq9a.png"
 								alt="404 page not found photo"
 							/>
 						</div>
