@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/recipe-detail.scss";
+import "../../styles/recipeDetail.scss";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
