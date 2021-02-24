@@ -241,8 +241,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//////////*** GENERATE NEW RECIPE and EDIT RECIPE */
 			createRecipe: (newRecipe, file, props, title, id = "") => {
-				console.log(newRecipe, " newRecipe de la recta");
-				console.log(file, " file de la recta");
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				if (file != undefined) {
@@ -289,7 +287,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => {
 						if (res.status == 403) {
 							setError({ msg: "User Name or email exist", status: true });
-							console.log("El usuario ya existe");
 						} else {
 							res.json();
 							props.history.push("/profile");
@@ -325,7 +322,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			////****CREATE COMMENTS */
 
 			createComments: (comments, selectedRecipe) => {
-				console.log(comments, selectedRecipe);
 				const token = localStorage.getItem("token");
 				const state = getStore();
 				const actions = getActions();
@@ -333,16 +329,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					text: comments,
 					recipe_id: selectedRecipe.id
 				};
-				console.log(JSON.stringify(comments));
 				fetch(url + "comments", {
 					method: "POST",
 					body: JSON.stringify(body),
 					headers: { Authorization: " Bearer " + token, "Content-Type": "application/json" }
 				})
 					.then(res => res.json())
-
 					.catch(error => console.error("Error:", error))
-
 					.then(response => actions.getComments(selectedRecipe));
 			},
 			////*** LOGOUT */
@@ -360,7 +353,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//////RECIPES by CATEGORIES
 			getRecipeCategory: id_category => {
-				console.log("id category", id_category);
 				const store = getStore();
 				const recipe_by_category = [];
 
@@ -372,11 +364,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (data) {
 							data.map((recipe, index) => {
 								recipe_by_category.push(recipe.category);
-								console.log(recipe.category, "receta selec", index);
 							});
-							console.log(recipe_by_category, "el array");
 							setStore({ recipes: [...recipe_by_category] });
-							console.log("set del store en recipe", store.recipes);
 						}
 					});
 			}

@@ -106,11 +106,6 @@ const RecipeForm = props => {
 
 			<h4 className="h4title">Choose one or more categories for your recipe</h4>
 			<CategoryCheckboxes name="categories" recipe={recipe} setRecipe={setRecipe} />
-			{/*title == "update recipe" ? (
-				<AddIngredients recipe={recipeUpdate} setRecipe={"setRecipe"} />
-			) : (
-				<AddIngredients recipe={recipe} setRecipe={setRecipe} />
-            )*/}
 			<AddIngredients recipe={recipe} setRecipe={setRecipe} />
 			<div className="mb-3">
 				<textarea
