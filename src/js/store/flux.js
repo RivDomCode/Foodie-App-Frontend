@@ -239,8 +239,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			//////////*** GENERATE NEW RECIPE */
-			createRecipe: (newRecipe, file, props) => {
+			//////////*** GENERATE NEW RECIPE and EDIT RECIPE */
+			createRecipe: (newRecipe, file, props, title, id = "") => {
+				console.log(id, " id de la recta");
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
 				formData.append("image", file, file.name);
@@ -254,8 +255,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const token = localStorage.getItem("token");
 				let headers = { Authorization: " Bearer " + token };
 
-				fetch(url + "recipe", {
-					method: "POST",
+				fetch(url + "recipe/" + id, {
+					method: title == "update recipe" ? "PUT" : "POST",
 
 					body: formData,
 					headers: headers
@@ -269,40 +270,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log(error));
 			},
 
-			//****EDIT RECIPE */
-			editRecipe: (newRecipe, file, props) => {
-				console.log(newRecipe, "este es texto");
-				console.log(file, "foto");
-				console.log(props, "props");
-				const formData = new FormData();
-				console.log("ESTOY EDITANDO RECETA");
-				formData.append("title", newRecipe.recipeTitle);
-
-				formData.append("image", file, file.name);
-
-				formData.append("categories", JSON.stringify(newRecipe.categories));
-
-				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
-
-				formData.append("elaboration", newRecipe.elaboration);
-
-				const token = localStorage.getItem("token");
-				let headers = { Authorization: " Bearer " + token };
-
-				// fetch(url + "recipe", {
-				// 	method: "PUT",
-
-				// 	body: formData,
-				// 	headers: headers
-				// })
-				// 	.then(res => res.json())
-				// 	.then(data => {
-				// 		setStore({ page: 1, recipes: [], pathName: "/" });
-				// 		getActions().getRecipe(1);
-				// 		props.history.push("/");
-				// 	})
-				// 	.catch(error => console.log(error));
-			},
 			//****EDIT USER */
 			editProfile: (user, file, props, setError) => {
 				const token = localStorage.getItem("token");

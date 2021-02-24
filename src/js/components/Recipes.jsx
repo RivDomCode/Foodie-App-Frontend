@@ -45,7 +45,7 @@ const Recipes = () => {
 											/>
 											<Link
 												to={{
-													pathname: "/newRecipeForm",
+													pathname: "/editRecipeForm",
 													state: {
 														title: "update recipe",
 														recipe: recipe

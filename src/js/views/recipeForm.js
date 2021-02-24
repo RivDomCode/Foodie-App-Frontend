@@ -22,7 +22,6 @@ const RecipeForm = props => {
 		msg: "",
 		status: false
 	});
-
 	const validateInputs = recipe => {
 		if ((recipe.image.trim() != "", recipe.recipeTitle.trim() != "", recipe.elaboration.trim() != "")) {
 			setSpinner(true);
@@ -57,11 +56,9 @@ const RecipeForm = props => {
 		e.preventDefault();
 		const file = document.querySelector("#file");
 		const validate = validateInputs(recipe);
-		if (validate != true && title == "Add new recipe") {
-			actions.createRecipe(recipe, file.files[0], props);
-		}
-		if (validate != true && title == "update recipe") {
-			actions.editRecipe(recipe, file.files[0], props);
+		const id = title == "update recipe" ? recipeUpdate.id : "";
+		if (validate != true) {
+			actions.createRecipe(recipe, file.files[0], props, title, id);
 		}
 	};
 
