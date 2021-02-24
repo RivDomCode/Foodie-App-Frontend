@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import "../../styles/comment.scss";
@@ -9,6 +9,11 @@ import Card from "@material-ui/core/Card";
 
 const Comment = props => {
 	const { store, actions } = useContext(Context);
+
+	useEffect(() => {
+		actions.getUser();
+	}, []);
+
 	/*const deleteHandler = key => {
 		const updatedCommentList = props.comments.filter(commentObj => {
 			return commentObj.label != key;

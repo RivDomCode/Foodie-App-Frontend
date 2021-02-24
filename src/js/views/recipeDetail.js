@@ -13,6 +13,9 @@ const RecipeDetail = () => {
 	useEffect(() => {
 		actions.getComments(store.selectedRecipe, setComments);
 	}, []);
+	useEffect(() => {
+		actions.getUser();
+	}, []);
 
 	const inputCommentHandler = e => {
 		setInputComment(e.target.value);
