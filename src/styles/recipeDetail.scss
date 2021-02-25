@@ -5,27 +5,26 @@ body{
 }
 
 .detail{
-    max-width: 1200px;
+    max-width: 75rem;
     margin: auto;
-    border-radius: 6px;
-   /* box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);*/
-    margin-top: 20px;
-    margin-bottom: 20px;
+    border-radius: 0.375rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .inside-detail{
-    margin-left: 18%;
-    margin-right: 18%;
+    max-width: 50rem;
+    margin:auto;
 }
 
 .detail-title{
-    width: 75%;
+    
     font-size: 30px;
     font-family: Roboto;
 }
 
 .like{
-    width: 15%;
+    
     color:#F53158;
     margin-left: 70px;
 }
@@ -36,9 +35,10 @@ body{
 }
 
 .photo-post{
-    max-width: 1000px;
+   
     margin:auto  !important ;
-    max-height: 500px;
+    max-height: 28.125rem;
+    max-width: 50rem;
     object-fit: cover;
 }
 
@@ -49,6 +49,7 @@ body{
 }
 
 .ingredients-title{
+    
     color:#F53158;
     font-size: 25px;
     margin-top: 15px;
@@ -56,13 +57,15 @@ body{
 }
 
 .elaboration-title{
+    
     font-size: 25px;
     color: #3D9382;
-        font-weight: bolder;
+    font-weight: bolder;
 
 }
 
 .comments-title{
+    
     font-size: 25px;
     color: #F56C31;
         font-weight: bolder;
@@ -78,12 +81,14 @@ body{
 }
 
 .ingredients-title{
+   
     margin-right: 20px;
 }
 
 
 .ingredient-list {
-        margin-left: 20px;
+  
+    margin-left: 20px;
 
 }
 
@@ -96,6 +101,7 @@ body{
 }
 
 .elaboration-text{
+   
     margin-left: 20px;
 }
 
@@ -135,3 +141,4 @@ body{
    width: 70%;
 
 }
+

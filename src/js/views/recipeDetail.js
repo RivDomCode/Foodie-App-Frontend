@@ -43,7 +43,11 @@ const RecipeDetail = () => {
 							<i className="fas fa-shopping-basket" />
 							<p className="titles">Ingredients</p>
 						</div>
-						<div className="ingredient-list">{store.selectedRecipe.ingredients}</div>
+						<div className="ingredient-list">
+							{store.selectedRecipe.ingredients.map((item, index) => {
+								return <li key={index}>{item}</li>;
+							})}
+						</div>
 					</div>
 					<div className="elaboration">
 						<div className="row elaboration-title">
