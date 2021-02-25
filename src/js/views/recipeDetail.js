@@ -60,12 +60,8 @@ const RecipeDetail = () => {
 						<div className="comment-component row d-flex">
 							<div className="detailcomments">
 								<form>
-									<div className="comment-detail row d-flex">
-										<Avatar
-											aria-label="recipe"
-											src={store.user.user_image}
-											className="avatar lololo"
-										/>
+									<div className="comment-detail ">
+										<Avatar aria-label="recipe" src={store.user.urlImg} className="avatar lololo" />
 										<div className="input-group mb-3">
 											<input
 												type="text"
