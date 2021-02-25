@@ -24,14 +24,14 @@ const Favorite = props => {
 									<div className="card-body">
 										<h5 className="favorite-title">{favorite.title}</h5>
 									</div>
-									<div className="back-to-edit-profile row">
-										<i
-											className="fas fa-heart like-favorite-post"
-											onClick={() => {
-												actions.deleteFavorites(favorite.id);
-											}}
-										/>
-									</div>
+								</div>
+								<div className="back-to-edit-profile row">
+									<i
+										className="fas fa-heart like-favorite-post"
+										onClick={() => {
+											actions.deleteFavorites(favorite.id);
+										}}
+									/>
 								</div>
 							</div>
 						</div>
