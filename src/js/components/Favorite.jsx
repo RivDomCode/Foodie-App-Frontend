@@ -18,21 +18,20 @@ const Favorite = props => {
 					return (
 						<div className="favorite-post" key={key}>
 							<div className="row no-gutters">
-								<div className="col-md-6 favorite-post-image">
-									<img src={favorite.image} className="favorite-post-img" alt="..." />
-								</div>
+								<img src={favorite.image} className="favorite-post-img" alt="..." />
+
 								<div className="col-md-6 right-side">
 									<div className="card-body">
 										<h5 className="favorite-title">{favorite.title}</h5>
 									</div>
-									<div className="back-to-edit-profile row">
-										<i
-											className="fas fa-heart like-favorite-post"
-											onClick={() => {
-												actions.deleteFavorites(favorite.id);
-											}}
-										/>
-									</div>
+								</div>
+								<div className="back-to-edit-profile row">
+									<i
+										className="fas fa-heart like-favorite-post"
+										onClick={() => {
+											actions.deleteFavorites(favorite.id);
+										}}
+									/>
 								</div>
 							</div>
 						</div>
