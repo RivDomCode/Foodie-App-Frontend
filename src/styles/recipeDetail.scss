@@ -13,12 +13,12 @@ body{
 }
 
 .inside-detail{
-    max-width: 50rem;
+    max-width: 45rem;
     margin:auto;
 }
 
 .detail-title{
-    
+    margin-top: 2rem;
     font-size: 30px;
     font-family: Roboto;
 }
@@ -51,14 +51,14 @@ body{
 .ingredients-title{
     
     color:#F53158;
-    font-size: 25px;
-    margin-top: 15px;
+    font-size: 20px;
+    // margin-top: 15px;
     font-weight: bolder;
 }
 
 .elaboration-title{
     
-    font-size: 25px;
+    font-size: 20px;
     color: #3D9382;
     font-weight: bolder;
 
@@ -66,7 +66,7 @@ body{
 
 .comments-title{
     
-    font-size: 25px;
+    font-size: 20px;
     color: #F56C31;
         font-weight: bolder;
 
@@ -93,7 +93,7 @@ body{
 }
 
 .titles{
-    margin-top: 4px;
+    margin-top: 10px;
 }
 
 .last-comment{
@@ -101,7 +101,7 @@ body{
 }
 
 .elaboration-text{
-   
+    margin-top: 1rem;
     margin-left: 20px;
 }
 
@@ -126,19 +126,23 @@ body{
 }
 
 .comment-detail{
-    width:100%;
-     margin-left: 20px;
-     display:flex;
-     flex-direction: row;
+    display: flex;
+    max-width: 18.75rem;
 
+}
+.detailcomments{
+    max-width: 18.75rem;
 }
 
 .lololo{
+    margin-left: 20px;
+    margin-right: 1rem;
     margin-top: 5px;
 }
 
 .comment-input{
-   width: 70%;
+   width: 100%;
+   margin-right: 1rem;
 
 }
 

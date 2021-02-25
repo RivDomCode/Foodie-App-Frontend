@@ -64,7 +64,7 @@ const RecipeDetail = () => {
 						<div className="comment-component row d-flex">
 							<div className="detailcomments">
 								<form>
-									<div className="comment-detail row d-flex">
+									<div className="comment-detail">
 										<Avatar
 											aria-label="recipe"
 											src={store.user.user_image}
@@ -82,7 +82,7 @@ const RecipeDetail = () => {
 											/>
 											<button
 												type="submit"
-												className="btn btn-danger add-comment-button"
+												className="addCommentBtn btn btn-danger add-comment-button"
 												onClick={submitCommentHandler}>
 												Add
 											</button>
