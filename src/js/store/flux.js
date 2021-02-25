@@ -204,14 +204,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			/////****************DELETE Recipe */
 			deleteRecipe: recipe => {
-				/////
-				console.log(recipe, "el id para borrar");
 				const token = localStorage.getItem("token");
-
 				const actions = getActions();
-
-				/////
-
 				fetch(url + "delete/recipe/" + recipe, {
 					method: "PUT",
 
@@ -245,12 +239,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 
-			//////////*** GENERATE NEW RECIPE */
-			createRecipe: (newRecipe, file, props) => {
+			//////////*** GENERATE NEW RECIPE and EDIT RECIPE */
+			createRecipe: (newRecipe, file, props, title, id = "") => {
 				const formData = new FormData();
 				formData.append("title", newRecipe.recipeTitle);
-				formData.append("image", file, file.name);
-
+				if (file != undefined) {
+					formData.append("image", file, file.name);
+				}
 				formData.append("categories", JSON.stringify(newRecipe.categories));
 
 				formData.append("ingredients", JSON.stringify(newRecipe.ingredients));
@@ -260,8 +255,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const token = localStorage.getItem("token");
 				let headers = { Authorization: " Bearer " + token };
 
-				fetch(url + "recipe", {
-					method: "POST",
+				fetch(url + "recipe/" + id, {
+					method: title == "update recipe" ? "PUT" : "POST",
 
 					body: formData,
 					headers: headers
@@ -274,6 +269,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log(error));
 			},
+
 			//****EDIT USER */
 			editProfile: (user, file, props, setError) => {
 				const token = localStorage.getItem("token");
@@ -291,7 +287,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => {
 						if (res.status == 403) {
 							setError({ msg: "User Name or email exist", status: true });
-							console.log("El usuario ya existe");
 						} else {
 							res.json();
 							props.history.push("/profile");
@@ -327,7 +322,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			////****CREATE COMMENTS */
 
 			createComments: (comments, selectedRecipe) => {
-				console.log(comments, selectedRecipe);
 				const token = localStorage.getItem("token");
 				const state = getStore();
 				const actions = getActions();
@@ -335,16 +329,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					text: comments,
 					recipe_id: selectedRecipe.id
 				};
-				console.log(JSON.stringify(comments));
 				fetch(url + "comments", {
 					method: "POST",
 					body: JSON.stringify(body),
 					headers: { Authorization: " Bearer " + token, "Content-Type": "application/json" }
 				})
 					.then(res => res.json())
-
 					.catch(error => console.error("Error:", error))
-
 					.then(response => actions.getComments(selectedRecipe));
 			},
 			////*** LOGOUT */
@@ -362,7 +353,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//////RECIPES by CATEGORIES
 			getRecipeCategory: id_category => {
-				console.log("id category", id_category);
 				const store = getStore();
 				const recipe_by_category = [];
 
@@ -374,11 +364,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (data) {
 							data.map((recipe, index) => {
 								recipe_by_category.push(recipe.category);
-								console.log(recipe.category, "receta selec", index);
 							});
-							console.log(recipe_by_category, "el array");
 							setStore({ recipes: [...recipe_by_category] });
-							console.log("set del store en recipe", store.recipes);
 						}
 					});
 			}

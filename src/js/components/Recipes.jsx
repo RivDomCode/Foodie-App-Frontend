@@ -5,7 +5,6 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import { ModalDelete } from "../components/ModalDelete.jsx";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 
 const Recipes = () => {
 	const { store, actions } = useContext(Context);
@@ -28,7 +27,6 @@ const Recipes = () => {
 						<p className="start-message">You have not published any recipe yet.</p>
 					) : (
 						store.myRecipes.map((recipe, index) => {
-							console.log(recipe, "Map recipe");
 							return (
 								<div className="post" key={index}>
 									<div className="post-image">
@@ -43,12 +41,16 @@ const Recipes = () => {
 												onClick={() => {
 													handleShow(recipe);
 												}}
-												/*onClick={() => {
-													actions.deleteRecipe(recipe);
-												}}*/
 												className="far fa-trash-alt trash"
 											/>
-											<Link to="/editRecipe" recipe={recipe} key={index}>
+											<Link
+												to={{
+													pathname: "/editRecipeForm",
+													state: {
+														title: "update recipe",
+														recipe: recipe
+													}
+												}}>
 												<i className="far fa-edit" />
 											</Link>
 										</div>

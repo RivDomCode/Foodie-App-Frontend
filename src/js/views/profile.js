@@ -7,7 +7,7 @@ import Tabs from "../components/Tabs.jsx";
 import { Link } from "react-router-dom";
 import Logout from "../../icons/logout.jsx";
 import { Context } from "../store/appContext";
-import PropsType from "prop-types";
+import PropTypes from "prop-types";
 
 const Profile = props => {
 	const { store, actions } = useContext(Context);
@@ -19,7 +19,6 @@ const Profile = props => {
 		<div className="profile">
 			<div className="allBody">
 				<div className="container">
-					{/*<User />foto statica user*/}
 					<img src={store.user.urlImg} className="img-user-profile" alt="..." />
 					<Edit />
 				</div>
@@ -29,7 +28,13 @@ const Profile = props => {
 				</div>
 
 				<div className="addRecipeButton">
-					<Link to="/newRecipeForm">
+					<Link
+						to={{
+							pathname: "/newRecipeForm",
+							state: {
+								title: "Add new recipe"
+							}
+						}}>
 						<button type="button" className="buttonAdd">
 							Publish new recipe
 						</button>
@@ -41,7 +46,10 @@ const Profile = props => {
 		</div>
 	);
 };
-Profile.propsType = {
-	history: PropsType.object
+Profile.propTypes = {
+	history: PropTypes.any,
+	location: PropTypes.object,
+	recipe: PropTypes.object,
+	state: PropTypes.object
 };
 export default Profile;
