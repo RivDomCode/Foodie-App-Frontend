@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    background-color: #fdfdfd;
+}
+
+.detail{
+    max-width: 75rem;
+    margin: auto;
+    border-radius: 0.375rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.inside-detail{
+    max-width: 45rem;
+    margin:auto;
+}
+
+.detail-title{
+    margin-top: 0.5rem;
+    font-size: 30px;
+    font-family: Roboto;
+}
+
+.like{
+    
+    color:#F53158;
+    margin-left: 70px;
+}
+
+.header-image{
+    margin: auto;
+    text-align: center;
+}
+
+.photo-post{
+    border-radius: 6px;
+    margin:auto  !important ;
+    max-height: 28.125rem;
+    max-width: 50rem;
+    object-fit: cover;
+    
+}
+
+.recipe-title{
+    font-weight: bolder;
+    font-size: 23px;
+    margin-left: 28px;
+
+}
+
+.ingredients-title{
+    
+    color:#F53158;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.elaboration-title{
+    margin-top: 1rem;
+    font-size: 20px;
+    color: #3D9382;
+    font-weight: bolder;
+
+
+}
+
+.comments-title{
+    
+    font-size: 20px;
+    color: #F56C31;
+    font-weight: bolder;
+
+}
+
+.fa-shopping-basket, .fa-comment, .fa-utensils{
+    margin-left: 28px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+
+}
+
+.ingredients-title{
+   
+    margin-right: 20px;
+}
+
+
+.ingredient-list {
+  
+    margin-left: 20px;
+
+}
+
+.titles{
+    margin-top: 10px;
+}
+
+.last-comment{
+    font-size: 14px;
+}
+
+.elaboration-text{
+    
+    margin-left: 20px;
+}
+
+.add-comment-button{
+    margin-left: 6px;
+    margin-top: 7px;
+    height: 34px;
+}
+
+.comment{
+    margin-bottom: 20px;
+    float: right;
+}
+
+.comments-number{
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Roboto;
+    color: gray;
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+.comment-detail{
+    display: flex;
+    max-width: 18.75rem;
+
+}
+.detailcomments{
+    max-width: 18.75rem;
+}
+
+.lololo{
+    margin-left: 20px;
+    margin-right: 1rem;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.comment-input{
+   width: 100%;
+   margin-right: 1rem;
+
+}
+

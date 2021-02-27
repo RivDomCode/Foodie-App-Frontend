@@ -1,0 +1,28 @@
+.oneCheckbox{
+    height: 1.5rem;
+    width:  1.5rem;
+    margin-left: 0.5rem;
+   
+}
+
+
+#checkboxSection{
+    display: flex;
+    /*display: inline-block;*/
+    margin: auto;
+   /* margin-top: 1rem;*/
+    /*grid-template-columns: 200px 200px 200px;*/
+    max-width: 37.5rem;
+    justify-content: space-between;
+
+}
+
+.labelCheckbox{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.itemName{
+    margin: 0.25rem 0rem 0rem 0rem;
+}

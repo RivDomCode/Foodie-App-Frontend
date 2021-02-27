@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&display=swap');
+*{box-sizing: border-box;}
+
+.backgroundUser{
+    background-color: #3D9382;
+}
+.title-foodie{
+    font-family: 'Rancho';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.38967838883399963px;
+    text-align: left;
+    color: #FDFDFD;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+}
+.title-create-account{
+    font-family: 'Rancho';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.38967838883399963px;
+    text-align: left;
+    color: #F53158;
+    margin: auto;
+    text-align: center;
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+
+.first-content{
+    margin: auto;
+}
+.signup{
+    height: 420px;
+    width: 360px;
+    left: 21px;
+    top: 123px;
+    border-radius: 6px;
+    margin: auto;
+    background: #FDFDFD;
+    margin-bottom: 6%;
+}
+.text-login{
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+
+}
+.btn-s, .spiner{
+    display: flex;
+}
+.center-text{
+    text-align: center;
+    margin-top: 3%;
+}
+.btn-signup{
+    height: 48px;
+    width: 248px;
+    border-radius: 6px;
+    background: #F53158;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 2%;
+    color:#FFFFFF;
+    border:none;
+    font-weight: bold;
+}
+.btn-load{
+    height: 48px;
+    width: 248px;
+    border-radius: 6px;
+    background: #F53158;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 2%;
+    border:none;
+}
+/*.btn-signup:hover{ 
+    box-shadow: 3px 0px 30px rgba(163, 163, 163 ,1);
+}*/
+.btn-signup:active {
+    background-color: rgb(212, 25, 63);
+    border: none;
+}
+.btn-signup:focus{
+    outline: none;
+}
+.load{
+    margin: auto;
+}
+#confirm-password{
+    background-color: #DFE3E9;
+}
+.form-control{
+    height: 32px;
+    width: 296px;
+    left: 0px;
+    top: 0px;
+    border-radius: 4px;
+    background: #FFFFFF;
+    border: 1px solid #CED0DA;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin: auto;
+    margin-bottom: 5%;
+}
+.placeholder{
+    font-family: Helvetica Neue;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0px;
+    text-align: left;
+    color:#9A9FA8;
+    cursor: pointer;
+}
+.alert{
+    width: 80%;
+    margin: auto;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 3px;
+    border-color:  #F53158;
+    color:  #F53158;
+    padding: 2%;
+    display: block;
+}
+.alert p{
+    margin: 0;
+}
+.signup-form{
+    margin: auto;
+    margin-top: 8%;
+    padding: 2%;
+}
+.backgroundUser{
+    min-height: 100vh;
+}

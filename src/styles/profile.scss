@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body{
+     background-color: #fdfdfd;
+}
+.profile{
+    min-height: 90vh;
+}
+.allBody{
+    margin: auto;
+    max-width: 700px;
+    padding: 2%;
+}
+.container{
+    display: inline-block;
+    margin: auto;
+    width: 100;
+    text-align: center;
+}
+.user-edit{
+    margin-left: 100px;
+}
+
+.edit-icon{
+    text-align: center;
+    height: 1.5rem;
+}
+.user-data {
+    display: block;
+    margin-top: 10px;
+}
+.email, .name{
+    text-align: center; 
+}
+.buttonAdd{
+    display: flex;
+    margin:auto;
+    background-color: #F53158;
+    font-family: Roboto;
+    color: #fdfdfd;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    width: 224px;
+    height: 48px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 6px;
+    padding: 0.5rem 0rem 0rem 1.7rem;
+    outline: none;
+}
+a:hover{
+    text-decoration: none;
+}
+.buttonAdd:focus{
+    outline:none;
+}
+.buttonAdd:active{
+    background-color: rgb(203, 247, 238);
+    color:#3D9382;
+    border: none;
+}
+//**** Tabs
+.nav-tabs{
+    border-bottom: 0;
+    text-align: center;
+}
+.text-tab{
+    text-decoration: underline;
+    font-family: Roboto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+    letter-spacing: 0px;
+    text-align: center;
+   
+
+}
+.tab{
+    justify-content: center;
+    margin-top: 45px;
+}
+a {
+    color: #3D9382;
+    text-decoration: none;
+    background-color: transparent;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #F53158;
+    background-color:#F53158;
+}
+
+#recipes{
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+.container{
+    margin: auto;
+}
+.img-user-profile{
+    width:9.5rem;
+    height:9.5rem;
+    border-radius: 100%;
+    object-fit: cover;
+}
+@media screen and(max-width:768px){
+    .allBody{
+        max-width: 500px;
+    }
+}

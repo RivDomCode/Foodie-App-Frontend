@@ -1,0 +1,37 @@
+
+.first-line{
+    margin: auto;
+}
+
+.bodyHome{
+    min-height: 90vh;
+    margin: auto;
+   
+}
+
+.photoCoverHome{
+    margin: auto;
+    object-fit: cover;
+    width: 100%;
+    max-height: 28.125rem;
+    margin-bottom: 2rem;
+}
+
+#cardsBody{
+    margin: auto;
+    max-width: 73.313rem;
+}
+.see-more{
+    text-align: center;
+}
+.btn-see-more{
+    height: 48px;
+    width: 248px;
+    border-radius: 6px;
+    background: #F53158;
+    border-radius: 6px;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 5rem;
+    color:#FFFFFF;
+}

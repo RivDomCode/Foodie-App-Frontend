@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body{
+    background-color: #ffffff;
+}
+
+.card{
+    width: 325px;
+    height: 425px;
+    border-radius: 6px;
+    box-shadow: 0px 1px 18px rgba(30, 30, 30, 0.12);
+    margin: auto;
+    margin-top: 20px;
+    font-family: Roboto;
+    padding: 0px;
+    margin-right: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+
+}
+
+.card-title{
+    font-weight: bold;
+    font-size: 16px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-text{
+    font-size: 14px;
+}
+
+.card-img-top{
+    width: 325px;
+    height: 181px;
+}
+
+.author-heart{
+    color: #F53158;
+    font-size: 13px;
+    font-weight: bold;
+    justify-content: space-between;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.like{
+        color: #F53158;
+
+}
+
+.fa-heart{
+    font-size: 20px;
+}
+
+.comments-link{
+    margin-left: 4px;
+    font-size: 14px;
+    color: #3D9382;
+    font-family: Roboto;
+    text-decoration: underline;
+}
+
+.comment{
+    margin-top: 15px;
+    font-size: 14px;
+
+}
+
+.post_avatar{
+    width: 10px;
+    height: 10px;
+    margin-right: 3px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+    
+}
+
+.last-comment{
+    margin-top: 6px;
+        font-size: 14px;
+
+
+}
+
+
+
+.last {
+    margin-bottom: 2px;
+}
+
+input{
+    width: 250px;
+    height: 32px;
+    margin-top: 6px;
+}
+
+::placeholder{
+    color: gray;
+}

@@ -1,0 +1,40 @@
+.categories{
+    display: flex;
+     margin: auto;
+    // justify-content: center;
+    flex-direction: row;
+    max-width: 68.75rem;
+    margin-bottom: 1rem;
+}
+.btn-category{
+    margin-left: 1rem;
+    background: #E5E5E5;
+    border-radius: 6.25rem;
+    width: 8.938rem;
+    height: 1.875rem;
+    padding: 0.313rem;
+    margin: auto;
+    border: 1px #E5E5E5;
+    color: #838383;
+}
+
+.btn-category:hover{
+    margin-left: 1rem;
+    background: #F53158;
+    border-radius: 6.25rem;
+    width: 8.938rem;
+    height: 1.875rem;
+    padding: 0.313rem;
+    margin: auto;
+}
+
+.btn-category:focus{
+    margin-left: 1rem;
+    background: #F53158;
+    border-radius: 6.25rem;
+    width: 8.938rem;
+    height: 1.875rem;
+    padding: 0.313rem;
+    margin: auto;
+}
+
