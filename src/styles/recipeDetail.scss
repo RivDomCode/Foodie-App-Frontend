@@ -18,7 +18,7 @@ body{
 }
 
 .detail-title{
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     font-size: 30px;
     font-family: Roboto;
 }
@@ -35,32 +35,34 @@ body{
 }
 
 .photo-post{
-   
+    border-radius: 6px;
     margin:auto  !important ;
     max-height: 28.125rem;
     max-width: 50rem;
     object-fit: cover;
+    
 }
 
 .recipe-title{
     font-weight: bolder;
     font-size: 23px;
-    margin-left: 20px;
+    margin-left: 28px;
+
 }
 
 .ingredients-title{
     
     color:#F53158;
     font-size: 20px;
-    // margin-top: 15px;
     font-weight: bolder;
 }
 
 .elaboration-title{
-    
+    margin-top: 1rem;
     font-size: 20px;
     color: #3D9382;
     font-weight: bolder;
+
 
 }
 
@@ -68,12 +70,12 @@ body{
     
     font-size: 20px;
     color: #F56C31;
-        font-weight: bolder;
+    font-weight: bolder;
 
 }
 
 .fa-shopping-basket, .fa-comment, .fa-utensils{
-    margin-left: 20px;
+    margin-left: 28px;
     padding: 10px;
     margin-bottom: 10px;
     font-size: 25px;
@@ -101,7 +103,7 @@ body{
 }
 
 .elaboration-text{
-    margin-top: 1rem;
+    
     margin-left: 20px;
 }
 
@@ -117,12 +119,13 @@ body{
 }
 
 .comments-number{
-    text-align: center;
+    text-align: left;
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: Roboto;
     color: gray;
     font-weight: bold;
+    margin-left: 1.5rem;
 }
 
 .comment-detail{

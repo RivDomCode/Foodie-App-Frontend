@@ -9,12 +9,7 @@ import Card from "@material-ui/core/Card";
 
 const Comment = props => {
 	const { store, actions } = useContext(Context);
-	/*const deleteHandler = key => {
-		const updatedCommentList = props.comments.filter(commentObj => {
-			return commentObj.label != key;
-		});
-		props.setComments(updatedCommentList);
-    };*/
+
 	return (
 		<div className="sigleComment ">
 			{props.comments.map((commentObj, index, user) => {
@@ -30,10 +25,6 @@ const Comment = props => {
 									className="single-comment"
 								/>
 							</Card>
-							{/*	<i
-								className="fas fa-trash-alt delete-comment-button"
-								onClick={() => deleteHandler(commentObj.label)}
-                        />*/}
 						</div>
 					);
 				}
