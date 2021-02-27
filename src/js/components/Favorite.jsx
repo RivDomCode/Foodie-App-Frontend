@@ -21,8 +21,8 @@ const Favorite = props => {
 								<img src={favorite.image} className="favorite-post-img" alt="..." />
 
 								<div className="col-md-6 right-side">
-									<div className="card-body">
-										<h5 className="favorite-title">{favorite.title}</h5>
+									<div className="text-title">
+										<p className="post-title">{favorite.title}</p>
 									</div>
 								</div>
 								<div className="back-to-edit-profile row">
