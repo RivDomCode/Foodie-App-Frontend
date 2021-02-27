@@ -1,4 +1,4 @@
-const url = "https://3000-harlequin-fish-0010lpy6.ws-eu03.gitpod.io/";
+const url = "https://foodie-4geeks.herokuapp.com/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
