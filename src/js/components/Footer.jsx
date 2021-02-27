@@ -7,17 +7,18 @@ const Footer = () => {
 			<div className="containet">
 				<div className="row">
 					<ul className="col-lg-5 col-md-4  col-xs-12 text-footer">
-						<li className="title">Final Project for 4Geeks Academy by</li>
-						<li>Marigen Rivero</li>
-						<li> Pedro Rivas</li>
-						<li>Virginia Martínez</li>
+						<li className="title">Back-end Technologies</li>
+						<li>Python</li>
+						<li>Flask</li>
+						<li>MySQL</li>
+						<li>Tokens</li>
 					</ul>
 					<ul className="col-lg-4 col-md-4 col-xs-12 aling-items-center text-footer">
-						<li className="title">Technologies used</li>
+						<li className="title">Front-end Technologies</li>
+						<li>React.js + Flux</li>
 						<li>HTML5</li>
 						<li>CSS3</li>
-						<li>React</li>
-						<li>Flux</li>
+						<li>Bootstrap</li>
 					</ul>
 					<ul className="col-lg-3 col-md-4 col-xs-12 text-footer">
 						<li className="title">

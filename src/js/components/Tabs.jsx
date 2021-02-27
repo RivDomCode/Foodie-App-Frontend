@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "../../styles/tabs.scss";
 import Favorite from "../components/Favorite.jsx";
 import Recipes from "../components/Recipes.jsx";
+import PropTypes from "prop-types";
 
-const Tabs = () => {
+const Tabs = props => {
 	const [activeTab, setActiveTab] = useState("recipes");
 	const handleClick = (event, text) => {
 		setActiveTab(text);
@@ -29,8 +30,13 @@ const Tabs = () => {
 			</ul>
 
 			<div className="tabs-content" />
-			{activeTab == "recipes" ? <Recipes /> : <Favorite />}
+			{activeTab == "recipes" ? <Recipes history={props.history} /> : <Favorite history={props.history} />}
 		</div>
 	);
 };
+
+Tabs.propTypes = {
+	history: PropTypes.object
+};
+
 export default Tabs;

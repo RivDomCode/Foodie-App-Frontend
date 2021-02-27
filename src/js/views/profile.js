@@ -40,7 +40,7 @@ const Profile = props => {
 						</button>
 					</Link>
 				</div>
-				<Tabs />
+				<Tabs history={props.history} />
 			</div>
 			<Logout />
 		</div>

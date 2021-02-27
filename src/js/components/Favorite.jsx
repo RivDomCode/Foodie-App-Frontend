@@ -2,12 +2,20 @@ import React, { useState, useContext, useEffect } from "react";
 import "../../styles/tabs.scss";
 import { Context } from "../store/appContext";
 import "../../styles/favorite-post.scss";
+import PropTypes from "prop-types";
 
 const Favorite = props => {
 	const { store, actions } = useContext(Context);
 	useEffect(() => {
 		actions.getFavorites();
 	}, []);
+	const selectedRecipe = recipe => {
+		console.log(recipe);
+		actions.selectedRecipe(recipe);
+		localStorage.setItem("recipeDetail", JSON.stringify(recipe));
+		props.history.push("/detail");
+	};
+
 	return (
 		<div className="favorite-tab">
 			{store.favorites.length == 0 ? (
@@ -21,8 +29,8 @@ const Favorite = props => {
 								<img src={favorite.image} className="favorite-post-img" alt="..." />
 
 								<div className="col-md-6 right-side">
-									<div className="card-body">
-										<h5 className="favorite-title">{favorite.title}</h5>
+									<div className="text-title">
+										<p className="post-title">{favorite.title}</p>
 									</div>
 								</div>
 								<div className="back-to-edit-profile row">
@@ -41,4 +49,9 @@ const Favorite = props => {
 		</div>
 	);
 };
+
+Favorite.propTypes = {
+	history: PropTypes.object
+};
+
 export default Favorite;

@@ -1,30 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 body{
-    background-color: #ffffff;
+    background-color: #fdfdfd;
 }
 
 .detail{
-    max-width: 1200px;
+    max-width: 75rem;
     margin: auto;
-    border-radius: 6px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    border-radius: 0.375rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .inside-detail{
-    margin-left: 18%;
-    margin-right: 18%;
+    max-width: 45rem;
+    margin:auto;
 }
 
 .detail-title{
-    width: 75%;
+    margin-top: 0.5rem;
     font-size: 30px;
     font-family: Roboto;
 }
 
 .like{
-    width: 15%;
+    
     color:#F53158;
     margin-left: 70px;
 }
@@ -35,41 +35,47 @@ body{
 }
 
 .photo-post{
-    max-width: 1000px;
+    border-radius: 6px;
     margin:auto  !important ;
-    max-height: 500px;
+    max-height: 28.125rem;
+    max-width: 50rem;
     object-fit: cover;
+    
 }
 
 .recipe-title{
     font-weight: bolder;
     font-size: 23px;
-    margin-left: 20px;
+    margin-left: 28px;
+
 }
 
 .ingredients-title{
+    
     color:#F53158;
-    font-size: 25px;
-    margin-top: 15px;
+    font-size: 20px;
     font-weight: bolder;
 }
 
 .elaboration-title{
-    font-size: 25px;
+    margin-top: 1rem;
+    font-size: 20px;
     color: #3D9382;
-        font-weight: bolder;
+    font-weight: bolder;
+
 
 }
 
 .comments-title{
-    font-size: 25px;
+    
+    font-size: 20px;
     color: #F56C31;
-        font-weight: bolder;
+    font-weight: bolder;
 
 }
 
 .fa-shopping-basket, .fa-comment, .fa-utensils{
-    margin-left: 20px;
+    margin-left: 28px;
     padding: 10px;
     margin-bottom: 10px;
     font-size: 25px;
@@ -77,17 +83,19 @@ body{
 }
 
 .ingredients-title{
+   
     margin-right: 20px;
 }
 
 
 .ingredient-list {
-        margin-left: 20px;
+  
+    margin-left: 20px;
 
 }
 
 .titles{
-    margin-top: 4px;
+    margin-top: 10px;
 }
 
 .last-comment{
@@ -95,6 +103,7 @@ body{
 }
 
 .elaboration-text{
+    
     margin-left: 20px;
 }
 
@@ -110,28 +119,34 @@ body{
 }
 
 .comments-number{
-    text-align: center;
+    text-align: left;
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: Roboto;
     color: gray;
     font-weight: bold;
+    margin-left: 1.5rem;
 }
 
 .comment-detail{
-    width:100%;
-     margin-left: 20px;
-     display:flex;
-     flex-direction: row;
+    display: flex;
+    max-width: 18.75rem;
 
+}
+.detailcomments{
+    max-width: 18.75rem;
 }
 
 .lololo{
+    margin-left: 20px;
+    margin-right: 1rem;
     margin-top: 5px;
     margin-right: 5px;
 }
 
 .comment-input{
-   width: 70%;
+   width: 100%;
+   margin-right: 1rem;
 
 }
+

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../styles/recipe-detail.scss";
+import "../../styles/recipeDetail.scss";
 import Avatar from "@material-ui/core/Avatar";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
@@ -47,7 +47,11 @@ const RecipeDetail = () => {
 							<i className="fas fa-shopping-basket" />
 							<p className="titles">Ingredients</p>
 						</div>
-						<div className="ingredient-list">{store.selectedRecipe.ingredients}</div>
+						<div className="ingredient-list">
+							{store.selectedRecipe.ingredients.map((item, index) => {
+								return <li key={index}>{item}</li>;
+							})}
+						</div>
 					</div>
 					<div className="elaboration">
 						<div className="row elaboration-title">
@@ -78,7 +82,7 @@ const RecipeDetail = () => {
 											/>
 											<button
 												type="submit"
-												className="btn btn-danger add-comment-button"
+												className="addCommentBtn btn btn-danger add-comment-button"
 												onClick={submitCommentHandler}>
 												Add
 											</button>
