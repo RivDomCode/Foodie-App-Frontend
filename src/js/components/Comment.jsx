@@ -13,13 +13,6 @@ const Comment = props => {
 	useEffect(() => {
 		actions.getUser();
 	}, []);
-
-	/*const deleteHandler = key => {
-		const updatedCommentList = props.comments.filter(commentObj => {
-			return commentObj.label != key;
-		});
-		props.setComments(updatedCommentList);
-    };*/
 	return (
 		<div className="sigleComment ">
 			{props.comments.map((commentObj, index, user) => {
@@ -28,17 +21,13 @@ const Comment = props => {
 						<div key={index} className="comment-container ">
 							<Card className="single-comments-card">
 								<CardHeader
-									avatar={<Avatar aria-label="recipe" src={store.user.urlImg} />}
+									avatar={<Avatar aria-label="recipe" src={commentObj.user.urlImg} />}
 									action={<IconButton aria-label="settings" />}
 									title={commentObj.text}
 									subheader={commentObj.date_comment}
 									className="single-comment"
 								/>
 							</Card>
-							{/*	<i
-								className="fas fa-trash-alt delete-comment-button"
-								onClick={() => deleteHandler(commentObj.label)}
-                        />*/}
 						</div>
 					);
 				}

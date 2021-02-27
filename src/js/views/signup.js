@@ -133,7 +133,7 @@ const SignUp = props => {
 						{spinner == false ? (
 							<div className="btn-s" id="btn-signUP">
 								<button type="submit" className="btn-signup">
-									Sing Up
+									Sign Up
 								</button>
 							</div>
 						) : (
