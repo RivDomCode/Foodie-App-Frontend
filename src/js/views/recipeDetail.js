@@ -11,9 +11,10 @@ const RecipeDetail = () => {
 	const [inputComment, setInputComment] = useState("");
 	const [comments, setComments] = useState([]);
 	useEffect(() => {
+		if (Object.keys(store.selectedRecipe).length === 0) {
+			actions.selectedRecipe(JSON.parse(localStorage.getItem("recipeDetail")));
+		}
 		actions.getComments(store.selectedRecipe, setComments);
-	}, []);
-	useEffect(() => {
 		actions.getUser();
 	}, []);
 

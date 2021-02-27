@@ -49,6 +49,7 @@ const Card = ({ recipe, history }) => {
 	const selectedRecipe = () => {
 		console.log(recipe);
 		actions.selectedRecipe(recipe);
+		localStorage.setItem("recipeDetail", JSON.stringify(recipe));
 		history.push("/detail");
 	};
 
