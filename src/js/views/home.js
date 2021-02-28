@@ -45,7 +45,6 @@ export const Home = props => {
 						<p className="start-message">Recipes is empty</p>
 					) : (
 						store.recipes.map((recipe, index) => {
-							console.log(recipe, index);
 							return <Card recipe={recipe} key={index} history={props.history} />;
 						})
 					)}

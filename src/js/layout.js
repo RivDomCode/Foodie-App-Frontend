@@ -23,7 +23,6 @@ const Layout = props => {
 	const basename = process.env.BASENAME || "";
 	const [location, setlocation] = useState(window.location.pathname);
 	useEffect(() => {}, [store.pathName]);
-	console.log(store.pathName);
 	return (
 		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
