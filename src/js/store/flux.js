@@ -1,4 +1,4 @@
-const url = "https://3000-harlequin-fish-0010lpy6.ws-eu03.gitpod.io/";
+const url = "https://3000-brown-boar-pujtulel.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -171,7 +171,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			////********* RECIPE HOME */
-			getRecipe: page => {
+			getRecipe: (page, title) => {
 				const token = localStorage.getItem("token");
 				const store = getStore();
 				const actions = getActions();
@@ -184,8 +184,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						setStore({ recipes: [...store.recipes, ...data] });
-						actions.nextPage();
+						if (title == "all") {
+							setStore({ recipes: [...data] });
+							actions.nextPage();
+						} else {
+							setStore({ recipes: [...store.recipes, ...data] });
+							actions.nextPage();
+						}
 					});
 			},
 			///////*** RECIPE BY USER */
