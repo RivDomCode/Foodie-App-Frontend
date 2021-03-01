@@ -6,8 +6,10 @@ import "../../styles/modalDelete.scss";
 
 export const ModalDelete = props => {
 	const { actions } = useContext(Context);
+	console.log(props, "estoy en el modal");
 
 	const handleDelete = () => {
+		console.log(props.recipe);
 		actions.deleteRecipe(props.recipe.id);
 		props.onClose();
 	};

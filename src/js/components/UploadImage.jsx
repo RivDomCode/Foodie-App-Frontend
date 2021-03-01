@@ -7,6 +7,7 @@ export function UploadImage() {
 
 	const onChange = (imageList, addUpdateIndex) => {
 		// data for submit
+		console.log(imageList, addUpdateIndex);
 		setImages(imageList);
 	};
 

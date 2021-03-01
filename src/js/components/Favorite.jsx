@@ -10,6 +10,7 @@ const Favorite = props => {
 		actions.getFavorites();
 	}, []);
 	const selectedRecipe = recipe => {
+		console.log(recipe);
 		actions.selectedRecipe(recipe);
 		localStorage.setItem("recipeDetail", JSON.stringify(recipe));
 		props.history.push("/detail");
@@ -21,6 +22,7 @@ const Favorite = props => {
 				<p className="start-message">Your list of favorite recipes is empty.</p>
 			) : (
 				store.favorites.map((favorite, key) => {
+					console.log(favorite);
 					return (
 						<div className="favorite-post" key={key}>
 							<div className="row no-gutters">

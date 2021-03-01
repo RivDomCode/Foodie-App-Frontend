@@ -9,6 +9,7 @@ const Card = ({ recipe, history }) => {
 	const { store, actions } = useContext(Context);
 	const heart = () => {
 		if (store.favorites.length == 0) {
+			console.log("principio funcion");
 
 			return <i className="far fa-heart like" onClick={() => actions.addToFavorites(recipe)} />;
 		} else {
@@ -20,12 +21,14 @@ const Card = ({ recipe, history }) => {
 					idFavorite = recipeFavorite.id;
 				}
 			});
+			console.log(isFound, idFavorite);
 			if (isFound) {
 				return (
 					<i
 						className="fas fa-heart like"
 						onClick={() => {
 							actions.deleteFavorites(idFavorite);
+							console.log(isFound, idFavorite);
 						}}
 					/>
 				);
@@ -35,6 +38,7 @@ const Card = ({ recipe, history }) => {
 						className="far fa-heart like"
 						onClick={() => {
 							actions.addToFavorites(recipe);
+							console.log(isFound, idFavorite);
 						}}
 					/>
 				);
@@ -43,6 +47,7 @@ const Card = ({ recipe, history }) => {
 	};
 
 	const selectedRecipe = () => {
+		console.log(recipe);
 		actions.selectedRecipe(recipe);
 		localStorage.setItem("recipeDetail", JSON.stringify(recipe));
 		history.push("/detail");
@@ -89,6 +94,9 @@ const Card = ({ recipe, history }) => {
 };
 
 Card.propTypes = {
+	/*	recipeImg: PropTypes.string,
+	username: PropTypes.string,
+    recipeTitle: PropTypes.string*/
 	history: PropTypes.object,
 	recipe: PropTypes.object
 };

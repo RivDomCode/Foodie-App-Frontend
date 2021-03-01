@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import PropsType from "prop-types";
 
 const SignUp = props => {
+	console.log(props);
 	const { store, actions } = useContext(Context);
 	//****var****//
 	const [error, setError] = useState({
