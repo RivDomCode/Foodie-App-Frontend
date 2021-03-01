@@ -17,7 +17,7 @@ export const Home = props => {
 		return <Category key={index} category={category} />;
 	});
 	return (
-		<div className="homeBody">
+		<div className="bodyHome">
 			<div>
 				<img
 					className="photoCoverHome"
@@ -42,7 +42,9 @@ export const Home = props => {
 			<div className="col-12 col-sm-10 col-md-10 col-lg-10 col-xl-11" id="cardsBody">
 				<div className="row first-line d-flex justify-content-sm-center justif">
 					{store.recipes.length == 0 ? (
-						<p className="start-message">Recipes is empty</p>
+						<p className="start-message" id="emptyStateHome">
+							Recipes is empty
+						</p>
 					) : (
 						store.recipes.map((recipe, index) => {
 							console.log(recipe, index);
