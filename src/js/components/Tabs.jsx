@@ -8,7 +8,6 @@ const Tabs = props => {
 	const [activeTab, setActiveTab] = useState("recipes");
 	const handleClick = (event, text) => {
 		setActiveTab(text);
-		console.log(text);
 	};
 	return (
 		<div>

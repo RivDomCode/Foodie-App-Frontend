@@ -19,7 +19,6 @@ const Recipes = () => {
 		setState({ showModal: true });
 		setRecipeDelete(recipe);
 	};
-	console.log(store.myRecipes);
 	return (
 		<div className="recipes-tab">
 			<div className="col-sm-12 col-2">

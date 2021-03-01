@@ -30,7 +30,7 @@ export const Home = props => {
 				{" "}
 				<button
 					onClick={() => {
-						actions.getRecipe(1);
+						actions.getRecipe(1, "all");
 					}}
 					type="button"
 					className="btn btn-danger btn-category">
@@ -47,7 +47,6 @@ export const Home = props => {
 						</p>
 					) : (
 						store.recipes.map((recipe, index) => {
-							console.log(recipe, index);
 							return <Card recipe={recipe} key={index} history={props.history} />;
 						})
 					)}
