@@ -26,7 +26,6 @@ const RecipeForm = props => {
 		if (
 			(recipe.image.trim() != "",
 			recipe.recipeTitle.trim() != "",
-			recipe.ingredients.trim() != "",
 			recipe.elaboration.trim() != "")
 		) {
 			setSpinner(true);
