@@ -40,6 +40,8 @@ body{
     max-height: 28.125rem;
     max-width: 50rem;
     object-fit: cover;
+    max-width: 100%;
+    height:auto;
     
 }
 
@@ -108,9 +110,8 @@ body{
 }
 
 .add-comment-button{
-    margin-left: 6px;
-    margin-top: 7px;
-    height: 34px;
+    margin-top: 10px;
+    height: 31px;
 }
 
 .comment{
@@ -149,4 +150,10 @@ body{
    margin-right: 1rem;
 
 }
+
+.comment-input{
+    min-width: 90%;
+    margin-top: 10px;
+}
+
 

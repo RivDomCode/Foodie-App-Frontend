@@ -70,23 +70,21 @@ const RecipeDetail = () => {
 								<form>
 									<div className="comment-detail ">
 										<Avatar aria-label="recipe" src={store.user.urlImg} className="avatar lololo" />
-										<div className="input-group mb-3">
-											<input
-												type="text"
-												className="form-control comment-input"
-												placeholder="Add your comment"
-												aria-label="Username"
-												aria-describedby="basic-addon1"
-												value={inputComment}
-												onChange={inputCommentHandler}
-											/>
-											<button
-												type="submit"
-												className="addCommentBtn btn btn-danger add-comment-button"
-												onClick={submitCommentHandler}>
-												Add
-											</button>
-										</div>
+										<input
+											type="text"
+											className="form-control comment-input"
+											placeholder="Add your comment"
+											aria-label="Username"
+											aria-describedby="basic-addon1"
+											value={inputComment}
+											onChange={inputCommentHandler}
+										/>
+										<button
+											type="submit"
+											className="addCommentBtn btn btn-danger add-comment-button"
+											onClick={submitCommentHandler}>
+											Add
+										</button>
 									</div>
 									<div className="comments-container-detail">
 										<div className="single-comment">
