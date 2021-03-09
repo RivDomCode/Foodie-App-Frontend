@@ -17,7 +17,7 @@ const Navbar = () => {
 	} else {
 		buttons = (
 			<Link className="profileIcon" id="loginButton" to={"/login"}>
-				Go to login
+				Login
 			</Link>
 		);
 	}
