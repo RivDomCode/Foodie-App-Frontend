@@ -23,7 +23,7 @@ const RecipeForm = props => {
 		status: false
 	});
 	const validateInputs = recipe => {
-		if ((recipe.image.trim() != "", recipe.recipeTitle.trim() != "", recipe.elaboration.trim() != "")) {
+		if (recipe.image.trim() != "" && recipe.recipeTitle.trim() != "" && recipe.elaboration.trim() != "") {
 			setSpinner(true);
 		} else {
 			setError({

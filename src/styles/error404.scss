@@ -1,17 +1,26 @@
 
-
 .bodyImage404{
     min-height: 90vh;
   
 }
-
-
-
-
 .Image404{
     display: flex;
     margin: auto;
     align-items: center;
     margin-top: 6.25rem;
     max-height: 25rem;
+}
+@media (max-width: 600px) {
+ .bodyImage404{
+    min-height: 70vh;
+  
+}
+.Image404{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    margin-top: 6.25rem;
+    padding: 1rem;
+    max-height: 15rem;
+}
 }

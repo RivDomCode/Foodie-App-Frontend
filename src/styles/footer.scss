@@ -36,3 +36,21 @@ a:hover{
     color: #3D9382;
     font-weight: bold;
 }
+@media (max-width: 600px) {
+  .title{
+    text-align: center;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: white;
+}
+.text-footer{
+    list-style: none;
+    display: block;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+#top{
+    margin-top: 0.813rem;
+}
+  }
