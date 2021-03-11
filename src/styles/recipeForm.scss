@@ -368,3 +368,13 @@ body{
     margin: auto;
    
 }
+
+@media (max-width: 600px) {
+
+  .bodyRecipeForm{
+    max-width: 80vh;
+}
+.h4title{
+    font-size: 1rem;
+}
+}
