@@ -46,7 +46,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						console.log(res, "estoy en then");
 						if (res.status == 404) {
 							setError({ msg: "User not exist", status: true });
 							setSpinner(false);
@@ -68,7 +67,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => {
 						console.log(error, "ESTOY EN CATCH");
-						console.log(setError, "estoy setErrrn");
 						setError({ msg: "serve error try later", status: true });
 						setSpinner(false);
 					});
