@@ -12,7 +12,7 @@ body{
     text-align: center;
     color: #3D9382 !important;
     margin:auto;
-    padding-left: 3rem;
+    //padding-left: 3rem;
 }
 #loginButton{
     font-family: Roboto;
@@ -39,4 +39,14 @@ body{
 
 .profileIcon{
     cursor: pointer;
+}
+@media (max-width: 300px) {
+    .navbar-brand{
+        font-family: Rancho;
+        font-size: 2.5rem;
+        text-align: center;
+        color: #3D9382 !important;
+        margin:auto;
+        padding-left: 0rem;
+    }
 }

@@ -214,6 +214,7 @@ body{
 .rowIngredients{
     max-width: 37.5rem;
     margin: auto;
+    padding: 0.9rem;
 }
 
 
@@ -367,4 +368,23 @@ body{
 .buttonTextCancel{
     margin: auto;
    
+}
+
+@media (max-width: 600px) {
+
+  .bodyRecipeForm{
+    max-width: 80vh;
+}
+.h4title{
+    font-size: 1rem;
+}
+}
+@media (max-width: 400px) {
+
+  .bodyRecipeForm{
+    max-width: 80vh;
+}
+.h4title{
+    font-size: 0.9rem;
+}
 }

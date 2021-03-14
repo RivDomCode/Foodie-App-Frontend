@@ -1,4 +1,4 @@
-const url = "https://3000-brown-boar-pujtulel.ws-eu03.gitpod.io/";
+const url = "https://3000-rose-scallop-2vry91sh.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -37,6 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//**************LOGIN */
 			login: (user, props, setError, setSpinner) => {
+				console.log(setError, "SETTTTTTTTTTTTTTTTTT");
 				fetch(url + "user/login", {
 					method: "POST",
 					body: JSON.stringify(user),
@@ -65,7 +66,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ pathName: "/" });
 					})
 					.catch(error => {
-						console.log(error);
+						console.log(error, "ESTOY EN CATCH");
+						setError({ msg: "serve error try later", status: true });
+						setSpinner(false);
 					});
 			},
 			//**************SIGNUP */
