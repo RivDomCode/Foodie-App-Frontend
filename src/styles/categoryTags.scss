@@ -1,19 +1,21 @@
 .categories{
     display: flex;
-     margin: auto;
+    margin: auto;
     // justify-content: center;
     flex-direction: row;
     max-width: 68.75rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 .btn-category{
-    margin-left: 1rem;
+    margin: 1rem;
     background: #E5E5E5;
     border-radius: 6.25rem;
     width: 8.938rem;
     height: 1.875rem;
     padding: 0.313rem;
-    margin: auto;
+   // justify-content: center;
+    //margin: auto;
     border: 1px #E5E5E5;
     color: #838383;
 }
@@ -38,3 +40,11 @@
     margin: auto;
 }
 
+@media (max-width: 600px) {
+    .categories{
+    display: block;
+}
+.btn-category{
+    margin: 0.5rem;
+}
+}

@@ -6,7 +6,6 @@
 .bodyHome{
     min-height: 90vh;
     margin: auto;
-   
 }
 
 .photoCoverHome{
@@ -40,4 +39,9 @@
 #emptyStateHome{
     margin-top: 2rem;
     padding: 3%;
+}
+@media (max-width: 600px) {
+   .component-card{
+    margin: auto;
+   }
 }
