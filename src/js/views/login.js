@@ -47,7 +47,7 @@ const Login = props => {
 	const handleSubmit = event => {
 		event.preventDefault();
 		validateInputs(user);
-		actions.login(user, props);
+		actions.login(user, props, setError, setSpinner);
 	};
 	const changePathName = () => {
 		actions.setPathName("/signup");
