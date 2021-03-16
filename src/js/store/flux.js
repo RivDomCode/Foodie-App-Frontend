@@ -1,4 +1,5 @@
-const url = "https://foodie-4geeks.herokuapp.com/";
+
+const url = "https://3000-rose-scallop-2vry91sh.ws-eu03.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -37,6 +38,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			//**************LOGIN */
 			login: (user, props, setError, setSpinner) => {
+				console.log(setError, "SETTTTTTTTTTTTTTTTTT");
 				fetch(url + "user/login", {
 					method: "POST",
 					body: JSON.stringify(user),
@@ -65,7 +67,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ pathName: "/" });
 					})
 					.catch(error => {
-						console.log(error);
+						console.log(error, "ESTOY EN CATCH");
+						setError({ msg: "serve error try later", status: true });
+						setSpinner(false);
 					});
 			},
 			//**************SIGNUP */
@@ -171,7 +175,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			////********* RECIPE HOME */
-			getRecipe: page => {
+			getRecipe: (page, title) => {
 				const token = localStorage.getItem("token");
 				const store = getStore();
 				const actions = getActions();
@@ -184,8 +188,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => res.json())
 					.then(data => {
-						setStore({ recipes: [...store.recipes, ...data] });
-						actions.nextPage();
+						if (title == "all") {
+							setStore({ recipes: [...data] });
+							actions.nextPage();
+						} else {
+							setStore({ recipes: [...store.recipes, ...data] });
+							actions.nextPage();
+						}
 					});
 			},
 			///////*** RECIPE BY USER */

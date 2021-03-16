@@ -5,13 +5,9 @@
    
 }
 
-
 #checkboxSection{
     display: flex;
-    /*display: inline-block;*/
     margin: auto;
-   /* margin-top: 1rem;*/
-    /*grid-template-columns: 200px 200px 200px;*/
     max-width: 37.5rem;
     justify-content: space-between;
 
@@ -25,4 +21,36 @@
 
 .itemName{
     margin: 0.25rem 0rem 0rem 0rem;
+}
+
+
+@media (max-width: 600px) {
+    #checkboxSection{
+    display: block;
+    margin: 1rem;
+}
+.my-categories{
+    justify-content: center;
+    column-count:3;
+    column-span:all;
+}
+
+.labelCheckbox{
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem; 
+}
+}
+
+@media only screen and (max-width: 350px) {
+    #checkboxSection{
+    display: block;
+    margin: 2rem;
+   
+}
+.my-categories{
+    margin: auto;
+    column-count:2;
+    column-span:all;
+}
 }

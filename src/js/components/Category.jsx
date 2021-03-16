@@ -9,7 +9,6 @@ export const Category = props => {
 		<button
 			onClick={() => {
 				actions.getRecipeCategory(props.category.id);
-				//console.log("get recipe", props.category.id);
 			}}
 			type="button"
 			className="btn btn-danger btn-category">
